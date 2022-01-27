@@ -9,11 +9,6 @@ public class Bullet : MonoBehaviour
     public Vector3 travelVector;
     public float moveSpeed = 10.0f;
 
-
- //   public delegate void CauseDamageDelegate();
-
- //   public static event CauseDamageDelegate OnBulletDamage;
-    
     void Start()
     {
         StartCoroutine(DelayDestroy());
