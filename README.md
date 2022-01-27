@@ -7,19 +7,21 @@ Emir Ulusoy,
 Jonathan Jonsson,
 Mattias Lönnqvist
 
-# Mechanic 1 - Armin Afazeli
+# Mechanics:
+
+## Mechanic 1 - Armin Afazeli
 [DESCRIPTION HERE]
 
 
-# Mechanic 2 - Emir Ulusoy 
+## Mechanic 2 - Emir Ulusoy 
 [DESCRIPTION HERE]
 
 
-# Mechanic 3 - Jonathan Jonsson
+## Mechanic 3 - Jonathan Jonsson
 [DESCRIPTION HERE]
 
 
-# Mechanic 4 - Mattias Lönnqvist
+## Mechanic 4 - Mattias Lönnqvist
 [DESCRIPTION HERE]
 
 VG part bla bla goes here
