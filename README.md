@@ -7,12 +7,6 @@ Emir Ulusoy,
 Jonathan Jonsson,
 Mattias Lönnqvist
 
-# Mechanic
-Armin Afazeli - 
-Emir Ulusoy - 
-Jonathan Jonsson - 
-Mattias Lönnqvist - 
-
 # Mechanic 1 - Armin Afazeli
 [DESCRIPTION HERE]
 
