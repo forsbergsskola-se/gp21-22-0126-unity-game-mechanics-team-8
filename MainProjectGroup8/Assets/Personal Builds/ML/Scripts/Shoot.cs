@@ -23,7 +23,7 @@ public class Shoot : MonoBehaviour
         switch (pickupType)
         {
             case PickupType.MachineGun:
-                _currentShootDelay = 0.1f;
+                _currentShootDelay = 0.3f;
                 break;
             
             case PickupType.ShotGun:
@@ -44,8 +44,7 @@ public class Shoot : MonoBehaviour
         {
             if (Input.GetKeyDown(shootKey))
             {
-                Instantiate(bulletPrefab, transform);
-                _canShoot = false;
+                TryShoot();
             }
 
             else if (Input.GetKey(shootKey) && _pickupType == PickupType.MachineGun)
@@ -55,6 +54,34 @@ public class Shoot : MonoBehaviour
             }
 
             StartCoroutine(ShootDelay());
+        }
+    }
+
+    private void TryShoot()
+    {
+        if (_canShoot)
+        {
+            if (_pickupType == PickupType.Regular)
+            {
+                Instantiate(bulletPrefab, transform);
+            }
+            else if (_pickupType == PickupType.ShotGun)
+            {
+                ShotgunPattern();
+            }
+            _canShoot = false;
+            StartCoroutine(ShootDelay());
+        }
+    }
+    
+    private void ShotgunPattern()
+    {
+        Vector3 addVector = Vector3.forward;
+        
+        for (int i = 0; i < 5; i++)
+        {
+            var bullet = Instantiate(bulletPrefab, transform);
+            bullet.GetComponent<Bullet>().travelVector = Vector3.forward;
         }
     }
 
