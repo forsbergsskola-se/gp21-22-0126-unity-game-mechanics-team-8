@@ -7,21 +7,26 @@ Emir Ulusoy,
 Jonathan Jonsson,
 Mattias Lönnqvist
 
+Level:
+1) Platforming
+2) Flying level
+
+
 # Mechanics:
 
-## Mechanic 1 - Armin Afazeli
+## Flying - Armin Afazeli
 [DESCRIPTION HERE]
 
 
-## Mechanic 2 - Emir Ulusoy 
+## Powerup: MoveSpeed and ___ - Emir Ulusoy 
 [DESCRIPTION HERE]
 
 
-## Mechanic 3 - Jonathan Jonsson
-[DESCRIPTION HERE]
+## Dash - Jonathan Jonsson
+Short dash / long dash
 
 
-## Mechanic 4 - Mattias Lönnqvist
+## Shooting - Mattias Lönnqvist
 [DESCRIPTION HERE]
 
 VG part bla bla goes here
