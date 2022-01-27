@@ -42,6 +42,8 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Assets\Scripts\ML\Temp.cs" />
+     <Compile Include="Assets\Personal Builds\ML\Scripts\Shoot.cs" />
+     <Compile Include="Assets\Personal Builds\ML\Scripts\Bullet.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Unity Projects\2021.2.8f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
