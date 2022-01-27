@@ -30,15 +30,15 @@ Short dash / long dash
 [DESCRIPTION HERE]
 
 ## General things to implement:
--Health, -Mattias
--Damage, - Mattias
--Jump, -Emir
--Movementcontrols, - Emir 
--Level design, - Jonathan
--Environmental objects (spikes, traps, arrows from wall etc...) <--enemies? [Wait -enemy AI]
--Scene loading /unloading
--Main menu
--UI (health, powerup, dashmeter?) 
+* Health, -Mattias
+* Damage, - Mattias
+* Jump, -Emir
+* Movementcontrols, - Emir 
+* Level design, - Jonathan
+* Environmental objects (spikes, traps, arrows from wall etc...) <--enemies? [Wait -enemy AI]
+* Scene loading /unloading
+* Main menu
+* UI (health, powerup, dashmeter?) 
 
 
 VG part bla bla goes here
