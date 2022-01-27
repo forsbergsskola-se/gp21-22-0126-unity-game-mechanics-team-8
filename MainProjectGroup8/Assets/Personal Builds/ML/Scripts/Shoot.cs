@@ -9,6 +9,7 @@ public class Shoot : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] private KeyCode shootKey = KeyCode.Space;
     private float _currentShootDelay = 1.0f;
+    private PickupType _pickupType = PickupType.Regular;
     private bool _canShoot = true;
 
     private void Start()
@@ -33,6 +34,8 @@ public class Shoot : MonoBehaviour
                 _currentShootDelay = 1.0f;
                 break;
         }
+
+        _pickupType = pickupType;
     }
     
     void Update()
@@ -45,7 +48,7 @@ public class Shoot : MonoBehaviour
                 _canShoot = false;
             }
 
-            else if (Input.GetKey(shootKey))
+            else if (Input.GetKey(shootKey) && _pickupType == PickupType.MachineGun)
             {
                 Instantiate(bulletPrefab, transform);
                 _canShoot = false;
