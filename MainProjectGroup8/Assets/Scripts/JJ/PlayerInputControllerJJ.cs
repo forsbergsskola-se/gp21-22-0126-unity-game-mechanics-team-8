@@ -8,6 +8,8 @@ public class PlayerInputControllerJJ : MonoBehaviour
     public bool JumpInputDown { get; private set; }
     public bool JumpInputUp { get; private set; }
     public bool JumpInput  { get; private set; }
+    
+    public bool DashInputDown { get; private set; }
 	
     private void Update()
     {
@@ -15,6 +17,8 @@ public class PlayerInputControllerJJ : MonoBehaviour
         JumpInputDown = Input.GetKeyDown(KeyCode.Space);
         JumpInputUp = Input.GetKeyUp(KeyCode.Space);
         JumpInput  = Input.GetKey(KeyCode.Space);
+        DashInputDown = Input.GetKeyDown(KeyCode.LeftShift);
+
 
     }
 }

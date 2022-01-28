@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class PlayerShortDashJJ : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField] private PlayerInputControllerJJ playerInputController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[SerializeField]
+	private float DashStrength = 100f;
+	
+	
+
+
+
+
+
+
+
+
+
 }
