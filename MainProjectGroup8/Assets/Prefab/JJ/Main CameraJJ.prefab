@@ -98,5 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  cameraOffset: {x: 4, y: 3, z: -15}
-  smoothingSpeed: 0.2
+  cameraOffset: {x: 4, y: 5, z: -15}
+  smoothingSpeed: 0.15

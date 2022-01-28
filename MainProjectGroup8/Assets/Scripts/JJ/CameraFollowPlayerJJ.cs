@@ -19,7 +19,7 @@ public class CameraFollowPlayerJJ : MonoBehaviour
         cameraOffset = transform.position - playerTransform.position;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         var desieredPosition = playerTransform.position + cameraOffset;
         transform.position = Vector3.Lerp(transform.position, desieredPosition, smoothingSpeed);
