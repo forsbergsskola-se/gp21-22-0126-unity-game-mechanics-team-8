@@ -21,6 +21,6 @@ public class PlayerWalkControllerJJ : MonoBehaviour
         {
             currentMoveSpeed *= chargingMoveSpeedFactor;
         }
-        myRigidBody.velocity = new Vector3(playerInputController.MoveInput*currentMoveSpeed, myRigidBody.velocity.y, 0) ; 
+        myRigidBody.velocity = new Vector3(playerInputController.MoveInputHorizontal*currentMoveSpeed, myRigidBody.velocity.y, 0) ; 
     }
 }

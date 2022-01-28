@@ -156,8 +156,8 @@ Rigidbody:
   m_GameObject: {fileID: 7860134241555915237}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.5
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   playerInputController: {fileID: 2017394830790752166}
   myRigidBody: {fileID: 1151829421}
   groundChecker: {fileID: 8416012418885418548}
-  maximumJumpForce: 800
+  maximumJumpForce: 750
   minimumJumpForce: 100
   chargeTime: 1
 --- !u!114 &8416012418885418548
@@ -228,4 +228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInputController: {fileID: 2017394830790752166}
-  DashStrength: 10
+  myRigidBody: {fileID: 1151829421}
+  DashStrength: 100
+  dashCoolDown: 1

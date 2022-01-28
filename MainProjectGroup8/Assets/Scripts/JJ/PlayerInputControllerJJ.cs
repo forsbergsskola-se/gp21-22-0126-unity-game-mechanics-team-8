@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerInputControllerJJ : MonoBehaviour
 {
-    public float MoveInput { get; private set; }
+    public float MoveInputHorizontal { get; private set; }
+    public float MoveInputVertical { get; private set; }
     public bool JumpInputDown { get; private set; }
     public bool JumpInputUp { get; private set; }
     public bool JumpInput  { get; private set; }
@@ -13,12 +14,11 @@ public class PlayerInputControllerJJ : MonoBehaviour
 	
     private void Update()
     {
-        MoveInput = Input.GetAxis("Horizontal");
+        MoveInputHorizontal = Input.GetAxis("Horizontal");
+        MoveInputVertical = Input.GetAxis("Vertical");
         JumpInputDown = Input.GetKeyDown(KeyCode.Space);
         JumpInputUp = Input.GetKeyUp(KeyCode.Space);
         JumpInput  = Input.GetKey(KeyCode.Space);
         DashInputDown = Input.GetKeyDown(KeyCode.LeftShift);
-
-
     }
 }
