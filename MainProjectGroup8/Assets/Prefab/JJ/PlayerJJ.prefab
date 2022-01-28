@@ -229,5 +229,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInputController: {fileID: 2017394830790752166}
   myRigidBody: {fileID: 1151829421}
-  DashStrength: 100
-  dashCoolDown: 1
+  dashStrength: 1000
+  dashCoolDown: 3
+  dashTime: 0.25

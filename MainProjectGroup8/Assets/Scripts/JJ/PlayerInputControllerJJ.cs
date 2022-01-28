@@ -14,8 +14,8 @@ public class PlayerInputControllerJJ : MonoBehaviour
 	
     private void Update()
     {
-        MoveInputHorizontal = Input.GetAxis("Horizontal");
-        MoveInputVertical = Input.GetAxis("Vertical");
+        MoveInputHorizontal = Input.GetAxisRaw("Horizontal");
+        MoveInputVertical = Input.GetAxisRaw("Vertical");
         JumpInputDown = Input.GetKeyDown(KeyCode.Space);
         JumpInputUp = Input.GetKeyUp(KeyCode.Space);
         JumpInput  = Input.GetKey(KeyCode.Space);

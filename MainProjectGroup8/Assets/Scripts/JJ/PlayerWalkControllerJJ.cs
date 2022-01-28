@@ -10,6 +10,7 @@ public class PlayerWalkControllerJJ : MonoBehaviour
     [SerializeField]
     private GroundCheckerJJ groundChecker;
     public PlayerInputControllerJJ playerInputController;
+    
 
     [SerializeField]
     private float chargingMoveSpeedFactor = 0.5f;
@@ -21,6 +22,15 @@ public class PlayerWalkControllerJJ : MonoBehaviour
         {
             currentMoveSpeed *= chargingMoveSpeedFactor;
         }
-        myRigidBody.velocity = new Vector3(playerInputController.MoveInputHorizontal*currentMoveSpeed, myRigidBody.velocity.y, 0) ; 
+        
+        //TODO: This feels super-not solid (not flexible for enemy implementation)
+        if (TryGetComponent(out PlayerShortDashJJ dash))
+        {
+            if (!dash.AreDashing)
+            {
+                myRigidBody.velocity = new Vector3(playerInputController.MoveInputHorizontal*currentMoveSpeed, myRigidBody.velocity.y, 0) ;
+            }
+            
+        }
     }
 }
