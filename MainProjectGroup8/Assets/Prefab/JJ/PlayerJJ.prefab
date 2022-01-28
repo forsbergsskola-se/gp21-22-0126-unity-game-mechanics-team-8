@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 1151829429}
   - component: {fileID: 1151829421}
   - component: {fileID: 5524039719201856544}
+  - component: {fileID: 8604140002472758427}
   - component: {fileID: 8544241611512163538}
   - component: {fileID: 8416012418885418548}
   m_Layer: 0
@@ -179,6 +180,22 @@ MonoBehaviour:
   groundChecker: {fileID: 8416012418885418548}
   playerInputController: {fileID: 2017394830790752166}
   chargingMoveSpeedFactor: 0.5
+--- !u!114 &8604140002472758427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860134241555915237}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1c16ec2120b164e919decb7b2c2c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInputController: {fileID: 2017394830790752166}
+  myRigidBody: {fileID: 1151829421}
+  jumpForce: 500
+  groundChecker: {fileID: 8416012418885418548}
 --- !u!114 &8544241611512163538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,8 +226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29dc18873e6a7f245b7c30e6f98a9e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheckLength: 0.31
-  groundCheckRadius: 0.51
+  groundCheckLength: 0.6
+  groundCheckRadius: 0.6
   groundLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 2147483647

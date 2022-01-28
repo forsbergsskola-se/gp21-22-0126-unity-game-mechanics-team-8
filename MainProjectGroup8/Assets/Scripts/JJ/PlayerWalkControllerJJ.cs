@@ -17,7 +17,7 @@ public class PlayerWalkControllerJJ : MonoBehaviour
     {
         var currentMoveSpeed = moveSpeed;
 
-        if (playerInputController.JumpInput && groundChecker.isGrounded)
+        if (playerInputController.JumpInput && groundChecker.IsGrounded)
         {
             currentMoveSpeed *= chargingMoveSpeedFactor;
         }

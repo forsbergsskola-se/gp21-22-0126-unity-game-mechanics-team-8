@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GroundCheckerJJ : MonoBehaviour
 {
-    public bool isGrounded { get; private set; }
+    public bool IsGrounded { get; private set; }
 
     [SerializeField]
     private float groundCheckLength = 1f;
@@ -19,15 +19,15 @@ public class GroundCheckerJJ : MonoBehaviour
     private void Update()
     {
         var ray = new Ray(transform.position, Vector3.down);
-        isGrounded = Physics.SphereCast(ray, groundCheckRadius, groundCheckLength, groundLayers);
-        // isGrounded = Physics.SphereCast(ray, groundCheckRadius, groundCheckLength);
-        Debug.Log(isGrounded);
+        IsGrounded = Physics.SphereCast(ray, groundCheckRadius, groundCheckLength, groundLayers);
+       
+        Debug.Log(IsGrounded);
         
-        Debug.DrawLine(transform.position, Vector3.down*groundCheckLength);
+        Debug.DrawRay(transform.position, Vector3.down*groundCheckLength, Color.magenta);
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawSphere(transform.position+Vector3.down*groundCheckLength, groundCheckRadius);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.DrawSphere(transform.position+Vector3.down*groundCheckLength, groundCheckRadius);
+    // }
 }

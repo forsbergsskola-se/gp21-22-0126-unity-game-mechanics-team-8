@@ -28,7 +28,7 @@ public class PlayerChargeJumpControllerJJ : MonoBehaviour
     {
         if (playerInputController.JumpInput)
         {
-
+            
             jumpCharge += Time.deltaTime/chargeTime;
         }
 
@@ -37,7 +37,7 @@ public class PlayerChargeJumpControllerJJ : MonoBehaviour
             var jumpForce = Mathf.Lerp(minimumJumpForce, maximumJumpForce, jumpCharge);
             jumpCharge = 0f;
 
-            if (groundChecker.isGrounded)
+            if (groundChecker.IsGrounded)
             {
                 myRigidBody.AddForce(Vector3.up*jumpForce);
             }
