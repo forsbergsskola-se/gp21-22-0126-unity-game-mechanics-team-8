@@ -225,6 +225,7 @@ MonoBehaviour:
   moveSpeed: 10
   groundChecker: {fileID: 8416012418885418548}
   playerInputController: {fileID: 2017394830790752166}
+  dash: {fileID: 1155373857}
   chargingMoveSpeedFactor: 0.5
 --- !u!114 &8544241611512163538
 MonoBehaviour:
@@ -273,7 +274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8735105b57453d949a36eb2f1249b65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInputController: {fileID: 2017394830790752166}
   myRigidBody: {fileID: 1151829421}
   dashStrength: 1000
   dashCoolDown: 1

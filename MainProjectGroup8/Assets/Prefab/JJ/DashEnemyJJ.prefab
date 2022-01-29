@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 4196854620886659909}
   - component: {fileID: 547538771}
   - component: {fileID: 547538772}
+  - component: {fileID: 547538774}
   m_Layer: 0
   m_Name: DashEnemyJJ
   m_TagString: Untagged
@@ -172,7 +173,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!114 &547538772
 MonoBehaviour:
@@ -188,3 +189,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidBody: {fileID: 547538771}
   proximityDetector: {fileID: 2070572351519541322}
+  movementSpeed: 5
+  stopDistanceBeforeDash: 5
+  dash: {fileID: 547538774}
+--- !u!114 &547538774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070572352123522700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8735105b57453d949a36eb2f1249b65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidBody: {fileID: 547538771}
+  dashStrength: 1000
+  dashCoolDown: 2
+  dashTime: 0.5
+  afterDashVelocityBreakFactor: 0.2

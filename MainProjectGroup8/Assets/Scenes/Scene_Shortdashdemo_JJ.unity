@@ -300,10 +300,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5524039719201856544, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
-      propertyPath: dash
-      value: 
-      objectReference: {fileID: 2129615792}
     - target: {fileID: 7860134241555915233, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -354,45 +350,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
---- !u!1 &1243908643 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1422291570363549642, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
-  m_PrefabInstance: {fileID: 1422291571016282299}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1243908648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1243908643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
-    m_CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1347817203
 GameObject:
   m_ObjectHideFlags: 3
@@ -566,17 +523,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e36a2755fbb70bc46bc03aa053a969d6, type: 3}
---- !u!114 &2129615792 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1155373857, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
-  m_PrefabInstance: {fileID: 1155373855}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8735105b57453d949a36eb2f1249b65f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1422291571016282299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -584,29 +530,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1422291570363549640, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
-      propertyPath: field of view
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422291570363549640, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
-      propertyPath: far clip plane
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422291570363549640, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
-      propertyPath: near clip plane
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422291570363549640, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
-      propertyPath: orthographic size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1422291570363549642, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
       propertyPath: m_Name
       value: Main CameraJJ
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422291570363549642, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1422291570363549647, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
       propertyPath: m_RootOrder

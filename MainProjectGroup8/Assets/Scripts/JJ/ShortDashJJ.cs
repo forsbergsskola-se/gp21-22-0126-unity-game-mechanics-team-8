@@ -4,8 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ShortDashJJ : MonoBehaviour
 {
-	[SerializeField]
-	private PlayerInputControllerJJ playerInputController;
 
 	[SerializeField]
 	private Rigidbody myRigidBody;

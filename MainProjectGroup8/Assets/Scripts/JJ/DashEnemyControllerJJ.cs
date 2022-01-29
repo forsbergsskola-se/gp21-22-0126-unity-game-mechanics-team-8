@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DashEnemyControllerJJ : MonoBehaviour
 {
 	[SerializeField]
 	private Rigidbody myRigidBody;
+
 	[SerializeField]
 	private ProximityDetectorJJ proximityDetector;
 
@@ -15,22 +13,31 @@ public class DashEnemyControllerJJ : MonoBehaviour
 
 	[SerializeField]
 	private float stopDistanceBeforeDash = 5f;
+
+	[SerializeField]
+	private ShortDashJJ dash;
+
 	private void Update()
 	{
 		if (proximityDetector.DetectedPlayer)
 		{
-		transform.LookAt(proximityDetector.PlayerTransform);
+			var dir = (proximityDetector.PlayerTransform.position -transform.position);
+			
+			if (Vector2.Distance(transform.position, proximityDetector.PlayerTransform.position) < stopDistanceBeforeDash)
+			{
+				//TODO: initiate dash routine w charge-up time!
+				if (!dash.AreDashing)
+				{
+					dash.Dash(dir);
+				}
+			}else
+			{
+				// transform.LookAt(proximityDetector.PlayerTransform);
 
-		if (Vector2.Distance(transform.position, proximityDetector.PlayerTransform.position) < 5f)
-		{
-			myRigidBody.velocity = Vector3.zero; 
-			//initiate dash routine
+				myRigidBody.velocity = dir.normalized*movementSpeed;
+			}
+		 
 		}
-		else
-		{
-			myRigidBody.velocity = transform.forward*movementSpeed;
-		}
- 
-		} 
+		
 	}
 }
