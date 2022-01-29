@@ -1,15 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProximityDetectorJJ : MonoBehaviour
 {
+	public bool DetectedPlayer { get; private set; }
+	public Transform Playertransform { get; private set; }
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
-			Debug.Log("PlayerDetected");
+			DetectedPlayer = true;
+			Playertransform = other.transform;
 		}
 	}
 }
