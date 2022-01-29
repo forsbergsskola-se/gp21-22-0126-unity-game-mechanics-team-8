@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerShortDashJJ : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public class ShortDashJJ : MonoBehaviour
 {
 	[SerializeField]
 	private PlayerInputControllerJJ playerInputController;
@@ -25,15 +26,13 @@ public class PlayerShortDashJJ : MonoBehaviour
 
 	public bool AreDashing { get; private set; }
 
-	private void Update()
+	public void Dash(Vector3 dashDirection)
 	{
-		var movementInputVector = new Vector3(playerInputController.MoveInputHorizontal, playerInputController.MoveInputVertical, 0);
-
-		if (playerInputController.DashInputDown && allowDash)
+		if (allowDash)
 		{
 			allowDash = false;
 			AreDashing = true;
-			myRigidBody.AddRelativeForce(movementInputVector.normalized*dashStrength, ForceMode.Force);
+			myRigidBody.AddRelativeForce(dashDirection.normalized*dashStrength, ForceMode.Force);
 			StartCoroutine(DashTime(dashTime));
 			StartCoroutine(DashCoolDown(dashCoolDown));
 		}

@@ -19,9 +19,9 @@ public class DashEnemyControllerJJ : MonoBehaviour
 	{
 		if (proximityDetector.DetectedPlayer)
 		{
-		transform.LookAt(proximityDetector.Playertransform);
+		transform.LookAt(proximityDetector.PlayerTransform);
 
-		if (Vector2.Distance(transform.position, proximityDetector.Playertransform.position) < 5f)
+		if (Vector2.Distance(transform.position, proximityDetector.PlayerTransform.position) < 5f)
 		{
 			myRigidBody.velocity = Vector3.zero; 
 			//initiate dash routine
