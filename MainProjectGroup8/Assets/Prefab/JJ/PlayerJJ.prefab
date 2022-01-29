@@ -243,7 +243,7 @@ MonoBehaviour:
   groundChecker: {fileID: 8416012418885418548}
   maximumJumpForce: 750
   minimumJumpForce: 100
-  chargeTime: 1
+  chargeTime: 0.5
 --- !u!114 &8416012418885418548
 MonoBehaviour:
   m_ObjectHideFlags: 0
