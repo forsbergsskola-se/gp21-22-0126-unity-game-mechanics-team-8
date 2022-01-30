@@ -28,7 +28,7 @@ public class PlayerWalkControllerJJ : MonoBehaviour
 			currentMoveSpeed *= chargingMoveSpeedFactor;
 		}
 
-		if (playerInputController.DashInputDown)
+		if (playerInputController.LShiftDash)
 		{
  
 			var movementInputVector = new Vector3(playerInputController.MoveInputHorizontal, playerInputController.MoveInputVertical, 0);
