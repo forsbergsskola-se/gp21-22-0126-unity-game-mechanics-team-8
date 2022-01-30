@@ -8,22 +8,23 @@ public class Bullet : MonoBehaviour
     public float lifeSpan = 5.0f;
     public Vector3 travelVector;
     public float moveSpeed = 10.0f;
+    public int damageAmount = 10;
 
     void Start()
     {
         StartCoroutine(DelayDestroy());
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<Damage>().DoDamage(damageAmount);
         }
         Destroy(gameObject);
     }
     
-
+    
     private IEnumerator DelayDestroy()
     {
         yield return new WaitForSeconds(lifeSpan);
