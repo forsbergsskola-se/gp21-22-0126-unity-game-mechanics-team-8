@@ -11,7 +11,7 @@ public class Shoot : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] private string fireButtonName = "Fire1";
     private float _currentShootDelay = 1.0f;
-    private PickupType _pickupType = PickupType.MachineGun;
+    private PickupType _pickupType = PickupType.Regular;
     private bool _canShoot = true;
     private int _currentAmmo;
 
@@ -43,7 +43,7 @@ public class Shoot : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetButtonDown(fireButtonName) && _pickupType != PickupType.MachineGun)
+        if (Input.GetButtonDown(fireButtonName))
         {
             TryShoot();
             StartCoroutine(ShootDelay());
@@ -69,7 +69,7 @@ public class Shoot : MonoBehaviour
     {
         if (_canShoot)
         {
-            if (_pickupType == PickupType.Regular)
+            if (_pickupType!= PickupType.ShotGun)
             {
                 Instantiate(bulletPrefab, transform);
             }
@@ -88,7 +88,8 @@ public class Shoot : MonoBehaviour
         _currentShootDelay = 3f;
         for (int i = 0; i < 2; i++)
         {
-            MakeBullet(Vector3.right);
+            if(_canShoot) 
+                MakeBullet(Vector3.right);
             StartCoroutine(ShootDelay());
         }
     }
