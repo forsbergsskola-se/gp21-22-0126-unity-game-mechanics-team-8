@@ -11,9 +11,9 @@ public class FlyingControllerAA : MonoBehaviour
     [SerializeField] private float staminaDrain = 0.4f;
     [SerializeField] private float staminaReloadTime = 2f;
     [SerializeField] private float staminaReloadRate = 30f;
+    [SerializeField] private float  maxStamina = 100;
     private Coroutine _regen;
     private bool _canFly;
-    private float maxStamina = 100;
     private float _currentStamina;
     private readonly WaitForSeconds _regenTick = new WaitForSeconds(0.1f);
 
