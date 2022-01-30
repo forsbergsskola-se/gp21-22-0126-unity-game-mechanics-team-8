@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DashSprintJJ : MonoBehaviour
+public class SprintDashJJ : MonoBehaviour
 {
 	[SerializeField]
 	private Rigidbody myRigidBody;
@@ -33,7 +33,6 @@ public class DashSprintJJ : MonoBehaviour
 	private IEnumerator Sprint(Vector3 dir)
 	{
 		myRigidBody.velocity = new Vector3(dir.x*sprintSpeed, dir.y, 0);
-		Debug.Log("Sprinting...");
 
 		yield return new WaitForSeconds(sprintTime);
 
