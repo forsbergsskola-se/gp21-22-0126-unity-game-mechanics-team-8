@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 125122555}
   - component: {fileID: 125122554}
   - component: {fileID: 125122560}
+  - component: {fileID: 125122561}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -251,13 +252,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125122549}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 095632898c6d24c459925bef85aa786f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 125122554}
-  walkSpeed: 5
+  playerInputController: {fileID: 125122561}
+  groundChecker: {fileID: 125122559}
+  moveSpeed: 5
+  chargingMoveSpeedFactor: 0.5
 --- !u!114 &125122556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,13 +269,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125122549}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5127133c96432643951227f7af478b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 125122554}
-  myGroundChecker: {fileID: 125122559}
+  playerInputController: {fileID: 125122561}
+  groundChecker: {fileID: 125122559}
   jumpForce: 200
 --- !u!114 &125122557
 MonoBehaviour:
@@ -280,7 +285,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125122549}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9920a86080aa983479bbc3e41fd4367a, type: 3}
   m_Name: 
@@ -297,16 +302,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125122549}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dc0f1912d5b07f4f892dab1a8e63eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 125122554}
-  myGroundChecker: {fileID: 125122559}
+  playerInputController: {fileID: 125122561}
+  groundChecker: {fileID: 125122559}
   minimumJumpForce: 100
   maximumJumpForce: 400
-  jumpChargeTime: 1
+  chargeTime: 1
 --- !u!114 &125122559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,14 +320,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125122549}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 225da489132ba8f4a8f6e942255f6a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheckDistance: 0.6
-  groundCheckSphereRadius: 0.45
-  isGrounded: 0
+  groundCheckLength: 1
+  groundCheckRadius: 0.5
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &125122560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +344,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 125122554}
   flyForce: 5
+  playerInputController: {fileID: 125122561}
+--- !u!114 &125122561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125122549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 868d5beee0f1e5642bc6ea93854121cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &444280196
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +369,7 @@ GameObject:
   - component: {fileID: 444280199}
   - component: {fileID: 444280198}
   - component: {fileID: 444280197}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,26 +4,16 @@ using UnityEngine;
 
 public class PlayerImmediateJumpControllerAA : MonoBehaviour
 {
-    public Rigidbody myRigidbody;
-    public GroundCheckerAA myGroundChecker;
-    public float jumpForce = 500f;
+    [SerializeField] private Rigidbody myRigidbody;
+    [SerializeField] private PlayerInputControllerAA playerInputController;
+    [SerializeField] private GroundCheckerAA groundChecker;
+    [SerializeField] private float jumpForce = 500f;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        HandleJump();
-    }
-
-    private void HandleJump()
-    {
-        //Get jump input
-        var jumpInput = Input.GetKeyDown(KeyCode.Space);
-
-        //If we pressed the jump button: then jump
-        if (jumpInput == true && myGroundChecker.isGrounded == true)
-        {
-            // Debug.Log("Jump");
-            myRigidbody.AddForce(0, jumpForce, 0);
-        }
+        //Apply jump force
+        //Preferably interact with physics in FixedUpdate() 
+        if (playerInputController.JumpInputDown && groundChecker.IsGrounded)
+            myRigidbody.AddForce(Vector3.up * jumpForce);
     }
 }

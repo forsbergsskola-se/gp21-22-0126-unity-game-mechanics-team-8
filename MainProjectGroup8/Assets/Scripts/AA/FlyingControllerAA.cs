@@ -7,6 +7,7 @@ public class FlyingControllerAA : MonoBehaviour
 {
     [SerializeField] private Rigidbody myRigidbody;
     [SerializeField] private float flyForce = 100f;
+    [SerializeField] private PlayerInputControllerAA playerInputController;
 
     private void Start()
     {
@@ -16,12 +17,10 @@ public class FlyingControllerAA : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (playerInputController.FlyingInput)
         {
             myRigidbody.AddForce(Vector3.up * flyForce);
         }
-
-       
     }
 }
 
