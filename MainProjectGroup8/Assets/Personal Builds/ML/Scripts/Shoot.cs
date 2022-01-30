@@ -1,13 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class Shoot : MonoBehaviour
 {
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] private KeyCode shootKey = KeyCode.Space;
+    [SerializeField] private string fireButtonName = "Fire1";
     private float _currentShootDelay = 1.0f;
     private PickupType _pickupType = PickupType.MachineGun;
     private bool _canShoot = true;
@@ -41,19 +43,28 @@ public class Shoot : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(shootKey))
+        if (Input.GetButtonDown(fireButtonName) && _pickupType != PickupType.MachineGun)
         {
-        //    TryShoot();
+            TryShoot();
+            StartCoroutine(ShootDelay());
         }
 
-        else if (Input.GetKey(shootKey) && _pickupType == PickupType.MachineGun)
+        else if (Input.GetButton(fireButtonName) && _pickupType == PickupType.MachineGun && _canShoot)
         {
-            Instantiate(bulletPrefab, transform); 
+            MakeBullet(Vector3.right);
+            StartCoroutine(ShootDelay());
             _canShoot = false;
         }
         StartCoroutine(ShootDelay());
     }
 
+
+    private void MakeBullet(Vector3 travelVector , Vector3 addVector =  new Vector3())
+    {
+        var tempBullet = Instantiate(bulletPrefab, transform);
+        tempBullet.GetComponent<Bullet>().travelVector = travelVector + addVector;
+    }
+    
     private void TryShoot()
     {
         if (_canShoot)
@@ -74,7 +85,12 @@ public class Shoot : MonoBehaviour
 
     private void MachineGunPattern()
     {
-        
+        _currentShootDelay = 3f;
+        for (int i = 0; i < 2; i++)
+        {
+            MakeBullet(Vector3.right);
+            StartCoroutine(ShootDelay());
+        }
     }
     
     
@@ -85,8 +101,7 @@ public class Shoot : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             addVector += new Vector3(0, 0.2f, 0);
-            var bullet = Instantiate(bulletPrefab, transform);
-            bullet.GetComponent<Bullet>().travelVector = Vector3.right + addVector;
+            MakeBullet(Vector3.right, addVector);
         }
     }
 
