@@ -21,6 +21,6 @@ public class PlayerInputControllerAA : MonoBehaviour
         JumpInputDown = Input.GetKeyDown(KeyCode.Space);
         JumpInputUp = Input.GetKeyUp(KeyCode.Space);
         JumpInput = Input.GetKey(KeyCode.Space);
-        FlyingInput = Input.GetKey(KeyCode.LeftAlt);
+        FlyingInput = Input.GetKey(KeyCode.E);
     }
 }
