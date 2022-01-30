@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerInputControllerJJ : MonoBehaviour
@@ -15,6 +14,7 @@ public class PlayerInputControllerJJ : MonoBehaviour
 	public bool JumpInput { get; private set; }
 
 	public bool LShiftDash { get; private set; }
+	public bool LShiftSprint { get; private set; }
 
 	private void Update()
 	{
@@ -23,25 +23,23 @@ public class PlayerInputControllerJJ : MonoBehaviour
 		JumpInputDown = Input.GetKeyDown(KeyCode.Space);
 		JumpInputUp = Input.GetKeyUp(KeyCode.Space);
 		JumpInput = Input.GetKey(KeyCode.Space);
-		
 		LShiftDash = false;
 
 		if (Input.GetKey(KeyCode.LeftShift))
 		{
-			Console.WriteLine("yes");
-
 			if (pressTime < pressTimeTolerance)
 			{
 				pressTime += Time.deltaTime;
 			}
 			else
 			{
-				//Sprint dash here
-				Debug.Log("Call sprint here");
+				LShiftSprint = true;
 			}
 		}
 		else if (Input.GetKeyUp(KeyCode.LeftShift))
 		{
+			LShiftSprint = false;
+
 			if (pressTime < pressTimeTolerance)
 			{
 				LShiftDash = true;

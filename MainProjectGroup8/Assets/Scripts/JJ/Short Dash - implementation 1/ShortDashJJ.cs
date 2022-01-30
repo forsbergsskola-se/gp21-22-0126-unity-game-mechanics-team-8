@@ -18,7 +18,7 @@ public class ShortDashJJ : MonoBehaviour
 	private float dashTime = 0.5f;
 
 	[SerializeField]
-	private float afterDashVelocityBreakFactor = 0.20f;
+	private float afterDashVelocityBrakeFactor = 0.20f;
 
 	private bool allowDash = true;
 
@@ -47,7 +47,7 @@ public class ShortDashJJ : MonoBehaviour
 	{
 		yield return new WaitForSeconds(dashTime);
 
-		myRigidBody.velocity *= afterDashVelocityBreakFactor;
+		myRigidBody.velocity *= afterDashVelocityBrakeFactor;
 		AreDashing = false;
 	}
 }

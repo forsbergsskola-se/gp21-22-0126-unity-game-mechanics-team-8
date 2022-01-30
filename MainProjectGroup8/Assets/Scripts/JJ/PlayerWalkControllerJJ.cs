@@ -17,6 +17,9 @@ public class PlayerWalkControllerJJ : MonoBehaviour
 	private ShortDashJJ dash;
 
 	[SerializeField]
+	private DashSprintJJ sprint;
+
+	[SerializeField]
 	private float chargingMoveSpeedFactor = 0.5f;
 
 	private void Update()
@@ -27,15 +30,20 @@ public class PlayerWalkControllerJJ : MonoBehaviour
 		{
 			currentMoveSpeed *= chargingMoveSpeedFactor;
 		}
+			var movementInputVector = new Vector3(playerInputController.MoveInputHorizontal, playerInputController.MoveInputVertical, 0);
 
 		if (playerInputController.LShiftDash)
 		{
  
-			var movementInputVector = new Vector3(playerInputController.MoveInputHorizontal, playerInputController.MoveInputVertical, 0);
 			dash.Dash(movementInputVector);
 		}
 
-		if (!dash.AreDashing)
+		if (playerInputController.LShiftSprint && groundChecker.IsGrounded)
+		{
+			sprint.SprintDash(movementInputVector);
+		}
+
+		if (!dash.AreDashing && !sprint.AreSprinting)
 		{
 			myRigidBody.velocity = new Vector3(playerInputController.MoveInputHorizontal*currentMoveSpeed, myRigidBody.velocity.y, 0);
 		}

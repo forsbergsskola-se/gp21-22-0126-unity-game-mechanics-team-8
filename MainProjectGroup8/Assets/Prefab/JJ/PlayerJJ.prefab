@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd8f344a5cd4694d837683c67e04932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pressTimeTolerance: 0.5
 --- !u!1 &7860134241555915237
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +107,7 @@ GameObject:
   - component: {fileID: 8544241611512163538}
   - component: {fileID: 8416012418885418548}
   - component: {fileID: 1155373857}
+  - component: {fileID: 1050300050}
   m_Layer: 0
   m_Name: PlayerJJ
   m_TagString: Player
@@ -226,6 +228,7 @@ MonoBehaviour:
   groundChecker: {fileID: 8416012418885418548}
   playerInputController: {fileID: 2017394830790752166}
   dash: {fileID: 1155373857}
+  sprint: {fileID: 1050300050}
   chargingMoveSpeedFactor: 0.5
 --- !u!114 &8544241611512163538
 MonoBehaviour:
@@ -277,5 +280,22 @@ MonoBehaviour:
   myRigidBody: {fileID: 1151829421}
   dashStrength: 1000
   dashCoolDown: 1
-  dashTime: 0.1
-  afterDashVelocityBreakFactor: 0.8
+  dashTime: 0.15
+  afterDashVelocityBrakeFactor: 0.2
+--- !u!114 &1050300050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860134241555915237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a66620752771a346913add231f467e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidBody: {fileID: 1151829421}
+  sprintSpeed: 40
+  sprintCoolDown: 3
+  afterSprintBrakeFactor: 0.2
+  sprintTime: 0.75
