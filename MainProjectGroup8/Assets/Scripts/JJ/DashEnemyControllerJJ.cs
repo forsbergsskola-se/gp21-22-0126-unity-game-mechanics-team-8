@@ -21,23 +21,28 @@ public class DashEnemyControllerJJ : MonoBehaviour
 	{
 		if (proximityDetector.DetectedPlayer)
 		{
-			var dir = (proximityDetector.PlayerTransform.position -transform.position);
-			
-			if (Vector2.Distance(transform.position, proximityDetector.PlayerTransform.position) < stopDistanceBeforeDash)
+			var dir = proximityDetector.PlayerTransform.position - transform.position;
+			var distanceToPlayer = Vector2.Distance(transform.position, proximityDetector.PlayerTransform.position);
+
+			if (distanceToPlayer < stopDistanceBeforeDash)
 			{
-				//TODO: initiate dash routine w charge-up time!
+				if (!dash.AreDashing)
+				{
+					myRigidBody.velocity = Vector3.zero;
+				}
+				
+				//TODO: initiate dash routine w charge-up time or telegraphing attack
+				
 				if (!dash.AreDashing)
 				{
 					dash.Dash(dir);
 				}
-			}else
+				 
+			}
+			else
 			{
-				// transform.LookAt(proximityDetector.PlayerTransform);
-
 				myRigidBody.velocity = dir.normalized*movementSpeed;
 			}
-		 
 		}
-		
 	}
 }

@@ -30,7 +30,7 @@ public class PlayerWalkControllerJJ : MonoBehaviour
 
 		if (playerInputController.DashInputDown)
 		{
-			//Call dash here?
+ 
 			var movementInputVector = new Vector3(playerInputController.MoveInputHorizontal, playerInputController.MoveInputVertical, 0);
 			dash.Dash(movementInputVector);
 		}

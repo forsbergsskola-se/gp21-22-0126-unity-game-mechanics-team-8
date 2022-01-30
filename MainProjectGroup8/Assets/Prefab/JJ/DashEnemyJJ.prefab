@@ -206,6 +206,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidBody: {fileID: 547538771}
   dashStrength: 1000
-  dashCoolDown: 2
-  dashTime: 0.5
-  afterDashVelocityBreakFactor: 0.2
+  dashCoolDown: 4
+  dashTime: 0.25
+  afterDashVelocityBreakFactor: 0.8
