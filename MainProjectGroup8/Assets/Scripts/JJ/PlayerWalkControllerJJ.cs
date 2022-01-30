@@ -17,7 +17,7 @@ public class PlayerWalkControllerJJ : MonoBehaviour
 	private ShortDashJJ dash;
 
 	[SerializeField]
-	private DashSprintJJ sprint;
+	private SprintDashJJ sprint;
 
 	[SerializeField]
 	private float chargingMoveSpeedFactor = 0.5f;
