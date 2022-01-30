@@ -16,7 +16,7 @@ public class WeaponPickup : MonoBehaviour
 
     public static event PickupPickedDelegate OnPickupPicked;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {

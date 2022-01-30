@@ -11,9 +11,10 @@ public class Shoot : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] private string fireButtonName = "Fire1";
     private float _currentShootDelay = 1.0f;
-    private PickupType _pickupType = PickupType.Regular;
+    private PickupType _pickupType = PickupType.ShotGun;
     private bool _canShoot = true;
     private int _currentAmmo;
+    [SerializeField] private int baseDamage = 10;
 
     private void Start()
     {
@@ -51,27 +52,28 @@ public class Shoot : MonoBehaviour
 
         else if (Input.GetButton(fireButtonName) && _pickupType == PickupType.MachineGun && _canShoot)
         {
-            MakeBullet(Vector3.right);
+            MakeBullet(Vector3.right, baseDamage / 2);
             StartCoroutine(ShootDelay());
             _canShoot = false;
         }
-        StartCoroutine(ShootDelay());
     }
 
 
-    private void MakeBullet(Vector3 travelVector , Vector3 addVector =  new Vector3())
+    private void MakeBullet(Vector3 travelVector , int damageAmount = 10, Vector3 addVector =  new Vector3(), float scaleScalar = 1)
     {
         var tempBullet = Instantiate(bulletPrefab, transform);
         tempBullet.GetComponent<Bullet>().travelVector = travelVector + addVector;
+        tempBullet.GetComponent<Bullet>().damageAmount = damageAmount;
+        tempBullet.GetComponent<Transform>().localScale = new Vector3(0.1f, 0.1f, 0.1f) * scaleScalar;
     }
     
     private void TryShoot()
     {
         if (_canShoot)
         {
-            if (_pickupType!= PickupType.ShotGun)
+            if (_pickupType != PickupType.ShotGun)
             {
-                Instantiate(bulletPrefab, transform);
+                MakeBullet(Vector3.right);
             }
             if (_pickupType == PickupType.ShotGun)
             {
@@ -81,8 +83,7 @@ public class Shoot : MonoBehaviour
             StartCoroutine(ShootDelay());
         }
     }
-
-
+    
     private void MachineGunPattern()
     {
         _currentShootDelay = 3f;
@@ -94,15 +95,13 @@ public class Shoot : MonoBehaviour
         }
     }
     
-    
     private void ShotgunPattern()
     {
         Vector3 addVector = new Vector3(0, -0.8f, 0);
-        
         for (int i = 0; i < 5; i++)
         {
             addVector += new Vector3(0, 0.2f, 0);
-            MakeBullet(Vector3.right, addVector);
+            MakeBullet(Vector3.right, baseDamage / 3, addVector, 0.5f);
         }
     }
 
