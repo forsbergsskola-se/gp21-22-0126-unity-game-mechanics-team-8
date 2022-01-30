@@ -5,11 +5,17 @@ using UnityEngine;
 
 public class DeathOnContactJJ : MonoBehaviour
 {
+	[SerializeField]
+	private bool destroySelfOnContact = false;
 	private void OnCollisionEnter(Collision collision)
 	{
-		if(collision.gameObject.CompareTag("Player"))
+		if (destroySelfOnContact)
 		{
-			Destroy(collision.gameObject);
+		Destroy(gameObject);	
 		}
+		else
+		{
+		Destroy(collision.gameObject);	
+		} 
 	}
 }

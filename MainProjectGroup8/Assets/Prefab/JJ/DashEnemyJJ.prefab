@@ -208,4 +208,4 @@ MonoBehaviour:
   dashStrength: 1000
   dashCoolDown: 4
   dashTime: 0.25
-  afterDashVelocityBreakFactor: 0.2
+  afterDashVelocityBrakeFactor: 0.2
