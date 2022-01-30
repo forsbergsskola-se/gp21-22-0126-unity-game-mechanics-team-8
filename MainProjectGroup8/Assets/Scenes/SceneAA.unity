@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 125122556}
   - component: {fileID: 125122555}
   - component: {fileID: 125122554}
+  - component: {fileID: 125122560}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -250,7 +251,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125122549}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 095632898c6d24c459925bef85aa786f, type: 3}
   m_Name: 
@@ -264,7 +265,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125122549}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5127133c96432643951227f7af478b0, type: 3}
   m_Name: 
@@ -279,7 +280,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125122549}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9920a86080aa983479bbc3e41fd4367a, type: 3}
   m_Name: 
@@ -296,7 +297,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125122549}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dc0f1912d5b07f4f892dab1a8e63eaa, type: 3}
   m_Name: 
@@ -313,7 +314,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125122549}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 225da489132ba8f4a8f6e942255f6a47, type: 3}
   m_Name: 
@@ -321,6 +322,20 @@ MonoBehaviour:
   groundCheckDistance: 0.6
   groundCheckSphereRadius: 0.45
   isGrounded: 0
+--- !u!114 &125122560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125122549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c60ade50bc35345b8ff6f34cba2e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidbody: {fileID: 125122554}
+  flyForce: 5
 --- !u!1 &444280196
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +479,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0275483, y: 1}
+    m_SensorSize: {x: 2.284974, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
