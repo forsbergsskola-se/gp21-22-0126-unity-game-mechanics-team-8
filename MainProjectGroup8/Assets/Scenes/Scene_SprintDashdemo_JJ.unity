@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6777806973760371702, guid: 72ee57b978684f3478cc36808fd8ef8e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -156.1
+      value: -159.6
       objectReference: {fileID: 0}
     - target: {fileID: 6777806973760371702, guid: 72ee57b978684f3478cc36808fd8ef8e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -226,7 +226,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7781818, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -357,6 +357,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3670845446976491370, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
+      propertyPath: gravityFallMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7860134241555915233, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -544,11 +548,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1851738264934591777, guid: aa7af312599106644a872e5b92514f00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -100.9
+      value: -109.2
       objectReference: {fileID: 0}
     - target: {fileID: 1851738264934591777, guid: aa7af312599106644a872e5b92514f00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 1851738264934591777, guid: aa7af312599106644a872e5b92514f00, type: 3}
       propertyPath: m_LocalPosition.z
@@ -666,7 +670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1851738264934591777, guid: aa7af312599106644a872e5b92514f00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -100.91
+      value: -110.7
       objectReference: {fileID: 0}
     - target: {fileID: 1851738264934591777, guid: aa7af312599106644a872e5b92514f00, type: 3}
       propertyPath: m_LocalPosition.y

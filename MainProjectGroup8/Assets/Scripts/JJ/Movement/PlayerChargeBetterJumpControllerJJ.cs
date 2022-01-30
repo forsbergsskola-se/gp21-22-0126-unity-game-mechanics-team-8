@@ -25,6 +25,9 @@ public class PlayerChargeBetterJumpControllerJJ : MonoBehaviour
 
     private float jumpCharge = 0f;
 
+    [SerializeField]
+    private float gravityFallMultiplier = 2.5f;
+
     private void Update()
     {
         if (playerInputController.JumpInput)
@@ -46,11 +49,11 @@ public class PlayerChargeBetterJumpControllerJJ : MonoBehaviour
 
         if (myRigidBody.velocity.y < 0)
         {
-            myRigidBody.velocity += Vector3.up*Physics.gravity.y*(2.5f - 1)*Time.deltaTime;
+            myRigidBody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
             
         } else if (myRigidBody.velocity.y > 0 && !playerInputController.JumpInputUp)
         {
-            myRigidBody.velocity += Vector3.up * Physics.gravity.y * (2.5f - 1)*Time.deltaTime;
+            myRigidBody.velocity += Vector3.up * Physics.gravity.y * (gravityFallMultiplier - 1)*Time.deltaTime;
         }
 		
     }

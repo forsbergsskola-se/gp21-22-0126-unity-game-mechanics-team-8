@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29dc18873e6a7f245b7c30e6f98a9e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheckLength: 0.6
+  groundCheckLength: 0.55
   groundCheckRadius: 0.45
   groundLayers:
     serializedVersion: 2
@@ -284,6 +284,7 @@ MonoBehaviour:
   maximumJumpForce: 1000
   minimumJumpForce: 100
   chargeTime: 1
+  gravityFallMultiplier: 2
 --- !u!114 &1155373857
 MonoBehaviour:
   m_ObjectHideFlags: 0
