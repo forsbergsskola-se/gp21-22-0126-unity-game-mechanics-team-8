@@ -21,32 +21,18 @@ public class SprintDashJJ : MonoBehaviour
 	[SerializeField]
 	private float sprintTime = 1f;
 
-	private bool allowSprint = true;
-
-	[SerializeField]
-	private GameObject sprintChargeEffect;
-
 	[SerializeField]
 	private GroundCheckerJJ groundChecker;
-	
+
+	private bool allowSprint = true;
+
 	private void Update()
 	{
-		if (commandContainer.ChargingSprint)
+		if (commandContainer.SprintCommand && allowSprint && groundChecker.IsGrounded)
 		{
-			sprintChargeEffect.SetActive(true);	
-			if (commandContainer.SprintCommand && allowSprint && groundChecker.IsGrounded)
-			{
-			 
-				StartCoroutine(Sprint(commandContainer.MoveDirectionCommand));
-				commandContainer.DenyMoveCommand = true;
-			}
+			StartCoroutine(Sprint(commandContainer.MoveDirectionCommand));
+			commandContainer.DenyMoveCommand = true;
 		}
-
-		if (!commandContainer.ChargingSprint && !commandContainer.SprintCommand)
-		{
-			sprintChargeEffect.SetActive(false);
-		}
-		
 	}
 
 	private IEnumerator Sprint(Vector3 dir)
