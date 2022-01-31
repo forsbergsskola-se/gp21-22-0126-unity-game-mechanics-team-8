@@ -36,30 +36,10 @@ public class PlayerWalkControllerJJ : MonoBehaviour
 			currentMoveSpeed *= chargingMoveSpeedFactor;
 		}
 
-		if (commandContainer.LShiftTapCommand)
+		if (!dash.AreDashing && !sprint.AreSprinting)
 		{
-			dash.Dash(movementInputVector);
-
-			return;
-		}
-
-		if (commandContainer.ChargingSprint)
-		{
-			sprintChargingEffect.SetActive(true);
-
-			if (commandContainer.LShiftLongPressCommand && groundChecker.IsGrounded)
-			{
-				sprint.SprintDash(movementInputVector);
-
-				return;
-			}
-		}
-
-		if (sprintChargingEffect && !commandContainer.ChargingSprint)
-		{
-			sprintChargingEffect.SetActive(false);
-		}
-
 		myRigidBody.velocity = new Vector3(commandContainer.MoveCommandHorizontal*currentMoveSpeed, myRigidBody.velocity.y, 0);
+			
+		}
 	}
 }
