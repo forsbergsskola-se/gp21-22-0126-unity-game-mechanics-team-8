@@ -46,8 +46,9 @@ public class SprintDashJJ : MonoBehaviour
 		myRigidBody.velocity *= afterSprintBrakeFactor;
 		allowSprint = false;
 		commandContainer.DenyMoveCommand = false;
-		UISprintCoolDown.EventFloat = sprintCoolDown;
-		EventManagerJJ.TriggerEvent(EventList.UpdateSprintUI, UISprintCoolDown);
+		// UISprintCoolDown.EventFloat = sprintCoolDown;
+	 //
+		// EventManagerJJ.TriggerEvent(EventList.UpdateSprintUI, UISprintCoolDown);
 		StartCoroutine(SprintCoolDown(sprintCoolDown));
 	}
 

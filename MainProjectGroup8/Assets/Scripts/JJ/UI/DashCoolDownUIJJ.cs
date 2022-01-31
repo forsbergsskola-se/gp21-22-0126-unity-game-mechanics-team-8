@@ -10,7 +10,7 @@ public class DashCoolDownUIJJ : MonoBehaviour
 	private float coolDownTime;
 
 	private float coolDownTimer;
-	private readonly bool isOnCoolDown = false;
+	private bool isOnCoolDown = false;
 
 	private Action<EventParam> listener;
 
@@ -26,7 +26,7 @@ public class DashCoolDownUIJJ : MonoBehaviour
 
 	private void Update()
 	{
-		if (!isOnCoolDown)
+		if (isOnCoolDown)
 		{
 			ApplyCoolDown();
 		}
@@ -44,14 +44,16 @@ public class DashCoolDownUIJJ : MonoBehaviour
 
 	private void ApplyCoolDown()
 	{
-		coolDownTimer -= Time.deltaTime;
 
+		Debug.Log(coolDownTimer);
 		if (coolDownTimer < 0.0f)
 		{
 			shadowImage.fillAmount = 0;
+			isOnCoolDown = false;
 		}
 		else
 		{
+			coolDownTimer -= Time.deltaTime;
 			shadowImage.fillAmount = coolDownTimer/coolDownTime;
 		}
 	}
@@ -60,5 +62,6 @@ public class DashCoolDownUIJJ : MonoBehaviour
 	{
 		coolDownTime = eventParam.EventFloat;
 		coolDownTimer = coolDownTime;
+		isOnCoolDown = true;
 	}
 }

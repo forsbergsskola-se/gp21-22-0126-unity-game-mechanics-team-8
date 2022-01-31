@@ -44,8 +44,9 @@ public class ShortDashJJ : MonoBehaviour
 			myRigidBody.AddRelativeForce(dashDirection.normalized*dashStrength, ForceMode.Force);
 			StartCoroutine(DashTime(dashTime));
 			StartCoroutine(DashCoolDown(dashCoolDown));
-			UIDashCooldown.EventFloat = dashCoolDown;
-			EventManagerJJ.TriggerEvent(EventList.UpdateDashUI, UIDashCooldown);
+			// UIDashCooldown.EventFloat = dashCoolDown;
+ 		//
+			// EventManagerJJ.TriggerEvent(EventList.UpdateDashUI, UIDashCooldown);
 		}
 	}
 
