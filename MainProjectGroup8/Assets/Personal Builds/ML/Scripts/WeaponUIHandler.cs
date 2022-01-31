@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class AmmoUIElements
 {
     public PickupType pickupType;
-    public Image displayImage;
+    public Sprite displayImage;
     public bool countAmmo;
     public int totalAmmo;
 }
@@ -18,9 +18,10 @@ public class AmmoUIElements
 public class WeaponUIHandler : MonoBehaviour
 {
     [SerializeField] private List<AmmoUIElements> UIElements;
-    [SerializeField] private Image infiniteAmmoImage;
+    [SerializeField] private Sprite infiniteAmmoImage;
     private AmmoUIElements _currentUIElement;
     private int _currentAmmo;
+    private Sprite _origSprite;
     public delegate void OutOfAmmoDelegate(PickupType pickupType);
     public static event OutOfAmmoDelegate OnOutOfAmmo;
     
@@ -28,6 +29,9 @@ public class WeaponUIHandler : MonoBehaviour
     void Start()
     {
         GetUIElementOfType(PickupType.Regular);
+        SetImage(1);
+        SetImage(0);
+        PickupPicked(PickupType.Regular);
         WeaponPickup.OnPickupPicked += PickupPicked;
         Shoot.OnShotFired += ShotFired;
         
@@ -54,11 +58,13 @@ public class WeaponUIHandler : MonoBehaviour
     
     private void SetImage(int imageIndex)
     {
-        switch (imageIndex)
+        if (imageIndex == 0)
         {
-            case 0:
-                
-                break;
+            gameObject.GetComponentsInChildren<Image>()[0].sprite = _currentUIElement.displayImage;
+        }
+        else if (imageIndex == 1)
+        {
+            gameObject.GetComponentsInChildren<Image>()[1].sprite = infiniteAmmoImage;
         }
     }
     
