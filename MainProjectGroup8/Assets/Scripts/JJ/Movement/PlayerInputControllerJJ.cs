@@ -56,8 +56,8 @@ public class PlayerInputControllerJJ : MonoBehaviour
 		commandContainer.JumpCommandDown = JumpInputDown;
 		commandContainer.JumpCommandUp = JumpInputUp;
 		commandContainer.JumpCommand = JumpInput;
-		commandContainer.LShiftTapCommand = LShiftTap;
-		commandContainer.LShiftLongPressCommand = LShiftLongPress;
+		commandContainer.DashCommand = LShiftTap;
+		commandContainer.SprintCommand = LShiftLongPress;
 		commandContainer.ChargingSprint = chargingSprint;
 	}
 

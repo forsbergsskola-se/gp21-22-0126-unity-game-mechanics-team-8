@@ -1,8 +1,12 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))] public class ShortDashJJ : MonoBehaviour
 {
+	[SerializeField]
+	private CommandContainer commandContainer;
+	 
 	[SerializeField]
 	private Rigidbody myRigidBody;
 
@@ -21,6 +25,15 @@ using UnityEngine;
 	private bool allowDash = true;
 
 	public bool AreDashing { get; private set; }
+
+	private void Update()
+	{
+		if (commandContainer.DashCommand && allowDash)
+		{
+			var movementInputVector = new Vector3(commandContainer.MoveCommandHorizontal, commandContainer.MoveCommandVertical, 0);
+			Dash(movementInputVector);
+		}
+	}
 
 	public void Dash(Vector3 dashDirection)
 	{

@@ -9,7 +9,7 @@ public class CommandContainer : MonoBehaviour
 	public bool JumpCommandUp;
 	public bool JumpCommand;
 
-	public bool LShiftTapCommand;
-	public bool LShiftLongPressCommand;
+	public bool DashCommand;
+	public bool SprintCommand;
 	public bool ChargingSprint;
 }

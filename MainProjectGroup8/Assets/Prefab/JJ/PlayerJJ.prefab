@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 2017394830790752166}
   - component: {fileID: 301793168}
   m_Layer: 0
-  m_Name: PlayerInputJJ
+  m_Name: PlayerInputAndCommandsJJ
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,8 +111,8 @@ MonoBehaviour:
   JumpCommandDown: 0
   JumpCommandUp: 0
   JumpCommand: 0
-  LShiftTapCommand: 0
-  LShiftLongPressCommand: 0
+  DashCommand: 0
+  SprintCommand: 0
   ChargingSprint: 0
 --- !u!1 &7860134241555915237
 GameObject:
@@ -290,7 +290,7 @@ MonoBehaviour:
   groundChecker: {fileID: 8416012418885418548}
   maximumJumpForce: 1000
   minimumJumpForce: 100
-  chargeTime: 1
+  chargeTime: 0.5
   gravityFallMultiplier: 2
 --- !u!114 &1155373857
 MonoBehaviour:
@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a66620752771a346913add231f467e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commandContainer: {fileID: 301793168}
   myRigidBody: {fileID: 1151829421}
   sprintSpeed: 40
   sprintCoolDown: 3
