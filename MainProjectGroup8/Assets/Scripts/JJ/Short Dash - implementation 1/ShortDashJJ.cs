@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -24,6 +25,8 @@ public class ShortDashJJ : MonoBehaviour
 
 	private bool allowDash = true;
 
+	private EventParam UIDashCooldown = new EventParam();
+	
 	private void Update()
 	{
 		if (commandContainer.DashCommand && allowDash)
@@ -41,6 +44,8 @@ public class ShortDashJJ : MonoBehaviour
 			myRigidBody.AddRelativeForce(dashDirection.normalized*dashStrength, ForceMode.Force);
 			StartCoroutine(DashTime(dashTime));
 			StartCoroutine(DashCoolDown(dashCoolDown));
+			UIDashCooldown.EventFloat = dashCoolDown;
+			EventManagerJJ.TriggerEvent(EventList.UpdateDashUI, UIDashCooldown);
 		}
 	}
 

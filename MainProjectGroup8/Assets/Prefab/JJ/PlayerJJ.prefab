@@ -277,8 +277,7 @@ MonoBehaviour:
   commandContainer: {fileID: 301793168}
   myRigidBody: {fileID: 1151829421}
   sprintSpeed: 40
-  sprintCoolDown: 3
+  sprintCoolDown: 2
   afterSprintBrakeFactor: 0.2
   sprintTime: 0.75
-  sprintChargeEffect: {fileID: 0}
   groundChecker: {fileID: 8416012418885418548}

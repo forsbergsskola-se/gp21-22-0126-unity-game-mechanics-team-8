@@ -197,7 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2169951165903686080}
-  - component: {fileID: 3570355998145884848}
+  - component: {fileID: 1428720168}
   m_Layer: 5
   m_Name: Sprint
   m_TagString: Untagged
@@ -228,7 +228,7 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &3570355998145884848
+--- !u!114 &1428720168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,16 +237,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4192208945212458622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 524ce4b4a393f27499341a7affeadb47, type: 3}
+  m_Script: {fileID: 11500000, guid: 09dc96ab242b4589a653f9c06a6f03ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commandContainer: {fileID: 0}
-  myRigidBody: {fileID: 0}
-  sprintSpeed: 20
-  sprintCoolDown: 2
-  afterSprintBrakeFactor: 0.2
-  sprintTime: 1
-  groundChecker: {fileID: 0}
+  shadowImage: {fileID: 4974733478842408936}
 --- !u!1 &7357516674813934212
 GameObject:
   m_ObjectHideFlags: 0
