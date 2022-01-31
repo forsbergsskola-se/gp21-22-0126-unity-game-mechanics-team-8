@@ -59,12 +59,12 @@ public class Shoot : MonoBehaviour
     }
 
 
-    private void MakeBullet(Vector3 travelVector , int damageAmount = 10, Vector3 addVector =  new Vector3(), float scaleScalar = 1)
+    private void MakeBullet(Vector3 travelVector , int damageAmount = 10, Vector3 addVector =  new Vector3(), float scalar = 1)
     {
         var tempBullet = Instantiate(bulletPrefab, transform);
         tempBullet.GetComponent<Bullet>().travelVector = travelVector + addVector;
         tempBullet.GetComponent<Bullet>().damageAmount = damageAmount;
-        tempBullet.GetComponent<Transform>().localScale = new Vector3(0.1f, 0.1f, 0.1f) * scaleScalar;
+        tempBullet.GetComponent<Transform>().localScale = new Vector3(0.1f, 0.1f, 0.1f) * scalar;
     }
     
     private void TryShoot()
@@ -82,6 +82,11 @@ public class Shoot : MonoBehaviour
             _canShoot = false;
             StartCoroutine(ShootDelay());
         }
+    }
+
+    private void ShatterPattern()
+    {
+        
     }
     
     private void MachineGunPattern()

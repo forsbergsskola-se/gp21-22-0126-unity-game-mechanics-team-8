@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum PickupType
 {
-    ShotGun, MachineGun, Bounce, Regular
+    ShotGun, MachineGun, Bounce, Shatter, Regular
 }
 
 public class WeaponPickup : MonoBehaviour

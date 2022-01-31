@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public List<string> possibleTargets = new List<string>() {"Enemy", "Player"};
+//    public List<string> possibleTargets = new List<string>() {"Enemy", "Player"};
     public float lifeSpan = 5.0f;
     public Vector3 travelVector;
     public float moveSpeed = 10.0f;
