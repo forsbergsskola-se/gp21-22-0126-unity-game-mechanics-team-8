@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-//    public List<string> possibleTargets = new List<string>() {"Enemy", "Player"};
+    public List<string> possibleTargets = new List<string>();
     public float lifeSpan = 5.0f;
     public Vector3 travelVector;
     public float moveSpeed = 10.0f;
@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<Damage>().DoDamage(damageAmount);

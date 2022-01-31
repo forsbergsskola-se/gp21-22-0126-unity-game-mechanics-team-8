@@ -13,6 +13,7 @@ public class Shoot : MonoBehaviour
     [SerializeField] private string fireButtonName = "Fire1";
     private float _currentShootDelay = 1.0f;
     private PickupType _pickupType = PickupType.Regular;
+    [SerializeField] private List<string> possibleTargets;
     private bool _canShoot = true;
     private int _currentAmmo;
     [SerializeField] private float baseDamage = 10f;
@@ -72,6 +73,7 @@ public class Shoot : MonoBehaviour
         tempBullet.GetComponent<Bullet>().damageAmount = damageAmount;
         tempBullet.GetComponent<Bullet>().returnHitLocation = returnHitLocation;
         tempBullet.GetComponent<Bullet>().moveSpeed = moveSpeed;
+        tempBullet.GetComponent<Bullet>().possibleTargets = possibleTargets;
         tempBullet.GetComponent<Transform>().localScale = new Vector3(0.1f, 0.1f, 0.1f) * bulletScale;
     }
 
@@ -91,7 +93,7 @@ public class Shoot : MonoBehaviour
                     ShotFired();
                     break;
                 case PickupType.Shatter:
-                    MakeBullet( transform.position, Vector3.right, baseDamage, Vector3.zero, 1, baseBulletSpeed * 0.8f, true);
+                    MakeBullet( transform.position, Vector3.right, baseDamage, Vector3.zero, 1.5f, baseBulletSpeed * 0.8f, true);
                     ShotFired();
                     break;
             }
@@ -110,13 +112,14 @@ public class Shoot : MonoBehaviour
     
     private void ShatterPattern(Vector3 shotLocation)
     {
+        int numberPellets = 8;
         float angle = 0;
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < numberPellets; i++)
         {
+            angle = i * numberPellets/ 360;
             var xMod = MathF.Cos(angle * (Mathf.PI / 180.0f));
             var yMod  = MathF.Sin(angle * (Mathf.PI / 180.0f));
             Vector3 moveVec = new Vector3(1 * xMod, 1 * yMod);
-            angle += 35f;
             Debug.Log(moveVec.x);
 
             MakeBullet(shotLocation,moveVec, baseDamage / 3, Vector3.zero, 0.4f, baseBulletSpeed / 2);
