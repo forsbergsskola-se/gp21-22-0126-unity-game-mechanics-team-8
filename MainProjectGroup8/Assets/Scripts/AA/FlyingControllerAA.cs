@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlyingControllerAA : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class FlyingControllerAA : MonoBehaviour
     [SerializeField] private float  maxStamina = 100;
     [SerializeField] private float gravityFallMultiplier = 2.5f;
     [SerializeField] private BooleanValue jetPackIsOn;
+    [SerializeField] private Slider staminaBar;
     private Coroutine _regen;
     private bool _canFly;
     private float _currentStamina;
@@ -24,6 +26,9 @@ public class FlyingControllerAA : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody>();
         _currentStamina = maxStamina;
         _canFly = true;
+        
+        staminaBar.maxValue = maxStamina;
+        staminaBar.value = maxStamina;
     }
 
 
@@ -46,6 +51,7 @@ public class FlyingControllerAA : MonoBehaviour
         if (_currentStamina - amountOfStaminaDrained >= 0)
         {
             _currentStamina -= amountOfStaminaDrained;
+            staminaBar.value = _currentStamina;
 
             if (_regen != null)
             {
@@ -67,6 +73,7 @@ public class FlyingControllerAA : MonoBehaviour
         {
             _currentStamina += maxStamina / staminaReloadRate;
             _canFly = true;
+            staminaBar.value = _currentStamina;
             yield return _regenTick;
         }
         _regen = null;
