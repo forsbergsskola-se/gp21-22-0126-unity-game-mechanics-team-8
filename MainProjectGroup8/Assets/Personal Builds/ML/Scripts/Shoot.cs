@@ -16,6 +16,9 @@ public class Shoot : MonoBehaviour
     private int _currentAmmo;
     [SerializeField] private int baseDamage = 10;
 
+    public delegate void ShotFiredDelegate();
+    public static event ShotFiredDelegate OnShotFired;
+
     private void Start()
     {
         WeaponPickup.OnPickupPicked += ChangeWeapon;
@@ -80,10 +83,18 @@ public class Shoot : MonoBehaviour
                 ShotgunPattern();
             }
             _canShoot = false;
+            ShotFired();
             StartCoroutine(ShootDelay());
         }
     }
 
+    private void ShotFired()
+    {
+        if (OnShotFired != null)
+            OnShotFired();
+    }
+    
+    
     private void ShatterPattern()
     {
         
