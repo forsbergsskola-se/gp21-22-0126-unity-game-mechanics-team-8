@@ -97,7 +97,7 @@ MonoBehaviour:
   - pickupType: 0
     displayImage: {fileID: 21300000, guid: 813b4bdfa4a8a944bbfc71390a1db0f1, type: 3}
     countAmmo: 1
-    totalAmmo: 12
+    totalAmmo: 2
   - pickupType: 3
     displayImage: {fileID: 21300000, guid: bcf7511688a74d849a1c83858a0fd1fd, type: 3}
     countAmmo: 1

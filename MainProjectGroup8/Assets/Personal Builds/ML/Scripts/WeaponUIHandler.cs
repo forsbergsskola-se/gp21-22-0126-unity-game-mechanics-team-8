@@ -25,26 +25,27 @@ public class WeaponUIHandler : MonoBehaviour
     public delegate void OutOfAmmoDelegate(PickupType pickupType);
     public static event OutOfAmmoDelegate OnOutOfAmmo;
     
-    
     void Start()
     {
-        GetUIElementOfType(PickupType.Regular);
-        SetImage(1);
+    //    SetImage(1);
+        PickupPicked(PickupType.ShotGun);
         SetImage(0);
-        PickupPicked(PickupType.Regular);
         WeaponPickup.OnPickupPicked += PickupPicked;
         Shoot.OnShotFired += ShotFired;
-        
     }
 
     private void ShotFired()
     {
-        _currentAmmo--;
-        gameObject.GetComponentInChildren<TextMeshProUGUI>().text 
-            = _currentAmmo.ToString();
+        if (_currentAmmo > 0)
+        {
+            _currentAmmo--;
+            gameObject.GetComponentInChildren<TextMeshProUGUI>().text = _currentAmmo.ToString();
+        }
 
         if (_currentAmmo < 1)
         {
+            SetImage(1);
+            PickupPicked(PickupType.Regular);
             if (OnOutOfAmmo != null)
                 OnOutOfAmmo(PickupType.Regular);
         }
@@ -58,27 +59,32 @@ public class WeaponUIHandler : MonoBehaviour
     
     private void SetImage(int imageIndex)
     {
-        if (imageIndex == 0)
+        switch (imageIndex)
         {
-            gameObject.GetComponentsInChildren<Image>()[0].sprite = _currentUIElement.displayImage;
+            case 0:
+                gameObject.GetComponentsInChildren<Image>()[0].sprite = _currentUIElement.displayImage;
+                break;
+            case 1:
+                gameObject.GetComponentsInChildren<Image>()[1].sprite = infiniteAmmoImage;
+                break;
+            case 2:
+                gameObject.GetComponentsInChildren<Image>()[1].sprite = null;
+                break;
         }
-        else if (imageIndex == 1)
-        {
-            gameObject.GetComponentsInChildren<Image>()[1].sprite = infiniteAmmoImage;
-        }
+    }
+
+    private void SetAmmoCount()
+    {
+        gameObject.GetComponentInChildren<TextMeshProUGUI>().text = 
+            _currentUIElement.countAmmo ? _currentUIElement.totalAmmo.ToString() : " ";
     }
     
     private void PickupPicked(PickupType pickupType)
     {
         GetUIElementOfType(pickupType);
+        SetImage(0);
         _currentAmmo = _currentUIElement.totalAmmo;
         
-        if(_currentUIElement.countAmmo)
-            gameObject.GetComponentInChildren<TextMeshProUGUI>().text = _currentUIElement.totalAmmo.ToString();
-
-        else
-        {
-            gameObject.GetComponentInChildren<TextMeshProUGUI>().text = " ";
-        }
+        SetAmmoCount();
     }
 }
