@@ -9,8 +9,12 @@ public class Bullet : MonoBehaviour
     public float lifeSpan = 5.0f;
     public Vector3 travelVector;
     public float moveSpeed = 10.0f;
-    public int damageAmount = 10;
+    public float damageAmount = 10;
+    public bool returnHitLocation;
 
+    public delegate void ReturnHitLocationDelegate(Vector3 hitLocation);
+    public static event ReturnHitLocationDelegate OnReturnHitLocation;
+    
     void Start()
     {
         StartCoroutine(DelayDestroy());
@@ -22,6 +26,10 @@ public class Bullet : MonoBehaviour
         {
             other.gameObject.GetComponent<Damage>().DoDamage(damageAmount);
         }
+
+        if (returnHitLocation && OnReturnHitLocation != null)
+            OnReturnHitLocation(transform.position);
+            
         Destroy(gameObject);
     }
     

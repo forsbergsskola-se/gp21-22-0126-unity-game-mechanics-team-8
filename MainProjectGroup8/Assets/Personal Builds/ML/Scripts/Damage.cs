@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-   [SerializeField] int baseHealth = 40;
+   [SerializeField] float baseHealth = 40;
    [SerializeField] private Material damageMaterial;
    private Material _originalMat;
 
 
-   public void DoDamage(int damageAmount)
+   public void DoDamage(float damageAmount)
    {
        if(_originalMat == null)
             _originalMat = GetComponent<Renderer>().material;

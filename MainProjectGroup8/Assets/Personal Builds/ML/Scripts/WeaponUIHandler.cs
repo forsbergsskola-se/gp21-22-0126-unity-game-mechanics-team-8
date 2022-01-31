@@ -27,7 +27,6 @@ public class WeaponUIHandler : MonoBehaviour
     
     void Start()
     {
-    //    SetImage(1);
         PickupPicked(PickupType.ShotGun);
         SetImage(0);
         WeaponPickup.OnPickupPicked += PickupPicked;
@@ -83,6 +82,7 @@ public class WeaponUIHandler : MonoBehaviour
     {
         GetUIElementOfType(pickupType);
         SetImage(0);
+        SetImage(2);
         _currentAmmo = _currentUIElement.totalAmmo;
         
         SetAmmoCount();
