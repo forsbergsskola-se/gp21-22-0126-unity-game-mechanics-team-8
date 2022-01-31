@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CoolDownUIJJ : MonoBehaviour
+public class DashCoolDownUIJJ : MonoBehaviour
 {
 	[SerializeField]
 	private Image shadowImage;
@@ -30,7 +30,7 @@ public class CoolDownUIJJ : MonoBehaviour
 	private void ApplyCoolDown()
 	{
 		coolDownTimer -= Time.deltaTime;
-		Debug.Log(coolDownTimer);
+ 
 		if (coolDownTimer < 0.0f)
 		{
 			shadowImage.fillAmount = 0;	
