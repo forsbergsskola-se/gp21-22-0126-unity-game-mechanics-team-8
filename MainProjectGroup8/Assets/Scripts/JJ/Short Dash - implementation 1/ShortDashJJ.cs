@@ -1,12 +1,12 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))] public class ShortDashJJ : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public class ShortDashJJ : MonoBehaviour
 {
 	[SerializeField]
 	private CommandContainer commandContainer;
-	 
+
 	[SerializeField]
 	private Rigidbody myRigidBody;
 
@@ -24,14 +24,12 @@ using UnityEngine;
 
 	private bool allowDash = true;
 
-	public bool AreDashing { get; private set; }
-
 	private void Update()
 	{
 		if (commandContainer.DashCommand && allowDash)
 		{
-			var movementInputVector = new Vector3(commandContainer.MoveCommandHorizontal, commandContainer.MoveCommandVertical, 0);
-			Dash(movementInputVector);
+			commandContainer.DenyMovementCommand = true;
+			Dash(commandContainer.MoveCommand);
 		}
 	}
 
@@ -40,7 +38,6 @@ using UnityEngine;
 		if (allowDash)
 		{
 			allowDash = false;
-			AreDashing = true;
 			myRigidBody.AddRelativeForce(dashDirection.normalized*dashStrength, ForceMode.Force);
 			StartCoroutine(DashTime(dashTime));
 			StartCoroutine(DashCoolDown(dashCoolDown));
@@ -50,7 +47,6 @@ using UnityEngine;
 	private IEnumerator DashCoolDown(float dashCoolDown)
 	{
 		yield return new WaitForSeconds(dashCoolDown);
-
 		allowDash = true;
 	}
 
@@ -59,6 +55,6 @@ using UnityEngine;
 		yield return new WaitForSeconds(dashTime);
 
 		myRigidBody.velocity *= afterDashVelocityBrakeFactor;
-		AreDashing = false;
+		commandContainer.DenyMovementCommand = false;
 	}
 }

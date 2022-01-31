@@ -15,7 +15,7 @@ public class DashEnemyControllerJJ : MonoBehaviour
 	private float stopDistanceBeforeDash = 5f;
 
 	[SerializeField]
-	private ShortDashJJ dash;
+	private CommandContainer commandContainer;
 
 	private void Update()
 	{
@@ -23,24 +23,23 @@ public class DashEnemyControllerJJ : MonoBehaviour
 		{
 			var dir = proximityDetector.PlayerTransform.position - transform.position;
 			var distanceToPlayer = Vector2.Distance(transform.position, proximityDetector.PlayerTransform.position);
+			commandContainer.MoveCommand = dir.normalized;
 
-			if (distanceToPlayer < stopDistanceBeforeDash)
+			if (proximityDetector.DetectedPlayer)
 			{
-				if (!dash.AreDashing)
+				if (distanceToPlayer < stopDistanceBeforeDash)
 				{
-					myRigidBody.velocity = Vector3.zero;
+					if (!commandContainer.DenyMovementCommand)
+					{
+						myRigidBody.velocity = Vector3.zero;
+					}
+
+					commandContainer.DashCommand = true;
 				}
-
-				//TODO: initiate dash routine w charge-up time or telegraphing attack
-
-				if (!dash.AreDashing)
+				else
 				{
-					dash.Dash(dir);
+					myRigidBody.velocity = commandContainer.MoveCommand*movementSpeed;
 				}
-			}
-			else
-			{
-				myRigidBody.velocity = dir.normalized*movementSpeed;
 			}
 		}
 	}

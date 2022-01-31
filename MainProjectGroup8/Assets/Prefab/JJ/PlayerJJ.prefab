@@ -1,50 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &210725299941761913
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 647375122383325740}
-  - component: {fileID: 1700910985}
-  m_Layer: 0
-  m_Name: AntiFrictionColliderJJ
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &647375122383325740
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210725299941761913}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7860134241555915233}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1700910985
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210725299941761913}
-  m_Material: {fileID: 13400000, guid: d2550cd077e216749badef85d9d0df24, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.55
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2822413827590174849
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,6 +69,7 @@ MonoBehaviour:
   DashCommand: 0
   SprintCommand: 0
   ChargingSprint: 0
+  DenyMovementCommand: 0
 --- !u!1 &7860134241555915237
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +108,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6835329814937311073}
-  - {fileID: 647375122383325740}
   - {fileID: 9031987831707143447}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -252,10 +207,7 @@ MonoBehaviour:
   moveSpeed: 10
   groundChecker: {fileID: 8416012418885418548}
   commandContainer: {fileID: 301793168}
-  dash: {fileID: 1155373857}
-  sprint: {fileID: 1050300050}
   chargingMoveSpeedFactor: 0.5
-  sprintChargingEffect: {fileID: 9031987831707143432}
 --- !u!114 &8416012418885418548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8735105b57453d949a36eb2f1249b65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commandContainer: {fileID: 0}
   myRigidBody: {fileID: 1151829421}
   dashStrength: 1000
   dashCoolDown: 1
@@ -392,7 +345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349517797412295415, guid: b1acef4c015bec5449dda066a1fe5547, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1349517797412295415, guid: b1acef4c015bec5449dda066a1fe5547, type: 3}
       propertyPath: m_LocalPosition.x
@@ -436,11 +389,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1acef4c015bec5449dda066a1fe5547, type: 3}
---- !u!1 &9031987831707143432 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1349517797412295400, guid: b1acef4c015bec5449dda066a1fe5547, type: 3}
-  m_PrefabInstance: {fileID: 8062114435329548256}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9031987831707143447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1349517797412295415, guid: b1acef4c015bec5449dda066a1fe5547, type: 3}

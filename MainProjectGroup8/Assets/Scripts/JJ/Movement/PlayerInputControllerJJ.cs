@@ -14,6 +14,8 @@ public class PlayerInputControllerJJ : MonoBehaviour
 	[SerializeField]
 	private float chargingSprintNotificationTime = 0.2f;
 
+	private Vector3 MoveInput;
+
 	private bool chargingSprint;
 	public float MoveInputHorizontal { get; private set; }
 	public float MoveInputVertical { get; private set; }
@@ -34,6 +36,7 @@ public class PlayerInputControllerJJ : MonoBehaviour
 	{
 		MoveInputHorizontal = Input.GetAxisRaw("Horizontal");
 		MoveInputVertical = Input.GetAxisRaw("Vertical");
+		MoveInput = new Vector3(MoveInputHorizontal, MoveInputVertical, 0);
 		JumpInputDown = Input.GetKeyDown(KeyCode.Space);
 		JumpInputUp = Input.GetKeyUp(KeyCode.Space);
 		JumpInput = Input.GetKey(KeyCode.Space);
@@ -59,6 +62,7 @@ public class PlayerInputControllerJJ : MonoBehaviour
 		commandContainer.DashCommand = LShiftTap;
 		commandContainer.SprintCommand = LShiftLongPress;
 		commandContainer.ChargingSprint = chargingSprint;
+		commandContainer.MoveCommand = MoveInput;
 	}
 
 	private void TapInput()

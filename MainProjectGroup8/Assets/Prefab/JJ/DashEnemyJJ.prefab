@@ -52,6 +52,7 @@ MonoBehaviour:
   DashCommand: 0
   SprintCommand: 0
   ChargingSprint: 0
+  DenyMovementCommand: 0
 --- !u!1 &2070572351519541320
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +124,7 @@ GameObject:
   - component: {fileID: 2070572352123522689}
   - component: {fileID: 4196854620886659909}
   - component: {fileID: 547538771}
+  - component: {fileID: 79545294971889725}
   - component: {fileID: 547538772}
   - component: {fileID: 547538774}
   m_Layer: 0
@@ -228,6 +230,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &79545294971889725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070572352123522700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29dc18873e6a7f245b7c30e6f98a9e96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheckLength: 1
+  groundCheckRadius: 0.5
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &547538772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +263,7 @@ MonoBehaviour:
   proximityDetector: {fileID: 2070572351519541322}
   movementSpeed: 5
   stopDistanceBeforeDash: 5
-  dash: {fileID: 547538774}
+  commandContainer: {fileID: 0}
 --- !u!114 &547538774
 MonoBehaviour:
   m_ObjectHideFlags: 0

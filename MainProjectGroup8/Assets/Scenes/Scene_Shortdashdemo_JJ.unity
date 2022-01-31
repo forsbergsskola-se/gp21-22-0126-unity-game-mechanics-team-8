@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: commandContainer
       value: 
       objectReference: {fileID: 381060961}
+    - target: {fileID: 210725299941761913, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7860134241555915233, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -499,6 +503,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 547538771, guid: e36a2755fbb70bc46bc03aa053a969d6, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 547538772, guid: e36a2755fbb70bc46bc03aa053a969d6, type: 3}
       propertyPath: commandContainer
       value: 
@@ -506,6 +514,10 @@ PrefabInstance:
     - target: {fileID: 2070572352123522700, guid: e36a2755fbb70bc46bc03aa053a969d6, type: 3}
       propertyPath: m_Name
       value: DashEnemyJJ
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070572352123522700, guid: e36a2755fbb70bc46bc03aa053a969d6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2070572352123522703, guid: e36a2755fbb70bc46bc03aa053a969d6, type: 3}
       propertyPath: m_RootOrder

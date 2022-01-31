@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,7 +5,7 @@ public class SprintDashJJ : MonoBehaviour
 {
 	[SerializeField]
 	private CommandContainer commandContainer;
-	
+
 	[SerializeField]
 	private Rigidbody myRigidBody;
 
@@ -23,19 +22,16 @@ public class SprintDashJJ : MonoBehaviour
 	private float sprintTime = 1f;
 
 	private bool allowSprint = true;
-	public bool AreSprinting { get; private set; }
 
 	private void Update()
 	{
 		if (commandContainer.SprintCommand && allowSprint)
 		{
-			var movementInputVector = new Vector3(commandContainer.MoveCommandHorizontal, commandContainer.MoveCommandVertical, 0);
-			StartCoroutine(Sprint(movementInputVector));
-			AreSprinting = true;
+			 
+			StartCoroutine(Sprint(commandContainer.MoveCommand));
+			commandContainer.DenyMovementCommand = true;
 		}
 	}
-
-	 
 
 	private IEnumerator Sprint(Vector3 dir)
 	{
@@ -45,7 +41,7 @@ public class SprintDashJJ : MonoBehaviour
 
 		myRigidBody.velocity *= afterSprintBrakeFactor;
 		allowSprint = false;
-		AreSprinting = false;
+		commandContainer.DenyMovementCommand = false;
 		StartCoroutine(SprintCoolDown(sprintCoolDown));
 	}
 
