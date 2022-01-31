@@ -30,14 +30,13 @@ public class DashEnemyControllerJJ : MonoBehaviour
 				{
 					myRigidBody.velocity = Vector3.zero;
 				}
-				
+
 				//TODO: initiate dash routine w charge-up time or telegraphing attack
-				
+
 				if (!dash.AreDashing)
 				{
 					dash.Dash(dir);
 				}
-				 
 			}
 			else
 			{

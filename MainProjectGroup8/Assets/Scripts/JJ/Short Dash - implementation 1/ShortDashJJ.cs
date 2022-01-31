@@ -1,10 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class ShortDashJJ : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))] public class ShortDashJJ : MonoBehaviour
 {
-
 	[SerializeField]
 	private Rigidbody myRigidBody;
 

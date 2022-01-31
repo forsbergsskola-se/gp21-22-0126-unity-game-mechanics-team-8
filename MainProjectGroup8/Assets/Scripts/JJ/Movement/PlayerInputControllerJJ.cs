@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerInputControllerJJ : MonoBehaviour
 {
 	[SerializeField]
-	private float pressTimeTolerance = 0.5f;
+	private float pressTimeTolerance = 0.7f;
 
 	[SerializeField]
 	private CommandContainer commandContainer;
