@@ -26,7 +26,7 @@ public class PlayerWalkControllerJJ : MonoBehaviour
 			currentMoveSpeed *= chargingMoveSpeedFactor;
 		}
 
-		if (!commandContainer.DenyMovementCommand)
+		if (!commandContainer.DenyMoveCommand)
 		{
 			myRigidBody.velocity = new Vector3(commandContainer.MoveCommandHorizontal*currentMoveSpeed, myRigidBody.velocity.y, 0);
 		}

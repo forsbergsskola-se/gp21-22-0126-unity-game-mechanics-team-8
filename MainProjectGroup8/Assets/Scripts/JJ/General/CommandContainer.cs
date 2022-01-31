@@ -5,7 +5,7 @@ public class CommandContainer : MonoBehaviour
 	//Can be hidden later, visible for debug purposes
 	public float MoveCommandHorizontal;
 	public float MoveCommandVertical;
-	public Vector3 MoveCommand;
+	public Vector3 MoveDirectionCommand;
 	public bool JumpCommandDown;
 	public bool JumpCommandUp;
 	public bool JumpCommand;
@@ -13,5 +13,5 @@ public class CommandContainer : MonoBehaviour
 	public bool DashCommand;
 	public bool SprintCommand;
 	public bool ChargingSprint;
-	public bool DenyMovementCommand;
+	public bool DenyMoveCommand;
 }

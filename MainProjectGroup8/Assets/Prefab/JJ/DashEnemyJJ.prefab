@@ -46,13 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveCommandHorizontal: 0
   MoveCommandVertical: 0
+  MoveDirectionCommand: {x: 0, y: 0, z: 0}
   JumpCommandDown: 0
   JumpCommandUp: 0
   JumpCommand: 0
   DashCommand: 0
   SprintCommand: 0
   ChargingSprint: 0
-  DenyMovementCommand: 0
+  DenyMoveCommand: 0
 --- !u!1 &2070572351519541320
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +264,7 @@ MonoBehaviour:
   proximityDetector: {fileID: 2070572351519541322}
   movementSpeed: 5
   stopDistanceBeforeDash: 5
-  commandContainer: {fileID: 0}
+  commandContainer: {fileID: 913897969}
 --- !u!114 &547538774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +280,6 @@ MonoBehaviour:
   commandContainer: {fileID: 913897969}
   myRigidBody: {fileID: 547538771}
   dashStrength: 1000
-  dashCoolDown: 4
+  dashCoolDown: 2
   dashTime: 0.25
   afterDashVelocityBrakeFactor: 0.2

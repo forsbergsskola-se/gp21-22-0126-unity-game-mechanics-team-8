@@ -23,14 +23,30 @@ public class SprintDashJJ : MonoBehaviour
 
 	private bool allowSprint = true;
 
+	[SerializeField]
+	private GameObject sprintChargeEffect;
+
+	[SerializeField]
+	private GroundCheckerJJ groundChecker;
+	
 	private void Update()
 	{
-		if (commandContainer.SprintCommand && allowSprint)
+		if (commandContainer.ChargingSprint)
 		{
+			sprintChargeEffect.SetActive(true);	
+			if (commandContainer.SprintCommand && allowSprint && groundChecker.IsGrounded)
+			{
 			 
-			StartCoroutine(Sprint(commandContainer.MoveCommand));
-			commandContainer.DenyMovementCommand = true;
+				StartCoroutine(Sprint(commandContainer.MoveDirectionCommand));
+				commandContainer.DenyMoveCommand = true;
+			}
 		}
+
+		if (!commandContainer.ChargingSprint && !commandContainer.SprintCommand)
+		{
+			sprintChargeEffect.SetActive(false);
+		}
+		
 	}
 
 	private IEnumerator Sprint(Vector3 dir)
@@ -41,7 +57,7 @@ public class SprintDashJJ : MonoBehaviour
 
 		myRigidBody.velocity *= afterSprintBrakeFactor;
 		allowSprint = false;
-		commandContainer.DenyMovementCommand = false;
+		commandContainer.DenyMoveCommand = false;
 		StartCoroutine(SprintCoolDown(sprintCoolDown));
 	}
 

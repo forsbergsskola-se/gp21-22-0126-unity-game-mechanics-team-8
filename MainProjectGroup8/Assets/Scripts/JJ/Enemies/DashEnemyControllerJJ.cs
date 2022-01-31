@@ -23,13 +23,13 @@ public class DashEnemyControllerJJ : MonoBehaviour
 		{
 			var dir = proximityDetector.PlayerTransform.position - transform.position;
 			var distanceToPlayer = Vector2.Distance(transform.position, proximityDetector.PlayerTransform.position);
-			commandContainer.MoveCommand = dir.normalized;
+			commandContainer.MoveDirectionCommand = dir.normalized;
 
 			if (proximityDetector.DetectedPlayer)
 			{
 				if (distanceToPlayer < stopDistanceBeforeDash)
 				{
-					if (!commandContainer.DenyMovementCommand)
+					if (!commandContainer.DenyMoveCommand)
 					{
 						myRigidBody.velocity = Vector3.zero;
 					}
@@ -38,7 +38,7 @@ public class DashEnemyControllerJJ : MonoBehaviour
 				}
 				else
 				{
-					myRigidBody.velocity = commandContainer.MoveCommand*movementSpeed;
+					myRigidBody.velocity = commandContainer.MoveDirectionCommand*movementSpeed;
 				}
 			}
 		}

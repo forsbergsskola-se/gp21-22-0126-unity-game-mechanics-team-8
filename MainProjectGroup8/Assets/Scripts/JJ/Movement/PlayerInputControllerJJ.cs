@@ -62,7 +62,7 @@ public class PlayerInputControllerJJ : MonoBehaviour
 		commandContainer.DashCommand = LShiftTap;
 		commandContainer.SprintCommand = LShiftLongPress;
 		commandContainer.ChargingSprint = chargingSprint;
-		commandContainer.MoveCommand = MoveInput;
+		commandContainer.MoveDirectionCommand = MoveInput;
 	}
 
 	private void TapInput()

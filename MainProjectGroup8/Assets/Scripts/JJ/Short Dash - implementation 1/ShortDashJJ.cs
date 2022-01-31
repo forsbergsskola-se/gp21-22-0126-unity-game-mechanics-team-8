@@ -28,12 +28,12 @@ public class ShortDashJJ : MonoBehaviour
 	{
 		if (commandContainer.DashCommand && allowDash)
 		{
-			commandContainer.DenyMovementCommand = true;
-			Dash(commandContainer.MoveCommand);
+			commandContainer.DenyMoveCommand = true;
+			Dash(commandContainer.MoveDirectionCommand);
 		}
 	}
 
-	public void Dash(Vector3 dashDirection)
+	private void Dash(Vector3 dashDirection)
 	{
 		if (allowDash)
 		{
@@ -55,6 +55,6 @@ public class ShortDashJJ : MonoBehaviour
 		yield return new WaitForSeconds(dashTime);
 
 		myRigidBody.velocity *= afterDashVelocityBrakeFactor;
-		commandContainer.DenyMovementCommand = false;
+		commandContainer.DenyMoveCommand = false;
 	}
 }

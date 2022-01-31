@@ -63,13 +63,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveCommandHorizontal: 0
   MoveCommandVertical: 0
+  MoveDirectionCommand: {x: 0, y: 0, z: 0}
   JumpCommandDown: 0
   JumpCommandUp: 0
   JumpCommand: 0
   DashCommand: 0
   SprintCommand: 0
   ChargingSprint: 0
-  DenyMovementCommand: 0
+  DenyMoveCommand: 0
 --- !u!1 &7860134241555915237
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8735105b57453d949a36eb2f1249b65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commandContainer: {fileID: 0}
+  commandContainer: {fileID: 301793168}
   myRigidBody: {fileID: 1151829421}
   dashStrength: 1000
   dashCoolDown: 1
@@ -280,6 +281,8 @@ MonoBehaviour:
   sprintCoolDown: 3
   afterSprintBrakeFactor: 0.2
   sprintTime: 0.75
+  sprintChargeEffect: {fileID: 9031987831707143432}
+  groundChecker: {fileID: 8416012418885418548}
 --- !u!1001 &8062114435329548256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -389,6 +392,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1acef4c015bec5449dda066a1fe5547, type: 3}
+--- !u!1 &9031987831707143432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1349517797412295400, guid: b1acef4c015bec5449dda066a1fe5547, type: 3}
+  m_PrefabInstance: {fileID: 8062114435329548256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9031987831707143447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1349517797412295415, guid: b1acef4c015bec5449dda066a1fe5547, type: 3}
