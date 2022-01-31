@@ -11,8 +11,9 @@ public class PlayerWalkControllerJJ : MonoBehaviour
 	[SerializeField]
 	private GroundCheckerJJ groundChecker;
 
-	public PlayerInputControllerJJ playerInputController;
-
+	[SerializeField]
+	private CommandContainer commandContainer;
+	
 	[SerializeField]
 	private ShortDashJJ dash;
 
@@ -26,26 +27,30 @@ public class PlayerWalkControllerJJ : MonoBehaviour
 	{
 		var currentMoveSpeed = moveSpeed;
 
-		if (playerInputController.JumpInput && groundChecker.IsGrounded)
+		if (commandContainer.JumpCommand && groundChecker.IsGrounded)
 		{
 			currentMoveSpeed *= chargingMoveSpeedFactor;
 		}
-			var movementInputVector = new Vector3(playerInputController.MoveInputHorizontal, playerInputController.MoveInputVertical, 0);
+			var movementInputVector = new Vector3(commandContainer.MoveCommandHorizontal, commandContainer.MoveCommandVertical, 0);
 
-		if (playerInputController.LShiftDash)
+		if (commandContainer.LShiftTapCommand)
 		{
- 
-			dash.Dash(movementInputVector);
+  			dash.Dash(movementInputVector);
 		}
 
-		if (playerInputController.LShiftSprint && groundChecker.IsGrounded)
+		if (commandContainer.ChargingSprint)
 		{
-			sprint.SprintDash(movementInputVector);
+			
+			if (commandContainer.LShiftLongPressCommand && groundChecker.IsGrounded)
+			{
+				sprint.SprintDash(movementInputVector);
+			}
 		}
+		
 
 		if (!dash.AreDashing && !sprint.AreSprinting)
 		{
-			myRigidBody.velocity = new Vector3(playerInputController.MoveInputHorizontal*currentMoveSpeed, myRigidBody.velocity.y, 0);
+			myRigidBody.velocity = new Vector3(commandContainer.MoveCommandHorizontal*currentMoveSpeed, myRigidBody.velocity.y, 0);
 		}
 	}
 }

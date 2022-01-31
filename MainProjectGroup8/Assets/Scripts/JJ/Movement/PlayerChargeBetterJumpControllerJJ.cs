@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerChargeBetterJumpControllerJJ : MonoBehaviour
 {
     [SerializeField]
-    private PlayerInputControllerJJ playerInputController;
+    private CommandContainer commandContainer;
 
     [SerializeField]
     private Rigidbody myRigidBody;
@@ -30,13 +30,13 @@ public class PlayerChargeBetterJumpControllerJJ : MonoBehaviour
 
     private void Update()
     {
-        if (playerInputController.JumpInput)
+        if (commandContainer.JumpCommand)
         {
             
             jumpCharge += Time.deltaTime/chargeTime;
         }
 
-        if (playerInputController.JumpInputUp)
+        if (commandContainer.JumpCommandUp)
         {
             var jumpForce = Mathf.Lerp(minimumJumpForce, maximumJumpForce, jumpCharge);
             jumpCharge = 0f;
@@ -51,7 +51,7 @@ public class PlayerChargeBetterJumpControllerJJ : MonoBehaviour
         {
             myRigidBody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
             
-        } else if (myRigidBody.velocity.y > 0 && !playerInputController.JumpInputUp)
+        } else if (myRigidBody.velocity.y > 0 && !commandContainer.JumpCommandUp)
         {
             myRigidBody.velocity += Vector3.up * Physics.gravity.y * (gravityFallMultiplier - 1)*Time.deltaTime;
         }

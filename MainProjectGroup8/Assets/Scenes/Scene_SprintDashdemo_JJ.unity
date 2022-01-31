@@ -357,9 +357,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3670845446976491370, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
-      propertyPath: gravityFallMultiplier
-      value: 2
+    - target: {fileID: 2017394830790752166, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
+      propertyPath: commandContainer
+      value: 
+      objectReference: {fileID: 1155373857}
+    - target: {fileID: 2822413827590174849, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
+      propertyPath: m_Name
+      value: PlayerInputAndCommandsJJ
       objectReference: {fileID: 0}
     - target: {fileID: 7860134241555915233, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
       propertyPath: m_RootOrder
@@ -409,12 +413,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerJJ
       objectReference: {fileID: 0}
-    - target: {fileID: 8416012418885418548, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
-      propertyPath: groundCheckLength
-      value: 0.55
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
+--- !u!1 &1155373856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2822413827590174849, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
+  m_PrefabInstance: {fileID: 1155373855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1155373857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155373856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab5bbb9fdf3e4c459578c8b2c038af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveCommandHorizontal: 0
+  MoveCommandVertical: 0
+  JumpCommandDown: 0
+  JumpCommandUp: 0
+  JumpCommand: 0
+  LShiftTapCommand: 0
+  LShiftLongPressCommand: 0
 --- !u!1 &1347817203
 GameObject:
   m_ObjectHideFlags: 3
@@ -543,10 +567,6 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1851738264934591777, guid: aa7af312599106644a872e5b92514f00, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 60.607998
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851738264934591777, guid: aa7af312599106644a872e5b92514f00, type: 3}
       propertyPath: m_LocalPosition.x
       value: -109.2
       objectReference: {fileID: 0}
@@ -602,10 +622,6 @@ PrefabInstance:
     - target: {fileID: 1851738264934591777, guid: aa7af312599106644a872e5b92514f00, type: 3}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851738264934591777, guid: aa7af312599106644a872e5b92514f00, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 60.607998
       objectReference: {fileID: 0}
     - target: {fileID: 1851738264934591777, guid: aa7af312599106644a872e5b92514f00, type: 3}
       propertyPath: m_LocalPosition.x
@@ -665,10 +681,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1851738264934591777, guid: aa7af312599106644a872e5b92514f00, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 60.607998
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851738264934591777, guid: aa7af312599106644a872e5b92514f00, type: 3}
       propertyPath: m_LocalPosition.x
       value: -110.7
       objectReference: {fileID: 0}
@@ -721,18 +733,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1422291570363549640, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
-      propertyPath: field of view
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422291570363549640, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
-      propertyPath: far clip plane
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422291570363549640, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
-      propertyPath: near clip plane
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1422291570363549642, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
       propertyPath: m_Name
       value: Main CameraJJ
