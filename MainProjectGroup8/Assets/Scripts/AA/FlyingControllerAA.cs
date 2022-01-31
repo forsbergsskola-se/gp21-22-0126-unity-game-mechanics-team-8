@@ -12,6 +12,8 @@ public class FlyingControllerAA : MonoBehaviour
     [SerializeField] private float staminaReloadTime = 2f;
     [SerializeField] private float staminaReloadRate = 30f;
     [SerializeField] private float  maxStamina = 100;
+    [SerializeField] private float gravityFallMultiplier = 2.5f;
+    [SerializeField] private BooleanValue jetPackIsOn;
     private Coroutine _regen;
     private bool _canFly;
     private float _currentStamina;
@@ -27,10 +29,15 @@ public class FlyingControllerAA : MonoBehaviour
 
     private void Update()
     {
-        if (playerInputController.FlyingInput && _canFly)
+        if (playerInputController.FlyingInput && _canFly && jetPackIsOn.BoolValue)
         {
             myRigidbody.AddForce(Vector3.up * flyForce);
             UseStamina(staminaDrain);
+        }
+        
+        if (myRigidbody.velocity.y < 0)
+        {
+            myRigidbody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
         }
     }
     
