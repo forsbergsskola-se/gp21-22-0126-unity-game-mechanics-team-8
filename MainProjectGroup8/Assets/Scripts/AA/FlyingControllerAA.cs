@@ -28,7 +28,7 @@ public class FlyingControllerAA : MonoBehaviour
 
     private void Update()
     {
-        if (playerInputController.FlyingInput && _canFly && jetPackIsOn)
+        if (playerInputController.FlyingInput && _canFly && jetPackIsOn.BoolValue)
         {
             myRigidbody.AddForce(Vector3.up * flyForce);
             UseStamina(staminaDrain);

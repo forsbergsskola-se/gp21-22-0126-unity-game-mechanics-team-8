@@ -348,6 +348,8 @@ MonoBehaviour:
   staminaDrain: 0.1
   staminaReloadTime: 2
   staminaReloadRate: 30
+  maxStamina: 100
+  jetPackIsOn: {fileID: 11400000, guid: 156dabd9ea977354896923f786031618, type: 2}
 --- !u!114 &125122561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,7 +505,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.284974, y: 1}
+    m_SensorSize: {x: 2.25, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
