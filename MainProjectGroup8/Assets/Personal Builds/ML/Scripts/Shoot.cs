@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
 public class Shoot : MonoBehaviour
@@ -14,25 +15,26 @@ public class Shoot : MonoBehaviour
     private PickupType _pickupType = PickupType.Regular;
     private bool _canShoot = true;
     private int _currentAmmo;
-    [SerializeField] private int baseDamage = 10;
+    [SerializeField] private float baseDamage = 10f;
+    [SerializeField] private float baseBulletSpeed = 10f;
 
     public delegate void ShotFiredDelegate();
     public static event ShotFiredDelegate OnShotFired;
 
     private void Start()
     {
-        ChangeWeapon(PickupType.ShotGun);
+        ChangeWeapon(PickupType.Shatter);
         WeaponPickup.OnPickupPicked += ChangeWeapon;
         WeaponUIHandler.OnOutOfAmmo += ChangeWeapon;
+        Bullet.OnReturnHitLocation += ShatterPattern;
     }
-
-
+    
     private void ChangeWeapon(PickupType pickupType)
     {
         switch (pickupType)
         {
-            case PickupType.MachineGun:
-                _currentShootDelay = 0.3f;
+            case PickupType.Shatter:
+                _currentShootDelay = 1.7f;
                 break;
             
             case PickupType.ShotGun:
@@ -56,34 +58,44 @@ public class Shoot : MonoBehaviour
 
         else if (Input.GetButton(fireButtonName) && _pickupType == PickupType.MachineGun && _canShoot)
         {
-            MakeBullet(Vector3.right, baseDamage / 2);
+            MakeBullet(transform.position,Vector3.right, baseDamage / 2f);
             StartCoroutine(ShootDelay());
             _canShoot = false;
         }
     }
 
 
-    private void MakeBullet(Vector3 travelVector , int damageAmount = 10, Vector3 addVector =  new Vector3(), float scalar = 1)
+    private void MakeBullet(Vector3 bulletPos, Vector3 travelVector , float damageAmount = 10, Vector3 addVector =  new Vector3(), float bulletScale = 1, float moveSpeed = 10.0f, bool returnHitLocation = false)
     {
-        var tempBullet = Instantiate(bulletPrefab, transform);
+        var tempBullet = Instantiate(bulletPrefab, bulletPos, Quaternion.identity);
         tempBullet.GetComponent<Bullet>().travelVector = travelVector + addVector;
         tempBullet.GetComponent<Bullet>().damageAmount = damageAmount;
-        tempBullet.GetComponent<Transform>().localScale = new Vector3(0.1f, 0.1f, 0.1f) * scalar;
+        tempBullet.GetComponent<Bullet>().returnHitLocation = returnHitLocation;
+        tempBullet.GetComponent<Bullet>().moveSpeed = moveSpeed;
+        tempBullet.GetComponent<Transform>().localScale = new Vector3(0.1f, 0.1f, 0.1f) * bulletScale;
     }
+
+    
     
     private void TryShoot()
     {
         if (_canShoot)
         {
-            if (_pickupType != PickupType.ShotGun)
+            switch (_pickupType)
             {
-                MakeBullet(Vector3.right);
+                case PickupType.Regular:
+                    MakeBullet(transform.position, Vector3.right);
+                    break;
+                case PickupType.ShotGun:
+                    ShotgunPattern();
+                    ShotFired();
+                    break;
+                case PickupType.Shatter:
+                    MakeBullet( transform.position, Vector3.right, baseDamage, Vector3.zero, 1, baseBulletSpeed * 0.8f, true);
+                    ShotFired();
+                    break;
             }
-            if (_pickupType == PickupType.ShotGun)
-            {
-                ShotgunPattern();
-                ShotFired();
-            }
+
             _canShoot = false;
             StartCoroutine(ShootDelay());
         }
@@ -96,9 +108,19 @@ public class Shoot : MonoBehaviour
     }
     
     
-    private void ShatterPattern()
+    private void ShatterPattern(Vector3 shotLocation)
     {
-        
+        float angle = 0;
+        for (int i = 0; i < 8; i++)
+        {
+            var xMod = MathF.Cos(angle * (Mathf.PI / 180.0f));
+            var yMod  = MathF.Sin(angle * (Mathf.PI / 180.0f));
+            Vector3 moveVec = new Vector3(1 * xMod, 1 * yMod);
+            angle += 35f;
+            Debug.Log(moveVec.x);
+
+            MakeBullet(shotLocation,moveVec, baseDamage / 3, Vector3.zero, 0.4f, baseBulletSpeed / 2);
+        }
     }
     
     private void MachineGunPattern()
@@ -107,7 +129,7 @@ public class Shoot : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             if(_canShoot) 
-                MakeBullet(Vector3.right);
+              //  MakeBullet(Vector3.right);
             StartCoroutine(ShootDelay());
         }
     }
@@ -118,7 +140,7 @@ public class Shoot : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             addVector += new Vector3(0, 0.2f, 0);
-            MakeBullet(Vector3.right, baseDamage / 3, addVector, 0.5f);
+            MakeBullet(transform.position,Vector3.right, baseDamage / 3, addVector, 0.5f);
         }
     }
 
