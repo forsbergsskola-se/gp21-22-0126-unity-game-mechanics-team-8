@@ -11,14 +11,9 @@ public class DashCoolDownUIJJ : MonoBehaviour
 
 	private float coolDownTimer;
 	private bool isOnCoolDown = false;
+ 
 
-	private Action<EventParam> listener;
-
-	private void Awake()
-	{
-		listener = CoolDownEvent;
-	}
-
+	 
 	private void Start()
 	{
 		shadowImage.fillAmount = 0;
@@ -32,16 +27,7 @@ public class DashCoolDownUIJJ : MonoBehaviour
 		}
 	}
 
-	private void OnEnable()
-	{
-		EventManagerJJ.Instance.StartListening(EventList.UpdateDashUI, listener);
-	}
-
-	private void OnDisable()
-	{
-		EventManagerJJ.Instance.StopListening(EventList.UpdateDashUI, listener);
-	}
-
+	 
 	private void ApplyCoolDown()
 	{
 
@@ -58,9 +44,9 @@ public class DashCoolDownUIJJ : MonoBehaviour
 		}
 	}
 
-	public void CoolDownEvent(EventParam eventParam)
+	public void CoolDownEvent()
 	{
-		coolDownTime = eventParam.EventFloat;
+		// coolDownTime = 
 		coolDownTimer = coolDownTime;
 		isOnCoolDown = true;
 	}

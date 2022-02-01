@@ -13,13 +13,9 @@ public class SprintCoolDownJJUI : MonoBehaviour
 
 	private float coolDownTimer;
 
-	private Action<EventParam> listener;
+ 
 
-	private void Awake()
-	{
-		listener = CoolDownEvent;
-	}
-
+	 
 	private void Start()
 	{
 		shadowImage.fillAmount = 0;
@@ -33,16 +29,7 @@ public class SprintCoolDownJJUI : MonoBehaviour
 		}
 	}
 
-	private void OnEnable()
-	{
-		EventManagerJJ.Instance.StartListening(EventList.UpdateSprintUI, listener);
-	}
-
-	private void OnDisable()
-	{
-		EventManagerJJ.Instance.StopListening(EventList.UpdateSprintUI, listener);
-	}
-
+	 
 	private void ApplyCoolDown()
 	{
 		coolDownTimer -= Time.deltaTime;
@@ -57,9 +44,9 @@ public class SprintCoolDownJJUI : MonoBehaviour
 		}
 	}
 
-	public void CoolDownEvent(EventParam eventParam)
+	public void CoolDownEvent()
 	{
-		coolDownTime = eventParam.EventFloat;
+		// coolDownTime = 
 		coolDownTimer = coolDownTime;
 	}
 }

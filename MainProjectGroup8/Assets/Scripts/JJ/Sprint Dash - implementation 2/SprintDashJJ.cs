@@ -26,7 +26,7 @@ public class SprintDashJJ : MonoBehaviour
 
 	private bool allowSprint = true;
 
-	private EventParam UISprintCoolDown = new EventParam();
+ 
 
 	private void Update()
 	{
@@ -46,9 +46,6 @@ public class SprintDashJJ : MonoBehaviour
 		myRigidBody.velocity *= afterSprintBrakeFactor;
 		allowSprint = false;
 		commandContainer.DenyMoveCommand = false;
-		// UISprintCoolDown.EventFloat = sprintCoolDown;
-	 //
-		// EventManagerJJ.TriggerEvent(EventList.UpdateSprintUI, UISprintCoolDown);
 		StartCoroutine(SprintCoolDown(sprintCoolDown));
 	}
 
