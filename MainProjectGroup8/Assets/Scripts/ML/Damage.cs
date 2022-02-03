@@ -20,7 +20,6 @@ public class Damage : MonoBehaviour
    
    public void TakeDamage(float damageAmount)
    {
-       Debug.Log("player takes damage");
        if(_originalMat == null)
             _originalMat = GetComponent<Renderer>().material;
        

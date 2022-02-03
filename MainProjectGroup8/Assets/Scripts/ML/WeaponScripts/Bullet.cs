@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -22,12 +23,11 @@ public class Bullet : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+
         for (int i = 0; i < possibleTargets.Count; i++)
         {
             if (other.gameObject.CompareTag(possibleTargets[i]))
             {
-                Debug.Log("correct target hit");
-                
                 if (other.gameObject.GetComponent<Damage>())
                     other.gameObject.GetComponent<Damage>().TakeDamage(damageAmount);
                 

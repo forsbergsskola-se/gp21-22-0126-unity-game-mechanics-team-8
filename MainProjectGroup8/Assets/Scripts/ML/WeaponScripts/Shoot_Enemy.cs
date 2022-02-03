@@ -31,7 +31,7 @@ public class Shoot_Enemy : Shoot
     private void Update()
     {
         var dot = Vector3.Dot(playerTransform.forward, transform.forward);
-        Debug.Log(dot);
+    //    Debug.Log(dot);
         
         if (dot > 0 && Vector3.Distance(playerTransform.position, transform.position) < 8)
         {

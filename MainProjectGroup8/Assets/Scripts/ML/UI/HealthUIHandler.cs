@@ -4,21 +4,43 @@ using System.Linq;
 using SplineMesh;
 using UnityEngine;
 
+public enum HeartSetType
+{
+    Full, Half, Empty
+}
+
 public class HealthUIHandler : MonoBehaviour
 {
     [SerializeField] private Sprite FullHeart;
     [SerializeField] private Sprite HalfHeart;
     [SerializeField] private Sprite EmptyHeart;
+    private List<Sprite> _spriteList;
 
     void Start()
     {
+        _spriteList = gameObject.GetComponentsInChildren<Sprite>().ToList();
+        
         Damage.OnPlayerTakesDamage += TakeDamage;
     }
 
 
+    private void GetHeartFromList(out Sprite heartSprite, int index)
+    {
+        heartSprite = gameObject.GetComponentsInChildren<Sprite>().ToList()[index];
+    }
+
+    private void SetSpriteByType(HeartSetType heartSetType, int indexToSet)
+    {
+        
+    }
+    
+
     private void TakeDamage(float damageAmount)
     {
         var hearts = gameObject.GetComponentsInChildren<Sprite>().ToList();
+        
+    //    hearts.Where(x => x.)
+        
         int realDamage = 0;
         Sprite tempSprite;
         
@@ -28,11 +50,26 @@ public class HealthUIHandler : MonoBehaviour
             realDamage = 2;
         if (damageAmount > 15)
             realDamage = 3;
-        
+
+        if (realDamage >= 1)
+        {
+           var  d = hearts.Where(x => x == FullHeart).Select(x => x = HalfHeart).ToList();
+        //   d = HalfHeart;
+
+        }
+
+        if (realDamage >= 1 && realDamage < 3)
+        {
+ //           hearts.Where(x => x == HalfHeart)
+        }
+
+
+
         for (int i = 2; i >= 0; i--)
         {
-            tempSprite = hearts[i];
-            if (hearts[i] == FullHeart)
+            GetHeartFromList(out tempSprite,i);
+
+            if (tempSprite == FullHeart)
             {
                 if (realDamage > 1)
                 {

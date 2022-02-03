@@ -33,7 +33,6 @@ public class Ammo_Shatter : Ammo
             var xMod = MathF.Cos(angle * (Mathf.PI / 180.0f));
             var yMod  = MathF.Sin(angle * (Mathf.PI / 180.0f));
             Vector3 moveVec = new Vector3(1 * xMod, 1 * yMod);
-            Debug.Log(moveVec.x);
 
             MakeBullet(shotLocation,moveVec, baseDamage / 3, Vector3.zero, 0.4f, baseBulletSpeed / 2);
         }
