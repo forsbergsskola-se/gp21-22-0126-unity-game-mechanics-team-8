@@ -52,7 +52,7 @@ public class HealthUIHandler : MonoBehaviour
         }
     }
 
-    private bool GetHalfHeart(out Image heart)
+    private void GetHalfHeart(out Image heart)
     {
         heart = gameObject.GetComponentsInChildren<Image>()
             .SingleOrDefault(x => x.sprite == HalfHeart);
@@ -66,7 +66,6 @@ public class HealthUIHandler : MonoBehaviour
         heart = gameObject.GetComponentsInChildren<Image>()
             .Where(x => x.sprite == FullHeart).ToList();
         
-        if
 
         return result;
     }

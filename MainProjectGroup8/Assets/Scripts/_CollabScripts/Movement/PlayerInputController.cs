@@ -24,6 +24,10 @@ public class PlayerInputController : MonoBehaviour
 
 	public bool LShiftTap { get; private set; }
 	public bool LShiftLongPress { get; private set; }
+	
+	public bool ParachuteInput { get; private set; }
+	
+	public bool FlyingInput { get; private set; }
 
 	private void Update()
 	{
@@ -39,6 +43,8 @@ public class PlayerInputController : MonoBehaviour
 		JumpInputDown = Input.GetKeyDown(KeyCode.Space);
 		JumpInputUp = Input.GetKeyUp(KeyCode.Space);
 		JumpInput = Input.GetKey(KeyCode.Space);
+		FlyingInput = Input.GetKey(KeyCode.Q);
+		ParachuteInput = Input.GetKey(KeyCode.E);
 		LShiftTap = false;
 
 		if (Input.GetKey(KeyCode.LeftShift))

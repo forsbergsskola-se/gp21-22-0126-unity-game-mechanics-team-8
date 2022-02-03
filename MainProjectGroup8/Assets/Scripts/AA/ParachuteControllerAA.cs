@@ -7,7 +7,7 @@ public class ParachuteControllerAA : MonoBehaviour
     [SerializeField] private Rigidbody myRigidbody;
     [SerializeField] private float parachuteForce = .5f;
     [SerializeField] private float parachuteOpeningTime = .5f;
-    [SerializeField] private PlayerInputControllerAA playerInputController;
+    [SerializeField] private PlayerInputController playerInputController;
     [SerializeField] private BooleanValue parachuteIsOn;
     
     void Update()

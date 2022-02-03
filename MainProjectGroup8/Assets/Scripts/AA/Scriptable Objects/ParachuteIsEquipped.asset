@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb6a3c3bbbe45a45b3da3c0d0f8f759, type: 3}
   m_Name: ParachuteIsEquipped
   m_EditorClassIdentifier: 
-  boolValue: 0
+  boolValue: 1

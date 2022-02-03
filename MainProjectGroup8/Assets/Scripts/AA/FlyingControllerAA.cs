@@ -8,7 +8,7 @@ public class FlyingControllerAA : MonoBehaviour
 {
     [SerializeField] private Rigidbody myRigidbody;
     [SerializeField] private float flyForce = 100f;
-    [SerializeField] private PlayerInputControllerAA playerInputController;
+    [SerializeField] private PlayerInputController playerInputController;
     [SerializeField] private float staminaDrain = 0.4f;
     [SerializeField] private float staminaReloadTime = 2f;
     [SerializeField] private float staminaReloadRate = 30f;
