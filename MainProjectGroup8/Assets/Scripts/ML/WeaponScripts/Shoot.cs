@@ -53,18 +53,4 @@ public abstract class Shoot : MonoBehaviour
 
         _currentAmmo.bulletPrefab = bulletPrefab;
     }
-
-
-    void Update()
-    {
-        UpdateMethod();
-    }
-
-    protected abstract void UpdateMethod();
-
-    private IEnumerator ShootDelay()
-    {
-        yield return new WaitForSeconds(_shootDelay);
-        canShoot = true;
-    }
 }

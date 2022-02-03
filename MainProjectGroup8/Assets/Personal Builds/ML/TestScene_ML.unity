@@ -616,6 +616,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a604ef506a9a1ca4b80c20b8426fa169, type: 3}
+--- !u!1 &2029279416 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7020954696226336782, guid: 19bf2c6bc67ce0d4ab18134a1754527d, type: 3}
+  m_PrefabInstance: {fileID: 7186934287603139374}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2029279423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029279416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdace42e60073da4a900d013c7813c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  baseDamage: 10
+  baseBulletSpeed: 1
+  forwardVector: {x: 1, y: 0, z: 0}
+  canShoot: 1
+  fireButtonName: Fire1
 --- !u!1001 &3024572095461710985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -780,7 +803,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5501342186093442908, guid: 19bf2c6bc67ce0d4ab18134a1754527d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19bf2c6bc67ce0d4ab18134a1754527d, type: 3}
 --- !u!1001 &7721071082894145199
 PrefabInstance:

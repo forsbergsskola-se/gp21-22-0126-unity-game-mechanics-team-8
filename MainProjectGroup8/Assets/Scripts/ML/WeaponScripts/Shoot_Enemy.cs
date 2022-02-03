@@ -28,7 +28,7 @@ public class Shoot_Enemy : Shoot
         }
     }
 
-    protected override  void UpdateMethod()
+    private void Update()
     {
         var dot = Vector3.Dot(playerTransform.forward, transform.forward);
         Debug.Log(dot);

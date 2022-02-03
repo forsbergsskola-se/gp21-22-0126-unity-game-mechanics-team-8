@@ -15,7 +15,7 @@ public class Shoot_Player : Shoot
         possibleTargets = new List<string>() {"Enemy", "Ground"};
     }
     
-    protected override  void UpdateMethod()
+    private void Update()
     {
         if (Input.GetButtonDown(fireButtonName) && canShoot)
         {
@@ -24,8 +24,6 @@ public class Shoot_Player : Shoot
             StartCoroutine(ShootDelay());
         }
     }
-    
-  
     
     private IEnumerator ShootDelay()
     {
