@@ -793,6 +793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spline
       objectReference: {fileID: 0}
+    - target: {fileID: 7721071082400060176, guid: 5ac46906d3b0a9340bdaa74cf6a0bfa8, type: 3}
+      propertyPath: m_TagString
+      value: Splines
+      objectReference: {fileID: 0}
     - target: {fileID: 7721071082400060270, guid: 5ac46906d3b0a9340bdaa74cf6a0bfa8, type: 3}
       propertyPath: m_RootOrder
       value: 6

@@ -7,32 +7,27 @@ using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
-public class Shoot : MonoBehaviour
+public abstract class Shoot : MonoBehaviour
 {
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] private string fireButtonName = "Fire1";
     [SerializeField] private float baseDamage = 10f;
     [SerializeField] private float baseBulletSpeed = 1f;
     [SerializeField] Vector3 forwardVector = Vector3.right;
     
     protected List<string> possibleTargets;
 
- //   private PickupType _pickupType = PickupType.Regular;
-    
     public bool canShoot = true;
     protected float _shootDelay = 1.0f;
     
     protected Ammo _currentAmmo;
     
-    
-
-    private void Start()
+    protected void Start()
     {
-        ChangeWeapon(PickupType.Regular);
-        WeaponPickup.OnPickupPicked += ChangeWeapon;
-        WeaponUIHandler.OnOutOfAmmo += ChangeWeapon;
+        StartupMethod();
     }
-    
+
+    protected abstract void StartupMethod();
+
     protected void ChangeWeapon(PickupType pickupType)
     {
         if(_currentAmmo != null)
@@ -57,20 +52,15 @@ public class Shoot : MonoBehaviour
         }
 
         _currentAmmo.bulletPrefab = bulletPrefab;
-    //    _currentAmmo.possibleTargets = possibleTargets;
-    //    _pickupType = pickupType;
     }
 
 
     void Update()
     {
-        if (Input.GetButtonDown(fireButtonName) && canShoot)
-        {
-            _currentAmmo.TryShoot(transform.TransformPoint(transform.localPosition));
-            canShoot = false;
-            StartCoroutine(ShootDelay());
-        }
+        UpdateMethod();
     }
+
+    protected abstract void UpdateMethod();
 
     private IEnumerator ShootDelay()
     {

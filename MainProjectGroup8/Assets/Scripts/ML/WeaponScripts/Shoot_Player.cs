@@ -6,7 +6,7 @@ public class Shoot_Player : Shoot
 {
     [SerializeField] private string fireButtonName = "Fire1";
     
-    private void Start()
+    protected override void StartupMethod()
     {
         ChangeWeapon(PickupType.Regular);
         WeaponPickup.OnPickupPicked += ChangeWeapon;
@@ -15,7 +15,7 @@ public class Shoot_Player : Shoot
         possibleTargets = new List<string>() {"Enemy", "Ground"};
     }
     
-    void Update()
+    protected override  void UpdateMethod()
     {
         if (Input.GetButtonDown(fireButtonName) && canShoot)
         {
@@ -25,6 +25,7 @@ public class Shoot_Player : Shoot
         }
     }
     
+  
     
     private IEnumerator ShootDelay()
     {

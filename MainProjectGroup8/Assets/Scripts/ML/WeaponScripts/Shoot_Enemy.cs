@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class Shoot_Enemy : Shoot
 {
-    [SerializeField] private PickupType _pickupType = PickupType.Regular;
+    [SerializeField] private PickupType pickupType = PickupType.Regular;
     [SerializeField] private Transform playerTransform;
 
-    void Start()
+    
+    protected override void StartupMethod()
     {
-        ChangeWeapon(_pickupType);
-        
+        ChangeWeapon(pickupType);
         possibleTargets = new List<string>() {"Player", "Ground"};
     }
 
@@ -28,7 +28,7 @@ public class Shoot_Enemy : Shoot
         }
     }
 
-    private void FixedUpdate()
+    protected override  void UpdateMethod()
     {
         var dot = Vector3.Dot(playerTransform.forward, transform.forward);
         Debug.Log(dot);
@@ -38,6 +38,7 @@ public class Shoot_Enemy : Shoot
             Attack();
         }
     }
+    
 
 
     private IEnumerator ShootDelay()
