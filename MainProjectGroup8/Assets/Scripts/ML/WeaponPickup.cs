@@ -13,7 +13,6 @@ public class WeaponPickup : MonoBehaviour
     public PickupType pickupType;
 
     public delegate void PickupPickedDelegate(PickupType thePickupType);
-
     public static event PickupPickedDelegate OnPickupPicked;
 
     private void OnTriggerEnter(Collider other)
@@ -32,5 +31,4 @@ public class WeaponPickup : MonoBehaviour
             OnPickupPicked(pickupType);
         }
     }
-    
 }
