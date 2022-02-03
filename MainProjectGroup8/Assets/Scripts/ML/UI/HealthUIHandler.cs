@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SplineMesh;
 using UnityEngine;
 
 public class HealthUIHandler : MonoBehaviour
@@ -8,8 +9,7 @@ public class HealthUIHandler : MonoBehaviour
     [SerializeField] private Sprite FullHeart;
     [SerializeField] private Sprite HalfHeart;
     [SerializeField] private Sprite EmptyHeart;
-    
-    
+
     void Start()
     {
         Damage.OnPlayerTakesDamage += TakeDamage;
