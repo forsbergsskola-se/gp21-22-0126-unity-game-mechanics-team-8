@@ -23,7 +23,6 @@ public class Bullet : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-
         for (int i = 0; i < possibleTargets.Count; i++)
         {
             if (other.gameObject.CompareTag(possibleTargets[i]))
@@ -33,10 +32,9 @@ public class Bullet : MonoBehaviour
                 
                 if (returnHitLocation && OnReturnHitLocation != null)
                     OnReturnHitLocation(transform.position);
-                
-                Destroy(gameObject);
             }
         }
+        Destroy(gameObject);
     }
     
     private IEnumerator DelayDestroy()
