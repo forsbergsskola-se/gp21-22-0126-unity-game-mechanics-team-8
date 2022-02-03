@@ -20,7 +20,9 @@ public class Shoot_Enemy : Shoot
     {
         if (canShoot)
         {
-            _currentAmmo.TryShoot(transform.TransformPoint(transform.localPosition), transform.right);
+            var pos = transform.InverseTransformPoint(transform.position);
+            
+            _currentAmmo.TryShoot(transform.TransformPoint(transform.localPosition), -transform.right);
             canShoot = false;
             StartCoroutine(ShootDelay());
         }
@@ -30,9 +32,8 @@ public class Shoot_Enemy : Shoot
     {
         var dot = Vector3.Dot(playerTransform.forward, transform.forward);
         Debug.Log(dot);
-    //    Debug.Log(Vector3.Distance(playerTransform.position, transform.position));
-
-        if (dot < 0 && Vector3.Distance(playerTransform.position, transform.position) < 8)
+        
+        if (dot > 0 && Vector3.Distance(playerTransform.position, transform.position) < 8)
         {
             Attack();
         }

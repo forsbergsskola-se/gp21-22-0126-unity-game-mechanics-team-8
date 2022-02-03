@@ -14,8 +14,6 @@ public class Ammo_Regular : Ammo
         if(travelVector != Vector3.zero)
             MakeBullet(position, travelVector);
         
-        
-
         else
             MakeBullet(position, ForwardVector);
     }

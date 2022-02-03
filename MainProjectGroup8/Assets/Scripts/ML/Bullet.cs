@@ -20,10 +20,8 @@ public class Bullet : MonoBehaviour
         StartCoroutine(DelayDestroy());
     }
     
-
     private void OnTriggerEnter(Collider other)
     {
-        
         for (int i = 0; i < possibleTargets.Count; i++)
         {
             if (other.gameObject.CompareTag(possibleTargets[i]))
