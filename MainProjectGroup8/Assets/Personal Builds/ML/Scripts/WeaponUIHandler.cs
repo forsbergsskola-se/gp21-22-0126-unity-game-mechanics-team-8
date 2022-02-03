@@ -29,13 +29,13 @@ public class WeaponUIHandler : MonoBehaviour
     {
         PickupPicked(PickupType.Regular);
         SetImage(0);
+        SetImage(1);
         WeaponPickup.OnPickupPicked += PickupPicked;
         Ammo.OnShotFired += ShotFired;
     }
 
     private void ShotFired()
     {
-        Debug.Log("shot fired");
         if (_currentAmmo > 0)
         {
             _currentAmmo--;

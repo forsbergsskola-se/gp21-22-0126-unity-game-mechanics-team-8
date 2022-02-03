@@ -7,7 +7,7 @@ public class Ammo_Regular : Ammo
     public Ammo_Regular()
     {
         CountAmmo = false;
-        shootDelay = 3f;
+        shootDelay = 1f;
     }
 
     
@@ -24,7 +24,6 @@ public class Ammo_Regular : Ammo
     
     protected override void Shoot(Vector3 position)
     {
-        Debug.Log($"x: {position.x}, y: {position.y}, z: {position.z},");
         MakeBullet(position, forwardVector);
     }
     

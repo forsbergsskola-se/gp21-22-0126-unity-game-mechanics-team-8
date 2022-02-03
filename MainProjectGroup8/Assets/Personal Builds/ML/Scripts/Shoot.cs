@@ -49,6 +49,7 @@ public class Shoot : MonoBehaviour
         }
 
         currentAmmo.bulletPrefab = bulletPrefab;
+        currentAmmo.possibleTargets = possibleTargets;
         _pickupType = pickupType;
     }
     
@@ -59,8 +60,5 @@ public class Shoot : MonoBehaviour
             currentAmmo.TryShoot(transform.TransformPoint(transform.localPosition));
         }
     }
-
-
-  
-
+    
 }

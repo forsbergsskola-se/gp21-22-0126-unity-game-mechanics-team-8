@@ -7,7 +7,7 @@ using UnityEngine;
 public abstract class Ammo : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    [SerializeField] private List<string> possibleTargets;
+    public List<string> possibleTargets;
     protected Vector3 forwardVector = Vector3.right;
     
     protected float baseBulletSpeed = 10f;
@@ -17,29 +17,29 @@ public abstract class Ammo : MonoBehaviour
     protected int AmmoAmount = 0;
     
     protected bool _canShoot = true;
-    
+
     public delegate void ShotFiredDelegate();
     public static event ShotFiredDelegate OnShotFired;
-    
 
 
+    protected abstract IEnumerator ShootDelay();
     protected abstract void Shoot(Vector3 position);
 
 
     public abstract void TryShoot(Vector3 position);
-    
+
 
     public void DestroyThisComponent()
     {
         Destroy(this);
     }
-    
+
     protected void ShotFired()
     {
         if (OnShotFired != null)
             OnShotFired();
     }
-    
+
 
     protected void MakeBullet(Vector3 bulletPos, Vector3 travelVector , float damageAmount = 10, Vector3 addVector =  new Vector3(), float bulletScale = 1, float moveSpeed = 10.0f, bool returnHitLocation = false)
     {
@@ -51,8 +51,4 @@ public abstract class Ammo : MonoBehaviour
         tempBullet.GetComponent<Bullet>().possibleTargets = possibleTargets;
         tempBullet.GetComponent<Transform>().localScale = new Vector3(0.1f, 0.1f, 0.1f) * bulletScale;
     }
-
-    protected abstract IEnumerator ShootDelay();
-
-
 }
