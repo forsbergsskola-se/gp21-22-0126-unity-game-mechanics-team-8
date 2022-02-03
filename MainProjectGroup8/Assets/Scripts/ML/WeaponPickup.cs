@@ -11,6 +11,7 @@ public enum PickupType
 public class WeaponPickup : MonoBehaviour
 {
     public PickupType pickupType;
+    private float rotationAmount = 0;
 
     public delegate void PickupPickedDelegate(PickupType thePickupType);
     public static event PickupPickedDelegate OnPickupPicked;
@@ -30,5 +31,15 @@ public class WeaponPickup : MonoBehaviour
         {
             OnPickupPicked(pickupType);
         }
+    }
+
+    private void Update()
+    {
+        rotationAmount = 10f * Time.deltaTime;
+        transform.Rotate(new Vector3(0,1 ,0), rotationAmount);
+        Debug.Log(rotationAmount);
+        
+        if (rotationAmount >= 360)
+            rotationAmount = 0;
     }
 }
