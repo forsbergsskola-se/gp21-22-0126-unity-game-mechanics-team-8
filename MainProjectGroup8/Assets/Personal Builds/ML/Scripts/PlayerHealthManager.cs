@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Basic : Weapon
+public class PlayerHealthManager : MonoBehaviour
 {
+ 
     void Start()
     {
         
     }
-    
+
+
     void Update()
     {
         

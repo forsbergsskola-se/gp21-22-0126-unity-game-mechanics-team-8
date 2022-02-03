@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CharacterType
+{
+     Enemy, Player, Object
+}
+
 public class Damage : MonoBehaviour
 {
    [SerializeField] float baseHealth = 40;
    [SerializeField] private Material damageMaterial;
+   [SerializeField] private CharacterType characterType;
    private Material _originalMat;
 
 

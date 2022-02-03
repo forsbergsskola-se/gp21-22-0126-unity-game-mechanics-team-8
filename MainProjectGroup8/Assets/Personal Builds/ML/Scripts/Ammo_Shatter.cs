@@ -2,10 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponHandler : MonoBehaviour
+public class Ammo_Shatter : Ammo
 {
-  //  private Ammo _currentAmmo = new Ammo_Regular();
-    [SerializeField] GameObject bulletPrefab;
+    
+    public Ammo_Shatter()
+    {
+        countAmmo = true;
+        shootDelay = 1.7f;
+    }
+    
+    
+    protected override void Shoot()
+    {
+        
+    }
     
     void Start()
     {
