@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 125122554}
-  flyForce: 3
+  flyForce: 4
   playerInputController: {fileID: 125122561}
   staminaDrain: 0.1
   staminaReloadTime: 2
