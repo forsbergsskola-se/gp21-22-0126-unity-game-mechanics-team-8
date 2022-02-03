@@ -18,10 +18,10 @@ public class Shoot : MonoBehaviour
     
     private PickupType _pickupType = PickupType.Regular;
     
-    public bool _canShoot = true;
-    protected float shootDelay = 1.0f;
+    public bool canShoot = true;
+    private float _shootDelay = 1.0f;
     
-    private Ammo currentAmmo;
+    private Ammo _currentAmmo;
     
 
     private void Start()
@@ -33,47 +33,47 @@ public class Shoot : MonoBehaviour
     
     private void ChangeWeapon(PickupType pickupType)
     {
-        if(currentAmmo != null)
-            currentAmmo.DestroyThisComponent();
+        if(_currentAmmo != null)
+            _currentAmmo.DestroyThisComponent();
         
         switch (pickupType)
         {
             case PickupType.Shatter:
-                currentAmmo = gameObject.AddComponent<Ammo_Shatter>();
-                shootDelay = 1.6f;
+                _currentAmmo = gameObject.AddComponent<Ammo_Shatter>();
+                _shootDelay = 1.6f;
                 break;
             
             case PickupType.ShotGun:
-                currentAmmo = gameObject.AddComponent<Ammo_Shotgun>();
-                shootDelay = 1.5f;
+                _currentAmmo = gameObject.AddComponent<Ammo_Shotgun>();
+                _shootDelay = 1.5f;
                 break;
             
             case PickupType.Regular:
-                currentAmmo = gameObject.AddComponent<Ammo_Regular>();
-                shootDelay = 0.6f;
+                _currentAmmo = gameObject.AddComponent<Ammo_Regular>();
+                _shootDelay = 0.6f;
                 break;
         }
 
-        currentAmmo.bulletPrefab = bulletPrefab;
-        currentAmmo.possibleTargets = possibleTargets;
+        _currentAmmo.bulletPrefab = bulletPrefab;
+        _currentAmmo.possibleTargets = possibleTargets;
         _pickupType = pickupType;
     }
 
 
     void Update()
     {
-        if (Input.GetButtonDown(fireButtonName) && _canShoot)
+        if (Input.GetButtonDown(fireButtonName) && canShoot)
         {
-            currentAmmo.TryShoot(transform.TransformPoint(transform.localPosition));
-            _canShoot = false;
+            _currentAmmo.TryShoot(transform.TransformPoint(transform.localPosition));
+            canShoot = false;
             StartCoroutine(ShootDelay());
         }
     }
 
     private IEnumerator ShootDelay()
     {
-        Debug.Log(_canShoot);
-        yield return new WaitForSeconds(shootDelay);
-        _canShoot = true;
+        Debug.Log(canShoot);
+        yield return new WaitForSeconds(_shootDelay);
+        canShoot = true;
     }
 }
