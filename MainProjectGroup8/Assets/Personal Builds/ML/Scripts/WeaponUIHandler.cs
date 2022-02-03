@@ -27,10 +27,11 @@ public class WeaponUIHandler : MonoBehaviour
     
     void Start()
     {
-        PickupPicked(PickupType.ShotGun);
+        PickupPicked(PickupType.Regular);
         SetImage(0);
+        SetImage(1);
         WeaponPickup.OnPickupPicked += PickupPicked;
-        Shoot.OnShotFired += ShotFired;
+        Ammo.OnShotFired += ShotFired;
     }
 
     private void ShotFired()

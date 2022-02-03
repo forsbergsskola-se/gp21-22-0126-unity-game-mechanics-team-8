@@ -7,23 +7,36 @@ public class Ammo_Shotgun : Ammo
     
     public Ammo_Shotgun()
     {
-        countAmmo = true;
+        CountAmmo = true;
         shootDelay = 1.5f;
+        AmmoAmount = 12;
+    }
+    
+    public override void  TryShoot(Vector3 position)
+    {
+        if (_canShoot)
+        {
+            Shoot(position);
+            ShotFired();
+            _canShoot = false;
+            StartCoroutine(ShootDelay());
+        }
+    }
+    
+    protected override IEnumerator ShootDelay()
+    {
+        yield return new WaitForSeconds(shootDelay);
+        _canShoot = true;
     }
     
     
-    protected override void Shoot()
+    protected override void Shoot(Vector3 position)
     {
-        
-    }
-    
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
+        Vector3 addVector = new Vector3(0, -0.8f, 0);
+        for (int i = 0; i < 5; i++)
+        {
+            addVector += new Vector3(0, 0.2f, 0);
+            MakeBullet(position,forwardVector, baseDamage / 3, addVector, 0.5f);
+        }
     }
 }

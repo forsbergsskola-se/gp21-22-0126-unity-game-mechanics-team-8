@@ -4,27 +4,34 @@ using UnityEngine;
 
 public class Ammo_Regular : Ammo
 {
-
-
     public Ammo_Regular()
     {
-        countAmmo = false;
+        CountAmmo = false;
         shootDelay = 1f;
     }
 
-    protected override void Shoot()
+    
+    public override void  TryShoot(Vector3 position)
     {
-        
+        if (_canShoot)
+        {
+            Shoot(position);
+            ShotFired();
+            _canShoot = false;
+            StartCoroutine(ShootDelay());
+        }
     }
     
-    void Start()
+    protected override void Shoot(Vector3 position)
     {
-        
+        MakeBullet(position, forwardVector);
     }
+    
+    protected override IEnumerator ShootDelay()
+    {
+        yield return new WaitForSeconds(shootDelay);
+        _canShoot = true;
+    }
+    
 
-   
-    void Update()
-    {
-        
-    }
 }
