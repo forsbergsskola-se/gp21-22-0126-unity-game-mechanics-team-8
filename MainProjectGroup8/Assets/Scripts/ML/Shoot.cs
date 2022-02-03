@@ -52,7 +52,7 @@ public class Shoot : MonoBehaviour
             
             case PickupType.Regular:
                 _currentAmmo = gameObject.AddComponent<Ammo_Regular>();
-                _shootDelay = 0.6f;
+                _shootDelay = 2f;
                 break;
         }
 

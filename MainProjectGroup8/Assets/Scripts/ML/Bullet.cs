@@ -19,23 +19,24 @@ public class Bullet : MonoBehaviour
     {
         StartCoroutine(DelayDestroy());
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("Detector"))
+        
+        for (int i = 0; i < possibleTargets.Count; i++)
         {
-            for (int i = 0; i < possibleTargets.Count; i++)
+            if (other.gameObject.CompareTag(possibleTargets[i]))
             {
-                if (other.gameObject.CompareTag(possibleTargets[i]))
-                {
-                    if (other.gameObject.GetComponent<Damage>())
-                        other.gameObject.GetComponent<Damage>().DoDamage(damageAmount);
-                    
-                    if (returnHitLocation && OnReturnHitLocation != null)
-                        OnReturnHitLocation(transform.position);
-                    
-                    Destroy(gameObject);
-                }
+                Debug.Log("correct target hit");
+                
+                if (other.gameObject.GetComponent<Damage>())
+                    other.gameObject.GetComponent<Damage>().TakeDamage(damageAmount);
+                
+                if (returnHitLocation && OnReturnHitLocation != null)
+                    OnReturnHitLocation(transform.position);
+                
+                Destroy(gameObject);
             }
         }
     }

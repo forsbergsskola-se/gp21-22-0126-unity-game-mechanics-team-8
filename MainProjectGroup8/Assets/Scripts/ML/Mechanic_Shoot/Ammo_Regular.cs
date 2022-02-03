@@ -11,9 +11,10 @@ public class Ammo_Regular : Ammo
     
     protected override void Shoot(Vector3 position, Vector3 travelVector = new Vector3())
     {
-        Debug.Log($"x: {travelVector.x}, y: {travelVector.y}, z: {travelVector.z}");
         if(travelVector != Vector3.zero)
             MakeBullet(position, travelVector);
+        
+        
 
         else
             MakeBullet(position, ForwardVector);

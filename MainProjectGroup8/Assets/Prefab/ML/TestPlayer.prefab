@@ -60,11 +60,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6196586803936838009, guid: 51ec8fc3ba2f4034486bdb2c46b32429, type: 3}
   fireButtonName: Fire1
-  possibleTargets:
-  - Enemy
   baseDamage: 10
   baseBulletSpeed: 10
   forwardVector: {x: 1, y: 0, z: 0}
+  canShoot: 1
 --- !u!1 &7020954696226336782
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,6 +77,7 @@ GameObject:
   - component: {fileID: 3030394369655457978}
   - component: {fileID: 6488409272057595069}
   - component: {fileID: 9106514050048581927}
+  - component: {fileID: 6005927523449271160}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -180,3 +180,19 @@ MonoBehaviour:
   baseHealth: 90
   damageMaterial: {fileID: 2100000, guid: 85d04bb98ad19334da6a6a39f924def0, type: 2}
   characterType: 1
+--- !u!54 &6005927523449271160
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020954696226336782}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

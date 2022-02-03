@@ -18,8 +18,9 @@ public class Damage : MonoBehaviour
    public delegate void TakeDamageDelegate(float damageAmount);
    public static event TakeDamageDelegate OnPlayerTakesDamage;
    
-   public void DoDamage(float damageAmount)
+   public void TakeDamage(float damageAmount)
    {
+       Debug.Log("player takes damage");
        if(_originalMat == null)
             _originalMat = GetComponent<Renderer>().material;
        

@@ -37,8 +37,7 @@ public class WeaponPickup : MonoBehaviour
     {
         rotationAmount = 10f * Time.deltaTime;
         transform.Rotate(new Vector3(0,1 ,0), rotationAmount);
-        Debug.Log(rotationAmount);
-        
+
         if (rotationAmount >= 360)
             rotationAmount = 0;
     }
