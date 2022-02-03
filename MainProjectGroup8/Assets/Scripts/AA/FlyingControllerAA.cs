@@ -37,7 +37,7 @@ public class FlyingControllerAA : MonoBehaviour
         if (playerInputController.FlyingInput && _canFly && jetPackIsOn.BoolValue)
         {
             myRigidbody.AddForce(Vector3.up * flyForce);
-            UseStamina(staminaDrain);
+            Discharge(staminaDrain);
         }
         
         if (myRigidbody.velocity.y < 0 && !playerInputController.FlyingInput)
@@ -50,7 +50,7 @@ public class FlyingControllerAA : MonoBehaviour
         }
     }
     
-    private void UseStamina(float amountOfStaminaDrained)
+    private void Discharge(float amountOfStaminaDrained)
     {
         if (_currentStamina - amountOfStaminaDrained >= 0)
         {
@@ -62,7 +62,7 @@ public class FlyingControllerAA : MonoBehaviour
                 StopCoroutine(_regen);
             }
 
-            _regen = StartCoroutine(RegenStamina());
+            _regen = StartCoroutine(Recharge());
         }
         else
         {
@@ -70,7 +70,7 @@ public class FlyingControllerAA : MonoBehaviour
         }
     }
     
-    private IEnumerator RegenStamina()
+    private IEnumerator Recharge()
     {
         yield return new WaitForSeconds(staminaReloadTime);
         while (_currentStamina < maxStamina)
