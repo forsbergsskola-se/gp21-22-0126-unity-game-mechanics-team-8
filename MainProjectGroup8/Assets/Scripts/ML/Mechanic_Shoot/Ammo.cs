@@ -12,23 +12,19 @@ public abstract class Ammo : MonoBehaviour
     
     protected float baseBulletSpeed = 10f;
     protected float baseDamage = 10f;
-    protected float shootDelay = 10.0f;
     protected bool CountAmmo = false;
     protected int AmmoAmount = 0;
     
-    protected bool _canShoot = true;
 
     public delegate void ShotFiredDelegate();
     public static event ShotFiredDelegate OnShotFired;
 
-
-    protected abstract IEnumerator ShootDelay();
+    
     protected abstract void Shoot(Vector3 position);
-
-
+    
     public abstract void TryShoot(Vector3 position);
-
-
+    
+    
     public void DestroyThisComponent()
     {
         Destroy(this);

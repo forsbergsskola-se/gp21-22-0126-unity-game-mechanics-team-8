@@ -18,6 +18,9 @@ public class Shoot : MonoBehaviour
     
     private PickupType _pickupType = PickupType.Regular;
     
+    public bool _canShoot = true;
+    protected float shootDelay = 10.0f;
+    
     private Ammo currentAmmo;
     
 
@@ -52,13 +55,22 @@ public class Shoot : MonoBehaviour
         currentAmmo.possibleTargets = possibleTargets;
         _pickupType = pickupType;
     }
-    
+
+
     void Update()
     {
-        if (Input.GetButtonDown(fireButtonName))
+        if (Input.GetButtonDown(fireButtonName) && _canShoot)
         {
             currentAmmo.TryShoot(transform.TransformPoint(transform.localPosition));
+            _canShoot = false;
+            StartCoroutine(ShootDelay());
         }
     }
-    
+
+    private IEnumerator ShootDelay()
+    {
+        Debug.Log(_canShoot);
+        yield return new WaitForSeconds(shootDelay);
+        _canShoot = true;
+    }
 }

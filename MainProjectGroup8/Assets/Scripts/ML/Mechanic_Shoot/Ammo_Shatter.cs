@@ -13,34 +13,21 @@ public class Ammo_Shatter : Ammo
     public Ammo_Shatter()
     {
         CountAmmo = true;
-        shootDelay = 1.7f;
         AmmoAmount = 10;
     }
     
-    
     public override void  TryShoot(Vector3 position)
     {
-        if (_canShoot)
-        {
-            Shoot(position);
-            ShotFired();
-            _canShoot = false;
-            StartCoroutine(ShootDelay());
-        }
+        Shoot(position);
+        ShotFired(); 
     }
+    
     
     protected override void Shoot(Vector3 position)
     {
-        MakeBullet(position, forwardVector, baseDamage * 1.4f, Vector3.zero, 1.5f, baseBulletSpeed / 2);
+        MakeBullet(position, forwardVector, baseDamage * 1.4f, Vector3.zero, 1.5f, baseBulletSpeed / 2, true);
     }
     
-    
-    protected override IEnumerator ShootDelay()
-    {
-        yield return new WaitForSeconds(shootDelay);
-        _canShoot = true;
-    }
-   
     
     private void ShatterPattern(Vector3 shotLocation)
     {

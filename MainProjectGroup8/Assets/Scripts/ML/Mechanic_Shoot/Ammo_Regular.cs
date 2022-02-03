@@ -7,19 +7,12 @@ public class Ammo_Regular : Ammo
     public Ammo_Regular()
     {
         CountAmmo = false;
-        shootDelay = 1f;
     }
 
-    
     public override void  TryShoot(Vector3 position)
     {
-        if (_canShoot)
-        {
-            Shoot(position);
-            ShotFired();
-            _canShoot = false;
-            StartCoroutine(ShootDelay());
-        }
+        Shoot(position);
+        ShotFired();
     }
     
     protected override void Shoot(Vector3 position)
@@ -27,11 +20,4 @@ public class Ammo_Regular : Ammo
         MakeBullet(position, forwardVector);
     }
     
-    protected override IEnumerator ShootDelay()
-    {
-        yield return new WaitForSeconds(shootDelay);
-        _canShoot = true;
-    }
-    
-
 }

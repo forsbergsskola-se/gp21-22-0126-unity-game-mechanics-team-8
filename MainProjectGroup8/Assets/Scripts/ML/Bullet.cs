@@ -22,7 +22,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         for (int i = 0; i < possibleTargets.Count; i++)
         {
             if (other.gameObject.CompareTag(possibleTargets[i]))
@@ -37,13 +36,11 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
     
-    
     private IEnumerator DelayDestroy()
     {
         yield return new WaitForSeconds(lifeSpan);
         Destroy(gameObject);
     }
-    
     
     void Update()
     {
