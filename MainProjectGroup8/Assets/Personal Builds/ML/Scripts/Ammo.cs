@@ -6,14 +6,40 @@ using UnityEngine;
 
 public abstract class Ammo : MonoBehaviour
 {
-    protected float shootDelay = 1.0f;
-    protected bool countAmmo = false;
-    [SerializeField] private int ammoAmount = 0;
-    [SerializeField] GameObject bulletPrefab;
+    public GameObject bulletPrefab;
     [SerializeField] private List<string> possibleTargets;
+    protected Vector3 forwardVector = Vector3.right;
+    
+    protected float baseBulletSpeed = 10f;
+    protected float baseDamage = 10f;
+    protected float shootDelay = 10.0f;
+    protected bool CountAmmo = false;
+    protected int AmmoAmount = 0;
+    
+    protected bool _canShoot = true;
+    
+    public delegate void ShotFiredDelegate();
+    public static event ShotFiredDelegate OnShotFired;
+    
 
 
-    protected abstract void Shoot();
+    protected abstract void Shoot(Vector3 position);
+
+
+    public abstract void TryShoot(Vector3 position);
+    
+
+    public void DestroyThisComponent()
+    {
+        Destroy(this);
+    }
+    
+    protected void ShotFired()
+    {
+        if (OnShotFired != null)
+            OnShotFired();
+    }
+    
 
     protected void MakeBullet(Vector3 bulletPos, Vector3 travelVector , float damageAmount = 10, Vector3 addVector =  new Vector3(), float bulletScale = 1, float moveSpeed = 10.0f, bool returnHitLocation = false)
     {
@@ -26,8 +52,7 @@ public abstract class Ammo : MonoBehaviour
         tempBullet.GetComponent<Transform>().localScale = new Vector3(0.1f, 0.1f, 0.1f) * bulletScale;
     }
 
-    private void Update()
-    {
-        
-    }
+    protected abstract IEnumerator ShootDelay();
+
+
 }
