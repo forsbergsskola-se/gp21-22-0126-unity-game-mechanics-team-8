@@ -8,7 +8,7 @@ public abstract class Ammo : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public List<string> possibleTargets;
-    protected Vector3 forwardVector = Vector3.right;
+    protected Vector3 ForwardVector = Vector3.right;
     
     protected float baseBulletSpeed = 10f;
     protected float baseDamage = 10f;
@@ -31,7 +31,7 @@ public abstract class Ammo : MonoBehaviour
         Destroy(this);
     }
 
-    protected void ShotFired()
+    private void ShotFired()
     {
         if (OnShotFired != null)
             OnShotFired();

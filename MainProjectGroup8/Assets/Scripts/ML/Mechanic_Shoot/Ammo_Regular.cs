@@ -11,6 +11,6 @@ public class Ammo_Regular : Ammo
     
     protected override void Shoot(Vector3 position)
     {
-        MakeBullet(position, forwardVector);
+        MakeBullet(position, ForwardVector);
     }
 }

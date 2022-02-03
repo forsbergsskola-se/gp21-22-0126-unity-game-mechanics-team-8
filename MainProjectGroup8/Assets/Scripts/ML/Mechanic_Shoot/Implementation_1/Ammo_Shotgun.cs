@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Ammo_Shotgun : Ammo
 {
-    
     public Ammo_Shotgun()
     {
         CountAmmo = true;
@@ -13,11 +12,12 @@ public class Ammo_Shotgun : Ammo
     
     protected override void Shoot(Vector3 position)
     {
+        int numberPellets = 5;
         Vector3 addVector = new Vector3(0, -0.8f, 0);
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < numberPellets; i++)
         {
             addVector += new Vector3(0, 0.2f, 0);
-            MakeBullet(position,forwardVector, baseDamage / 3, addVector, 0.5f);
+            MakeBullet(position,ForwardVector, baseDamage / 3, addVector, 0.5f);
         }
     }
 }

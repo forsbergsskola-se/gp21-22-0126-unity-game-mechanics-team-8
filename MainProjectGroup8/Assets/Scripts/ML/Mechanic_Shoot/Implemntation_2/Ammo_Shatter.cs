@@ -18,7 +18,7 @@ public class Ammo_Shatter : Ammo
 
     protected override void Shoot(Vector3 position)
     {
-        MakeBullet(position, forwardVector, baseDamage * 1.4f, Vector3.zero, 1.5f, baseBulletSpeed / 2, true);
+        MakeBullet(position, ForwardVector, baseDamage * 1.4f, Vector3.zero, 1.5f, baseBulletSpeed / 2, true);
     }
     
     private void ShatterPattern(Vector3 shotLocation)

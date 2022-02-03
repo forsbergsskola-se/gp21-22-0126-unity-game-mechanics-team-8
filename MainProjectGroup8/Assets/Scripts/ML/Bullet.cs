@@ -26,7 +26,8 @@ public class Bullet : MonoBehaviour
         {
             if (other.gameObject.CompareTag(possibleTargets[i]))
             {
-                other.gameObject.GetComponent<Damage>().DoDamage(damageAmount);
+                if(other.gameObject.GetComponent<Damage>())
+                    other.gameObject.GetComponent<Damage>().DoDamage(damageAmount);
             }
         }
 
