@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class ShortDashJJ : MonoBehaviour
@@ -14,7 +17,7 @@ public class ShortDashJJ : MonoBehaviour
 	private float dashStrength = 1000f;
 
 	[SerializeField]
-	private float dashCoolDown = 0.5f;
+	public float dashCoolDown = 0.5f;
 
 	[SerializeField]
 	private float dashTime = 0.5f;
@@ -24,7 +27,10 @@ public class ShortDashJJ : MonoBehaviour
 
 	private bool allowDash = true;
 
-	private void Update()
+	public UnityEvent<float> UpdateDashUIEvent;
+ 
+
+ private void Update()
 	{
 		if (commandContainer.DashCommand && allowDash)
 		{
@@ -41,6 +47,11 @@ public class ShortDashJJ : MonoBehaviour
 			myRigidBody.AddRelativeForce(dashDirection.normalized*dashStrength, ForceMode.Force);
 			StartCoroutine(DashTime(dashTime));
 			StartCoroutine(DashCoolDown(dashCoolDown));
+
+			if (UpdateDashUIEvent != null) // check if event is null in inspector. Ugly but quick
+			{
+				UpdateDashUIEvent.Invoke(dashCoolDown);
+			}
 		}
 	}
 

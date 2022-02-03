@@ -22,10 +22,13 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.gameObject.CompareTag("Enemy"))
+
+        for (int i = 0; i < possibleTargets.Count; i++)
         {
-            other.gameObject.GetComponent<Damage>().DoDamage(damageAmount);
+            if (other.gameObject.CompareTag(possibleTargets[i]))
+            {
+                other.gameObject.GetComponent<Damage>().DoDamage(damageAmount);
+            }
         }
 
         if (returnHitLocation && OnReturnHitLocation != null)

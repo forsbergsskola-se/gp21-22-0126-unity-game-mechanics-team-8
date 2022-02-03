@@ -11,20 +11,22 @@ public class Shoot : MonoBehaviour
 {
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] private string fireButtonName = "Fire1";
-    private float _currentShootDelay = 1.0f;
-    private PickupType _pickupType = PickupType.Regular;
     [SerializeField] private List<string> possibleTargets;
-    private bool _canShoot = true;
-    private int _currentAmmo;
     [SerializeField] private float baseDamage = 10f;
     [SerializeField] private float baseBulletSpeed = 10f;
+    [SerializeField] Vector3 forwardVector = Vector3.right;
+    
+    private float _currentShootDelay = 1.0f;
+    private PickupType _pickupType = PickupType.Regular;
+    private bool _canShoot = true;
+    private int _currentAmmo;
 
     public delegate void ShotFiredDelegate();
     public static event ShotFiredDelegate OnShotFired;
 
     private void Start()
     {
-        ChangeWeapon(PickupType.Shatter);
+        ChangeWeapon(PickupType.Regular);
         WeaponPickup.OnPickupPicked += ChangeWeapon;
         WeaponUIHandler.OnOutOfAmmo += ChangeWeapon;
         Bullet.OnReturnHitLocation += ShatterPattern;
@@ -59,7 +61,7 @@ public class Shoot : MonoBehaviour
 
         else if (Input.GetButton(fireButtonName) && _pickupType == PickupType.MachineGun && _canShoot)
         {
-            MakeBullet(transform.position,Vector3.right, baseDamage / 2f);
+            MakeBullet(transform.position,forwardVector, baseDamage / 2f);
             StartCoroutine(ShootDelay());
             _canShoot = false;
         }
@@ -93,7 +95,7 @@ public class Shoot : MonoBehaviour
                     ShotFired();
                     break;
                 case PickupType.Shatter:
-                    MakeBullet( transform.position, Vector3.right, baseDamage, Vector3.zero, 1.5f, baseBulletSpeed * 0.8f, true);
+                    MakeBullet( transform.position, forwardVector, baseDamage, Vector3.zero, 1.5f, baseBulletSpeed * 0.8f, true);
                     ShotFired();
                     break;
             }
@@ -113,10 +115,9 @@ public class Shoot : MonoBehaviour
     private void ShatterPattern(Vector3 shotLocation)
     {
         int numberPellets = 8;
-        float angle = 0;
         for (int i = 0; i < numberPellets; i++)
         {
-            angle = i * numberPellets/ 360;
+            float angle = i * 360 / numberPellets;
             var xMod = MathF.Cos(angle * (Mathf.PI / 180.0f));
             var yMod  = MathF.Sin(angle * (Mathf.PI / 180.0f));
             Vector3 moveVec = new Vector3(1 * xMod, 1 * yMod);
@@ -143,7 +144,7 @@ public class Shoot : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             addVector += new Vector3(0, 0.2f, 0);
-            MakeBullet(transform.position,Vector3.right, baseDamage / 3, addVector, 0.5f);
+            MakeBullet(transform.position,forwardVector, baseDamage / 3, addVector, 0.5f);
         }
     }
 

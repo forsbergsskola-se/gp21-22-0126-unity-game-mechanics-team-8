@@ -197,20 +197,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 612902130935538492, guid: 4786cc3720084cb4782a25fd3ce5d787, type: 3}
   m_PrefabInstance: {fileID: 3024572095461710985}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &211598187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 211598182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac3b1a50865c754f9ae0654c996fa54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseHealth: 40
-  damageMaterial: {fileID: 2100000, guid: 82e880686977dce468c80fd03c02d33e, type: 2}
 --- !u!54 &211598188
 Rigidbody:
   m_ObjectHideFlags: 0

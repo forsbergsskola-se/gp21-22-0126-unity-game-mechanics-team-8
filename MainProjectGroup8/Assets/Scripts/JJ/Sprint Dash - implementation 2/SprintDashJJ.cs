@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SprintDashJJ : MonoBehaviour
 {
@@ -21,44 +23,37 @@ public class SprintDashJJ : MonoBehaviour
 	[SerializeField]
 	private float sprintTime = 1f;
 
-	private bool allowSprint = true;
-
-	[SerializeField]
-	private GameObject sprintChargeEffect;
-
 	[SerializeField]
 	private GroundCheckerJJ groundChecker;
-	
+
+	private bool allowSprint = true;
+
+	public UnityEvent<float> SprintDashEvent;
+ 
 	private void Update()
 	{
-		if (commandContainer.ChargingSprint)
+		if (commandContainer.SprintCommand && allowSprint && groundChecker.IsGrounded)
 		{
-			sprintChargeEffect.SetActive(true);	
-			if (commandContainer.SprintCommand && allowSprint && groundChecker.IsGrounded)
-			{
-			 
-				StartCoroutine(Sprint(commandContainer.MoveDirectionCommand));
-				commandContainer.DenyMoveCommand = true;
-			}
+			StartCoroutine(Sprint(commandContainer.MoveDirectionCommand));
+			commandContainer.DenyMoveCommand = true;
 		}
-
-		if (!commandContainer.ChargingSprint && !commandContainer.SprintCommand)
-		{
-			sprintChargeEffect.SetActive(false);
-		}
-		
 	}
 
 	private IEnumerator Sprint(Vector3 dir)
 	{
 		myRigidBody.velocity = new Vector3(dir.x*sprintSpeed, dir.y, 0);
-
+		if(SprintDashEvent != null) // check if event is null in inspector. Ugly but quick
+		{
+			SprintDashEvent.Invoke(sprintCoolDown+sprintTime);	
+		}
 		yield return new WaitForSeconds(sprintTime);
 
 		myRigidBody.velocity *= afterSprintBrakeFactor;
 		allowSprint = false;
 		commandContainer.DenyMoveCommand = false;
 		StartCoroutine(SprintCoolDown(sprintCoolDown));
+		
+		
 	}
 
 	private IEnumerator SprintCoolDown(float sprintCoolDown)
