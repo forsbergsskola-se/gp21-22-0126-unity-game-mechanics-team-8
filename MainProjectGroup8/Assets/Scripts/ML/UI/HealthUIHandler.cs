@@ -46,6 +46,11 @@ public class HealthUIHandler : MonoBehaviour
                 }
             }
         }
+
+        if (CheckIfDead())
+        {
+            
+        }
     }
 
 
