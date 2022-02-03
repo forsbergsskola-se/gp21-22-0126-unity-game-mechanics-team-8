@@ -16,18 +16,8 @@ public class Damage : MonoBehaviour
    private Material _originalMat;
    
    public delegate void TakeDamageDelegate(float damageAmount);
-
    public static event TakeDamageDelegate OnPlayerTakesDamage;
-
-   private void Start()
-   {
-       if (characterType == CharacterType.Player)
-       {
-           
-       }
-   }
-
-
+   
    public void DoDamage(float damageAmount)
    {
        if(_originalMat == null)
