@@ -194,6 +194,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 10, y: 12, z: 0}
+--- !u!114 &867247938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1428720168, guid: 74b86780c21831646a00d20ccea01f25, type: 3}
+  m_PrefabInstance: {fileID: 1947462686}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09dc96ab242b4589a653f9c06a6f03ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &918363914
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,10 +311,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1155373857, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
-      propertyPath: UpdateDashUIEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 1050300050, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
+      propertyPath: SprintDashEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 867247938}
     - target: {fileID: 1155373857, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
       propertyPath: UpdateDashUIEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -646,10 +657,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1422291570363549640, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
-      propertyPath: far clip plane
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 1422291570363549642, guid: fe9b271fad03a3f419126383d8bd14a4, type: 3}
       propertyPath: m_Name
       value: Main CameraJJ

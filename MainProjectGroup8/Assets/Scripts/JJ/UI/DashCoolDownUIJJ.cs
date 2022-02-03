@@ -14,18 +14,13 @@ public class DashCoolDownUIJJ : MonoBehaviour
 	private float coolDownTimer;
 	private bool isOnCoolDown = false;
 
-	private UnityEvent<float> updateDashUI;
+	// private UnityEvent<float> updateDashUI;
 	 
 	private void Start()
 	{
 		shadowImage.fillAmount = 0;
 
-		if (updateDashUI == null)
-		{
-			updateDashUI = new UnityEvent<float>();
-		}
-		
-		updateDashUI.AddListener(CoolDownEvent);
+		 
 	}
 
 	private void Update()

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SprintDashJJ : MonoBehaviour
 {
@@ -26,8 +28,8 @@ public class SprintDashJJ : MonoBehaviour
 
 	private bool allowSprint = true;
 
+	public UnityEvent<float> SprintDashEvent;
  
-
 	private void Update()
 	{
 		if (commandContainer.SprintCommand && allowSprint && groundChecker.IsGrounded)
@@ -40,13 +42,18 @@ public class SprintDashJJ : MonoBehaviour
 	private IEnumerator Sprint(Vector3 dir)
 	{
 		myRigidBody.velocity = new Vector3(dir.x*sprintSpeed, dir.y, 0);
-
+		if(SprintDashEvent != null) // check if event is null in inspector. Ugly but quick
+		{
+			SprintDashEvent.Invoke(sprintCoolDown+sprintTime);	
+		}
 		yield return new WaitForSeconds(sprintTime);
 
 		myRigidBody.velocity *= afterSprintBrakeFactor;
 		allowSprint = false;
 		commandContainer.DenyMoveCommand = false;
 		StartCoroutine(SprintCoolDown(sprintCoolDown));
+		
+		
 	}
 
 	private IEnumerator SprintCoolDown(float sprintCoolDown)

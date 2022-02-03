@@ -265,10 +265,10 @@ MonoBehaviour:
   UpdateDashUIEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7357516675518751653, guid: 74b86780c21831646a00d20ccea01f25, type: 3}
         m_TargetAssemblyTypeName: DashCoolDownUIJJ, Assembly-CSharp
-        m_MethodName: CoolDownEvent
-        m_Mode: 1
+        m_MethodName: 
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -296,3 +296,18 @@ MonoBehaviour:
   afterSprintBrakeFactor: 0.2
   sprintTime: 0.75
   groundChecker: {fileID: 8416012418885418548}
+  SprintDashEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SprintCoolDownJJUI, Assembly-CSharp
+        m_MethodName: CoolDownEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

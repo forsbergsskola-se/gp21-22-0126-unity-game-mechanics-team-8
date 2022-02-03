@@ -44,9 +44,9 @@ public class SprintCoolDownJJUI : MonoBehaviour
 		}
 	}
 
-	public void CoolDownEvent(int x)
+	public void CoolDownEvent(float CDTime)
 	{
-		coolDownTime = 
+		coolDownTime = CDTime;
 		coolDownTimer = coolDownTime;
 	}
 }

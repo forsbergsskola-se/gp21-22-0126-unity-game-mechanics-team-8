@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -26,9 +27,10 @@ public class ShortDashJJ : MonoBehaviour
 
 	private bool allowDash = true;
 
- public UnityEvent<float> UpdateDashUIEvent;
-	
-	private void Update()
+	public UnityEvent<float> UpdateDashUIEvent;
+ 
+
+ private void Update()
 	{
 		if (commandContainer.DashCommand && allowDash)
 		{
