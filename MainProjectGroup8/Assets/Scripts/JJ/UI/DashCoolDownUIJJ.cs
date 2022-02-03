@@ -34,8 +34,6 @@ public class DashCoolDownUIJJ : MonoBehaviour
 	 
 	private void ApplyCoolDown()
 	{
-
-		Debug.Log(coolDownTimer);
 		if (coolDownTimer < 0.0f)
 		{
 			shadowImage.fillAmount = 0;
@@ -48,9 +46,9 @@ public class DashCoolDownUIJJ : MonoBehaviour
 		}
 	}
 
-	public void CoolDownEvent(float CDTime)
+	public void CoolDownEvent(float coolDownTime)
 	{
-		coolDownTime = CDTime;
+		this.coolDownTime = coolDownTime;
 		coolDownTimer = coolDownTime;
 		isOnCoolDown = true;
 	}
