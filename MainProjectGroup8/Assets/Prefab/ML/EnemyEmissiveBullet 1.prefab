@@ -110,7 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca667e8ff987487479407908e9888a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleTargets: []
+  possibleTargets:
+  - Player
+  - Ground
   lifeSpan: 5
   travelVector: {x: 1, y: 0, z: 0}
   moveSpeed: 10

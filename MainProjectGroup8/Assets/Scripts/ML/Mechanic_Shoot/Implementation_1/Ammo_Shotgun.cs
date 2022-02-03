@@ -10,7 +10,7 @@ public class Ammo_Shotgun : Ammo
         AmmoAmount = 12;
     }
     
-    protected override void Shoot(Vector3 position)
+    protected override void Shoot(Vector3 position, Vector3 travelVector = new Vector3())
     {
         int numberPellets = 5;
         Vector3 addVector = new Vector3(0, -0.8f, 0);

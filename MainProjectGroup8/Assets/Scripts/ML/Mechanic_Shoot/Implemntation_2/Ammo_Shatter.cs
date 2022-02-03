@@ -16,9 +16,12 @@ public class Ammo_Shatter : Ammo
         AmmoAmount = 10;
     }
 
-    protected override void Shoot(Vector3 position)
+    protected override void Shoot(Vector3 position,  Vector3 travelVector = new Vector3())
     {
-        MakeBullet(position, ForwardVector, baseDamage * 1.4f, Vector3.zero, 1.5f, baseBulletSpeed / 2, true);
+        if(travelVector !=  Vector3.zero)
+            MakeBullet(position, travelVector, baseDamage * 1.4f, Vector3.zero, 1.5f, baseBulletSpeed / 2, true);
+        else
+            MakeBullet(position, ForwardVector, baseDamage * 1.4f, Vector3.zero, 1.5f, baseBulletSpeed / 2, true);
     }
     
     private void ShatterPattern(Vector3 shotLocation)

@@ -11,17 +11,19 @@ public class Shoot : MonoBehaviour
 {
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] private string fireButtonName = "Fire1";
-    [SerializeField] private List<string> possibleTargets;
     [SerializeField] private float baseDamage = 10f;
-    [SerializeField] private float baseBulletSpeed = 10f;
+    [SerializeField] private float baseBulletSpeed = 1f;
     [SerializeField] Vector3 forwardVector = Vector3.right;
     
-    private PickupType _pickupType = PickupType.Regular;
+    protected List<string> possibleTargets;
+
+ //   private PickupType _pickupType = PickupType.Regular;
     
     public bool canShoot = true;
-    private float _shootDelay = 1.0f;
+    protected float _shootDelay = 1.0f;
     
-    private Ammo _currentAmmo;
+    protected Ammo _currentAmmo;
+    
     
 
     private void Start()
@@ -31,7 +33,7 @@ public class Shoot : MonoBehaviour
         WeaponUIHandler.OnOutOfAmmo += ChangeWeapon;
     }
     
-    private void ChangeWeapon(PickupType pickupType)
+    protected void ChangeWeapon(PickupType pickupType)
     {
         if(_currentAmmo != null)
             _currentAmmo.DestroyThisComponent();
@@ -55,8 +57,8 @@ public class Shoot : MonoBehaviour
         }
 
         _currentAmmo.bulletPrefab = bulletPrefab;
-        _currentAmmo.possibleTargets = possibleTargets;
-        _pickupType = pickupType;
+    //    _currentAmmo.possibleTargets = possibleTargets;
+    //    _pickupType = pickupType;
     }
 
 
@@ -72,7 +74,6 @@ public class Shoot : MonoBehaviour
 
     private IEnumerator ShootDelay()
     {
-        Debug.Log(canShoot);
         yield return new WaitForSeconds(_shootDelay);
         canShoot = true;
     }

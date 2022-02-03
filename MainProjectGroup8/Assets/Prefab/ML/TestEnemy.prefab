@@ -34,7 +34,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5341664961843030494}
-  - {fileID: 3002827168402370678}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -143,6 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5341664961843030494}
   - component: {fileID: 2883540210246199074}
+  - component: {fileID: 8705577991934069228}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -161,7 +161,8 @@ Transform:
   m_LocalPosition: {x: 0.836, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3002827168402370678}
   m_Father: {fileID: 3532758128958850896}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -178,6 +179,25 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8705577991934069228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5456805880233518156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c7c3cccf5d565d4db11a7d9d8a4b28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 6196586803936838009, guid: 4bbdb3537b1a6604a8d77436741b0da7, type: 3}
+  fireButtonName: Fire1
+  baseDamage: 10
+  baseBulletSpeed: 10
+  forwardVector: {x: 1, y: 0, z: 0}
+  canShoot: 1
+  _pickupType: 4
 --- !u!1 &9126605082329211261
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,13 +223,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9126605082329211261}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.78, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 1.944, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3532758128958850896}
-  m_RootOrder: 1
+  m_Father: {fileID: 5341664961843030494}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!136 &1512688614652088922
 CapsuleCollider:

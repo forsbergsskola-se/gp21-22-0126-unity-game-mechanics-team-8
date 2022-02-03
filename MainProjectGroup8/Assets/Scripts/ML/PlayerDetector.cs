@@ -5,23 +5,25 @@ using UnityEngine;
 
 public class PlayerDetector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool PlayerSpotted = false;
+    
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
+            PlayerSpotted = true;
+            gameObject.GetComponentInParent<Shoot_Enemy>().Attack();
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerSpotted = true;
+            gameObject.GetComponentInParent<Shoot_Enemy>().Attack();
+        }
     }
+    
 }

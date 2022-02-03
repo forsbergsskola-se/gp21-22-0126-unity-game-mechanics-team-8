@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public List<string> possibleTargets = new List<string>();
+    [SerializeField] List<string> possibleTargets;
     public float lifeSpan = 5.0f;
     public Vector3 travelVector;
     public float moveSpeed = 10.0f;
@@ -22,19 +22,22 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        for (int i = 0; i < possibleTargets.Count; i++)
+        if (!other.gameObject.CompareTag("Detector"))
         {
-            if (other.gameObject.CompareTag(possibleTargets[i]))
+            for (int i = 0; i < possibleTargets.Count; i++)
             {
-                if(other.gameObject.GetComponent<Damage>())
-                    other.gameObject.GetComponent<Damage>().DoDamage(damageAmount);
+                if (other.gameObject.CompareTag(possibleTargets[i]))
+                {
+                    if (other.gameObject.GetComponent<Damage>())
+                        other.gameObject.GetComponent<Damage>().DoDamage(damageAmount);
+                    
+                    if (returnHitLocation && OnReturnHitLocation != null)
+                        OnReturnHitLocation(transform.position);
+                    
+                    Destroy(gameObject);
+                }
             }
         }
-
-        if (returnHitLocation && OnReturnHitLocation != null)
-            OnReturnHitLocation(transform.position);
-            
-        Destroy(gameObject);
     }
     
     private IEnumerator DelayDestroy()

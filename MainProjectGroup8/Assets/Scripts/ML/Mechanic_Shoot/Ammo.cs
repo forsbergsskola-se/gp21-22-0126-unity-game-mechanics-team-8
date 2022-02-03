@@ -18,11 +18,11 @@ public abstract class Ammo : MonoBehaviour
     public delegate void ShotFiredDelegate();
     public static event ShotFiredDelegate OnShotFired;
     
-    protected abstract void Shoot(Vector3 position);
+    protected abstract void Shoot(Vector3 position, Vector3 travelVector = new Vector3());
     
     public void TryShoot(Vector3 position, Vector3 travelVector = new Vector3())
     {
-        Shoot(position);
+        Shoot(position, travelVector);
         ShotFired();
     }
     
@@ -37,14 +37,14 @@ public abstract class Ammo : MonoBehaviour
             OnShotFired();
     }
     
-    protected void MakeBullet(Vector3 bulletPos, Vector3 travelVector , float damageAmount = 10, Vector3 addVector =  new Vector3(), float bulletScale = 1, float moveSpeed = 10.0f, bool returnHitLocation = false)
+    protected void MakeBullet(Vector3 bulletPos, Vector3 travelVector , float damageAmount = 10, Vector3 addVector =  new Vector3(), float bulletScale = 1, float moveSpeed = 1.0f, bool returnHitLocation = false)
     {
         var tempBullet = Instantiate(bulletPrefab, bulletPos, Quaternion.identity);
         tempBullet.GetComponent<Bullet>().travelVector = travelVector + addVector;
         tempBullet.GetComponent<Bullet>().damageAmount = damageAmount;
         tempBullet.GetComponent<Bullet>().returnHitLocation = returnHitLocation;
         tempBullet.GetComponent<Bullet>().moveSpeed = moveSpeed;
-        tempBullet.GetComponent<Bullet>().possibleTargets = possibleTargets;
+    //    tempBullet.GetComponent<Bullet>().possibleTargets = possibleTargets;
         tempBullet.GetComponent<Transform>().localScale = new Vector3(0.1f, 0.1f, 0.1f) * bulletScale;
     }
 }
