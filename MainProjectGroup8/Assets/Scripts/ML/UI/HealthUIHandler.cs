@@ -40,9 +40,11 @@ public class HealthUIHandler : MonoBehaviour
 
          totalDamage = (int)Mathf.Floor(damageAmount / 5);
 
+        
+         
          for (int i = 0; i < totalDamage; i++)
-         {
-             DoOnePointOfDamage(); 
+         { 
+         //    DoOnePointOfDamage(); 
          }
         
         
@@ -52,53 +54,67 @@ public class HealthUIHandler : MonoBehaviour
         }
     }
 
-    private void GetHalfHeart(out Image heart)
+    private bool GetHalfHeart(out Image heart)
     {
         heart = gameObject.GetComponentsInChildren<Image>()
             .SingleOrDefault(x => x.sprite == HalfHeart);
+
+        return heart != null;
     }
 
-    private bool GetFullHeart(out List<Image> heart)
-    {
-        bool result = false;
-        
-        
-        heart = gameObject.GetComponentsInChildren<Image>()
-            .Where(x => x.sprite == FullHeart).ToList();
-        
 
-        return result;
+    private void SetHeartContainer(int index, Sprite image)
+    {
+        var tempHearts = gameObject.GetComponentsInChildren<Image>().ToList();
+
+        tempHearts[index].sprite = image;
+    }
+
+    private bool GetAllFullHeart(out List<Image> heart)
+    {
+        heart = new List<Image>();
+        
+        var  tempHearts = gameObject.GetComponentsInChildren<Image>()
+            .Where(x => x.sprite == FullHeart).ToList();
+
+        if (tempHearts.Count >= 1)
+            return true;
+
+        if (tempHearts.Count < 1)
+            return false;
+
+
+        return false;
     }
 
     private void DoOnePointOfDamage()
     {
         var amountDamageTaken = 0;
         
-        GetHalfHeart(out Image tempImage);
-        
-        if (tempImage != null)
+        if (GetHalfHeart(out Image tempImage))
         {
             tempImage.sprite = EmptyHeart;
             amountDamageTaken++;
         }
-        
+
         if (amountDamageTaken >= 1) return;
-        GetFullHeart(out List<Image> tempSpriteList);
         
-        if (tempSpriteList.Count >= 1)
-            tempSpriteList[^1].sprite = HalfHeart;
+        if (GetAllFullHeart(out List<Image> tempSpriteList))
+        {
+            if (tempSpriteList.Count >= 1)
+                tempSpriteList[^1].sprite = HalfHeart;
+        }
+
+        CheckIfDead();
     }
     
     private bool CheckIfDead()
     {
-        
-        int emptyCount = 3;
-       
-
-        if (emptyCount == 1)
-            return true;
-
-        return false;
+        if (GetAllFullHeart(out List<Image> heart))
+        {
+            return false;
+        }
+        return true;
     }
 
 }

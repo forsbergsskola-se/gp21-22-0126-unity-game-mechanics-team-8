@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1794916992896093648}
   - component: {fileID: 2213710259389030522}
-  - component: {fileID: 5501342186093442908}
+  - component: {fileID: 9028202985304457454}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -46,7 +46,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5501342186093442908
+--- !u!114 &9028202985304457454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,15 +55,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4648438719737922380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9593e98817e136a45b17c1f797ee9559, type: 3}
+  m_Script: {fileID: 11500000, guid: fdace42e60073da4a900d013c7813c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6196586803936838009, guid: 51ec8fc3ba2f4034486bdb2c46b32429, type: 3}
-  fireButtonName: Fire1
   baseDamage: 10
-  baseBulletSpeed: 10
+  baseBulletSpeed: 1
   forwardVector: {x: 1, y: 0, z: 0}
   canShoot: 1
+  fireButtonName: Fire1
 --- !u!1 &7020954696226336782
 GameObject:
   m_ObjectHideFlags: 0
