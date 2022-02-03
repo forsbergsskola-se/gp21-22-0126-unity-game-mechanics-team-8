@@ -20,7 +20,7 @@ public abstract class Ammo : MonoBehaviour
     
     protected abstract void Shoot(Vector3 position);
     
-    public void  TryShoot(Vector3 position)
+    public void TryShoot(Vector3 position, Vector3 travelVector = new Vector3())
     {
         Shoot(position);
         ShotFired();
