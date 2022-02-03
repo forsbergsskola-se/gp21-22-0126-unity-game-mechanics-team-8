@@ -22,7 +22,11 @@ public abstract class Ammo : MonoBehaviour
     
     protected abstract void Shoot(Vector3 position);
     
-    public abstract void TryShoot(Vector3 position);
+    public void  TryShoot(Vector3 position)
+    {
+        Shoot(position);
+        ShotFired();
+    }
     
     
     public void DestroyThisComponent()

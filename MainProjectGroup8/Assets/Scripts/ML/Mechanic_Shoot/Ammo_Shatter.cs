@@ -15,19 +15,11 @@ public class Ammo_Shatter : Ammo
         CountAmmo = true;
         AmmoAmount = 10;
     }
-    
-    public override void  TryShoot(Vector3 position)
-    {
-        Shoot(position);
-        ShotFired(); 
-    }
-    
-    
+
     protected override void Shoot(Vector3 position)
     {
         MakeBullet(position, forwardVector, baseDamage * 1.4f, Vector3.zero, 1.5f, baseBulletSpeed / 2, true);
     }
-    
     
     private void ShatterPattern(Vector3 shotLocation)
     {
@@ -43,5 +35,4 @@ public class Ammo_Shatter : Ammo
             MakeBullet(shotLocation,moveVec, baseDamage / 3, Vector3.zero, 0.4f, baseBulletSpeed / 2);
         }
     }
-    
 }

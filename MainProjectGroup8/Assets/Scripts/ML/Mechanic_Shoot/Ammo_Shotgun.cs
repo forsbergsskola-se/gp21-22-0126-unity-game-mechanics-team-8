@@ -11,13 +11,6 @@ public class Ammo_Shotgun : Ammo
         AmmoAmount = 12;
     }
     
-    public override void  TryShoot(Vector3 position)
-    {
-        Shoot(position);
-        ShotFired();
-    }
-    
-    
     protected override void Shoot(Vector3 position)
     {
         Vector3 addVector = new Vector3(0, -0.8f, 0);

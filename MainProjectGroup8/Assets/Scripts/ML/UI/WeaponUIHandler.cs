@@ -83,9 +83,11 @@ public class WeaponUIHandler : MonoBehaviour
     {
         GetUIElementOfType(pickupType);
         SetImage(0);
-        SetImage(2);
-        _currentAmmo = _currentUIElement.totalAmmo;
         
+        if(pickupType != PickupType.Regular)
+            SetImage(2);
+        
+        _currentAmmo = _currentUIElement.totalAmmo;
         SetAmmoCount();
     }
 }
