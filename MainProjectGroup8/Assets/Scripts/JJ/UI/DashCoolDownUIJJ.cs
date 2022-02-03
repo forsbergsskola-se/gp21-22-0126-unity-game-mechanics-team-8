@@ -1,5 +1,7 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DashCoolDownUIJJ : MonoBehaviour
@@ -11,12 +13,19 @@ public class DashCoolDownUIJJ : MonoBehaviour
 
 	private float coolDownTimer;
 	private bool isOnCoolDown = false;
- 
 
+	private UnityEvent<float> updateDashUI;
 	 
 	private void Start()
 	{
 		shadowImage.fillAmount = 0;
+
+		if (updateDashUI == null)
+		{
+			updateDashUI = new UnityEvent<float>();
+		}
+		
+		updateDashUI.AddListener(CoolDownEvent);
 	}
 
 	private void Update()
@@ -44,9 +53,9 @@ public class DashCoolDownUIJJ : MonoBehaviour
 		}
 	}
 
-	public void CoolDownEvent()
+	public void CoolDownEvent(float CDTime)
 	{
-		// coolDownTime = 
+		coolDownTime = CDTime;
 		coolDownTimer = coolDownTime;
 		isOnCoolDown = true;
 	}
