@@ -9,10 +9,6 @@ public class ParachuteControllerAA : MonoBehaviour
     [SerializeField] private float parachuteOpeningTime = .5f;
     [SerializeField] private PlayerInputControllerAA playerInputController;
     [SerializeField] private BooleanValue parachuteIsOn;
-    void Start()
-    {
-        
-    }
     
     void Update()
     {
@@ -21,10 +17,12 @@ public class ParachuteControllerAA : MonoBehaviour
 
     private void OpenParachute()
     {
-        if (playerInputController.ParachuteInput && parachuteIsOn.BoolValue)
+        if (playerInputController.ParachuteInput && parachuteIsOn.BoolValue && !playerInputController.FlyingInput)
         {
             var randomForceMultiplier = Random.Range(0.8f, 1.5f);
-            myRigidbody.AddForce(Vector3.up * parachuteForce * randomForceMultiplier);
+            if(myRigidbody.velocity.y < 0)
+                myRigidbody.AddForce(Vector3.up * parachuteForce * randomForceMultiplier);
+            
         }
     }
 }
