@@ -380,6 +380,7 @@ MonoBehaviour:
   myRigidbody: {fileID: 125122554}
   parachuteForce: 5
   playerInputController: {fileID: 125122561}
+  parachuteIsOn: {fileID: 11400000, guid: 156dabd9ea977354896923f786031618, type: 2}
 --- !u!1 &351614108
 GameObject:
   m_ObjectHideFlags: 0
