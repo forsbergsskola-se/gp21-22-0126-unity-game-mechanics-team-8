@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd8f344a5cd4694d837683c67e04932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressTimeTolerance: 0.75
+  pressTimeTolerance: 0.5
   commandContainer: {fileID: 301793168}
   keyPressTime: 0
   chargingSprintNotificationTime: 0.2
@@ -266,9 +266,9 @@ MonoBehaviour:
   UpdateDashUIEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7357516675518751653, guid: 74b86780c21831646a00d20ccea01f25, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DashCoolDownUIJJ, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: CoolDownEvent
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -428,18 +428,10 @@ PrefabInstance:
       propertyPath: SprintDashEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7357516676257214524}
-    - target: {fileID: 1050300050, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
-      propertyPath: SprintDashEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CoolDownEvent
-      objectReference: {fileID: 0}
     - target: {fileID: 1155373857, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
       propertyPath: UpdateDashUIEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7357516676257214525}
-    - target: {fileID: 1155373857, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
-      propertyPath: UpdateDashUIEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CoolDownEvent
-      objectReference: {fileID: 0}
     - target: {fileID: 7860134241555915233, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
       propertyPath: m_RootOrder
       value: 0
