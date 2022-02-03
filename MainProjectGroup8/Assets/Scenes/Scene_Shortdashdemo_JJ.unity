@@ -376,6 +376,14 @@ PrefabInstance:
       propertyPath: UpdateDashUIEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1987957736}
+    - target: {fileID: 2253912445678614264, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
+      propertyPath: possibleTargets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253912445678614264, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
+      propertyPath: possibleTargets.Array.data[1]
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7860134241555915233, guid: e81e6d852465c7a47a3ec3dac692fb9a, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -822,6 +830,18 @@ PrefabInstance:
     - target: {fileID: 282296519125375072, guid: 50dea2cf99d6f7a4f9ab5d1e8a68b59d, type: 3}
       propertyPath: m_Name
       value: EnvironmentJJ
+      objectReference: {fileID: 0}
+    - target: {fileID: 282296519125375072, guid: 50dea2cf99d6f7a4f9ab5d1e8a68b59d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939377373448676044, guid: 50dea2cf99d6f7a4f9ab5d1e8a68b59d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500368363858348381, guid: 50dea2cf99d6f7a4f9ab5d1e8a68b59d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50dea2cf99d6f7a4f9ab5d1e8a68b59d, type: 3}
