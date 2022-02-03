@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SplineMesh;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum HeartSetType
 {
@@ -14,21 +16,18 @@ public class HealthUIHandler : MonoBehaviour
     [SerializeField] private Sprite FullHeart;
     [SerializeField] private Sprite HalfHeart;
     [SerializeField] private Sprite EmptyHeart;
-    private List<Sprite> _spriteList;
+    private float totalDamage = 0;
+    
 
     void Start()
     {
-        _spriteList = gameObject.GetComponentsInChildren<Sprite>().ToList();
+//        _spriteList = gameObject.GetComponentsInChildren<Sprite>().ToList();
         
         Damage.OnPlayerTakesDamage += TakeDamage;
     }
 
-
-    private void GetHeartFromList(out Sprite heartSprite, int index)
-    {
-        heartSprite = gameObject.GetComponentsInChildren<Sprite>().ToList()[index];
-    }
-
+        
+ 
     private void SetSpriteByType(HeartSetType heartSetType, int indexToSet)
     {
         
@@ -37,71 +36,67 @@ public class HealthUIHandler : MonoBehaviour
 
     private void TakeDamage(float damageAmount)
     {
-        var hearts = gameObject.GetComponentsInChildren<Sprite>().ToList();
+        int totalDamage = 0;
+
+         totalDamage = (int)Mathf.Floor(damageAmount / 5);
+
+         for (int i = 0; i < totalDamage; i++)
+         {
+             DoOnePointOfDamage(); 
+         }
         
-    //    hearts.Where(x => x.)
         
-        int realDamage = 0;
-        Sprite tempSprite;
-        
-        if (damageAmount > 5)
-            realDamage = 1;
-        if (damageAmount > 10)
-            realDamage = 2;
-        if (damageAmount > 15)
-            realDamage = 3;
-
-        if (realDamage >= 1)
-        {
-           var  d = hearts.Where(x => x == FullHeart).Select(x => x = HalfHeart).ToList();
-        //   d = HalfHeart;
-
-        }
-
-        if (realDamage >= 1 && realDamage < 3)
-        {
- //           hearts.Where(x => x == HalfHeart)
-        }
-
-
-
-        for (int i = 2; i >= 0; i--)
-        {
-            GetHeartFromList(out tempSprite,i);
-
-            if (tempSprite == FullHeart)
-            {
-                if (realDamage > 1)
-                {
-                    tempSprite = EmptyHeart;
-                    hearts[i] = EmptyHeart;
-                }
-                else if(realDamage == 1)
-                {
-                    tempSprite = HalfHeart;
-                    hearts[i] = HalfHeart;
-                }
-            }
-        }
-
         if (CheckIfDead())
         {
             
         }
     }
 
+    private bool GetHalfHeart(out Image heart)
+    {
+        heart = gameObject.GetComponentsInChildren<Image>()
+            .SingleOrDefault(x => x.sprite == HalfHeart);
+    }
 
+    private bool GetFullHeart(out List<Image> heart)
+    {
+        bool result = false;
+        
+        
+        heart = gameObject.GetComponentsInChildren<Image>()
+            .Where(x => x.sprite == FullHeart).ToList();
+        
+        if
+
+        return result;
+    }
+
+    private void DoOnePointOfDamage()
+    {
+        var amountDamageTaken = 0;
+        
+        GetHalfHeart(out Image tempImage);
+        
+        if (tempImage != null)
+        {
+            tempImage.sprite = EmptyHeart;
+            amountDamageTaken++;
+        }
+        
+        if (amountDamageTaken >= 1) return;
+        GetFullHeart(out List<Image> tempSpriteList);
+        
+        if (tempSpriteList.Count >= 1)
+            tempSpriteList[^1].sprite = HalfHeart;
+    }
+    
     private bool CheckIfDead()
     {
-        var hearts = gameObject.GetComponentsInChildren<Sprite>().ToList();
-        int emptyCount = 0;
-        for (int i = 0; i < hearts.Count; i++)
-        {
-            if (hearts[i] == EmptyHeart)
-                emptyCount++;
-        }
+        
+        int emptyCount = 3;
+       
 
-        if (emptyCount == 3)
+        if (emptyCount == 1)
             return true;
 
         return false;
