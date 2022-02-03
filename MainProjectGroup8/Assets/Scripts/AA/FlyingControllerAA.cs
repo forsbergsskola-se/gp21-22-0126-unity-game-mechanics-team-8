@@ -40,7 +40,11 @@ public class FlyingControllerAA : MonoBehaviour
             UseStamina(staminaDrain);
         }
         
-        if (myRigidbody.velocity.y < 0)
+        if (myRigidbody.velocity.y < 0 && !playerInputController.FlyingInput)
+        {
+            myRigidbody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
+        }
+        else if (myRigidbody.velocity.y > 0 && !playerInputController.FlyingInput)
         {
             myRigidbody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
         }
