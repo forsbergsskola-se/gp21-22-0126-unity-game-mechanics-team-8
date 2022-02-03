@@ -11,6 +11,8 @@ public class PlayerInputControllerAA : MonoBehaviour
 
     public float MoveInput { get; private set; }
     public bool JumpInputDown { get; private set; }
+    
+    public bool ParachuteInput { get; private set; }
     public bool JumpInputUp { get; private set; }
     public bool JumpInput { get; private set; }
     public bool FlyingInput { get; private set; }
@@ -22,5 +24,6 @@ public class PlayerInputControllerAA : MonoBehaviour
         JumpInputUp = Input.GetKeyUp(KeyCode.Space);
         JumpInput = Input.GetKey(KeyCode.Space);
         FlyingInput = Input.GetKey(KeyCode.W);
+        ParachuteInput = Input.GetKey(KeyCode.S);
     }
 }
