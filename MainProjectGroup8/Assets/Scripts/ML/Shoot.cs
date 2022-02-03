@@ -19,7 +19,7 @@ public class Shoot : MonoBehaviour
     private PickupType _pickupType = PickupType.Regular;
     
     public bool _canShoot = true;
-    protected float shootDelay = 10.0f;
+    protected float shootDelay = 1.0f;
     
     private Ammo currentAmmo;
     
@@ -40,14 +40,17 @@ public class Shoot : MonoBehaviour
         {
             case PickupType.Shatter:
                 currentAmmo = gameObject.AddComponent<Ammo_Shatter>();
+                shootDelay = 1.6f;
                 break;
             
             case PickupType.ShotGun:
                 currentAmmo = gameObject.AddComponent<Ammo_Shotgun>();
+                shootDelay = 1.5f;
                 break;
             
             case PickupType.Regular:
                 currentAmmo = gameObject.AddComponent<Ammo_Regular>();
+                shootDelay = 0.6f;
                 break;
         }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,15 +14,33 @@ public class Damage : MonoBehaviour
    [SerializeField] private Material damageMaterial;
    [SerializeField] private CharacterType characterType;
    private Material _originalMat;
+   
+   public delegate void TakeDamageDelegate(float damageAmount);
+
+   public static event TakeDamageDelegate OnPlayerTakesDamage;
+
+   private void Start()
+   {
+       if (characterType == CharacterType.Player)
+       {
+           
+       }
+   }
 
 
    public void DoDamage(float damageAmount)
    {
        if(_originalMat == null)
             _originalMat = GetComponent<Renderer>().material;
-       baseHealth -= damageAmount;
        GetComponent<Renderer>().material = damageMaterial;
-       
+       if(characterType == CharacterType.Enemy)
+           baseHealth -= damageAmount;
+       else if(characterType == CharacterType.Player)
+       {
+           if (OnPlayerTakesDamage != null)
+               OnPlayerTakesDamage(damageAmount);
+       }
+
        if (baseHealth <= 0)
        {
            Destroy(gameObject);
