@@ -32,9 +32,12 @@ public class Damage : MonoBehaviour
    {
        if(_originalMat == null)
             _originalMat = GetComponent<Renderer>().material;
+       
        GetComponent<Renderer>().material = damageMaterial;
+       
        if(characterType == CharacterType.Enemy)
            baseHealth -= damageAmount;
+       
        else if(characterType == CharacterType.Player)
        {
            if (OnPlayerTakesDamage != null)

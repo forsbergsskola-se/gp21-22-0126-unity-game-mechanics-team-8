@@ -15,10 +15,8 @@ public abstract class Ammo : MonoBehaviour
     protected bool CountAmmo = false;
     protected int AmmoAmount = 0;
     
-
     public delegate void ShotFiredDelegate();
     public static event ShotFiredDelegate OnShotFired;
-
     
     protected abstract void Shoot(Vector3 position);
     
@@ -27,7 +25,6 @@ public abstract class Ammo : MonoBehaviour
         Shoot(position);
         ShotFired();
     }
-    
     
     public void DestroyThisComponent()
     {
@@ -39,8 +36,7 @@ public abstract class Ammo : MonoBehaviour
         if (OnShotFired != null)
             OnShotFired();
     }
-
-
+    
     protected void MakeBullet(Vector3 bulletPos, Vector3 travelVector , float damageAmount = 10, Vector3 addVector =  new Vector3(), float bulletScale = 1, float moveSpeed = 10.0f, bool returnHitLocation = false)
     {
         var tempBullet = Instantiate(bulletPrefab, bulletPos, Quaternion.identity);
