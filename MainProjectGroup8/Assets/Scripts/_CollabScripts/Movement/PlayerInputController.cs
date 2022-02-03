@@ -1,14 +1,13 @@
 using UnityEngine;
 
-public class PlayerInputControllerJJ : MonoBehaviour
+public class PlayerInputController : MonoBehaviour
 {
 	[SerializeField]
 	private float pressTimeTolerance = 0.5f;
 
 	[SerializeField]
-	private CommandContainerJJ commandContainer;
+	private CommandContainer commandContainer;
 
-	[SerializeField]
 	private float keyPressTime;
 
 	[SerializeField]

@@ -24,7 +24,7 @@ public class SprintDashJJ : MonoBehaviour
 	private float sprintTime = 1f;
 
 	[SerializeField]
-	private GroundCheckerJJ groundChecker;
+	private GroundChecker groundChecker;
 
 	private bool allowSprint = true;
 

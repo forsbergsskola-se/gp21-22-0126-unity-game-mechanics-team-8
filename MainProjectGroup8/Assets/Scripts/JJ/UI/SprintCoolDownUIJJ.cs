@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SprintCoolDownJJUI : MonoBehaviour
+public class SprintCoolDownUIJJ : MonoBehaviour
 {
 	[SerializeField]
 	private Image shadowImage;

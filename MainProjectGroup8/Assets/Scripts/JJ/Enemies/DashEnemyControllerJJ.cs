@@ -15,7 +15,7 @@ public class DashEnemyControllerJJ : MonoBehaviour
 	private float stopDistanceBeforeDash = 5f;
 
 	[SerializeField]
-	private CommandContainer commandContainer;
+	private CommandContainerJJ commandContainer;
 
 	private void Update()
 	{

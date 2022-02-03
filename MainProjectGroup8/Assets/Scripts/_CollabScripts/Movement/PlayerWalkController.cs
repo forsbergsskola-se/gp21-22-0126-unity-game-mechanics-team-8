@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerWalkControllerJJ : MonoBehaviour
+public class PlayerWalkController : MonoBehaviour
 {
 	[SerializeField]
 	private Rigidbody myRigidBody;
@@ -9,10 +9,10 @@ public class PlayerWalkControllerJJ : MonoBehaviour
 	private float moveSpeed = 5f;
 
 	[SerializeField]
-	private GroundCheckerJJ groundChecker;
+	private GroundChecker groundChecker;
 
 	[SerializeField]
-	private CommandContainerJJ commandContainer;
+	private CommandContainer commandContainer;
 
 	[SerializeField]
 	private float chargingMoveSpeedFactor = 0.5f;
