@@ -14,30 +14,22 @@ public class Shoot_Enemy : Shoot
     {
         ChangeWeapon(pickupType);
         possibleTargets = new List<string>() {"Player", "Ground"};
+        canShoot = true;
     }
 
     public void Attack()
     {
         if (canShoot)
         {
+            Debug.Log("attack 2");
             var pos = transform.InverseTransformPoint(transform.position);
             
-            _currentAmmo.TryShoot(transform.TransformPoint(transform.localPosition), -transform.right);
+            _currentAmmo.TryShoot(transform.TransformPoint(transform.localPosition), transform.right);
             canShoot = false;
             StartCoroutine(ShootDelay());
         }
     }
-
-    private void Update()
-    {
-        var dot = Vector3.Dot(playerTransform.forward, transform.forward);
-    //    Debug.Log(dot);
-        
-        if (dot > 0 && Vector3.Distance(playerTransform.position, transform.position) < 8)
-        {
-            Attack();
-        }
-    }
+    
     
     private IEnumerator ShootDelay()
     {

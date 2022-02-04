@@ -19,7 +19,7 @@ public class Shoot_Player : Shoot
     {
         if (Input.GetButtonDown(fireButtonName) && canShoot)
         {
-            _currentAmmo.TryShoot(transform.TransformPoint(transform.localPosition));
+            _currentAmmo.TryShoot(transform.TransformPoint(transform.localPosition), transform.right);
             canShoot = false;
             StartCoroutine(ShootDelay());
         }

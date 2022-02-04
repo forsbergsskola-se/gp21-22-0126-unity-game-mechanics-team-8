@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class State 
@@ -9,6 +10,7 @@ public abstract class State
     protected State NextState;
     protected GameObject Npc;
     public Transform Player;
+    protected PlayerDetector Detector;
 
     public enum STATE
     {
@@ -20,10 +22,12 @@ public abstract class State
         Enter, Update, Exit
     }
 
-    public State(Transform  player, GameObject npc)
+    public State(Transform  player, GameObject npc, PlayerDetector detector)
     {
         Player = player;
         Stage = EVENT.Enter;
+        Npc = npc;
+        Detector = detector;
     }
 
     public virtual void Enter()
@@ -60,8 +64,8 @@ public abstract class State
 
 public class Idle : State
 {
-    public Idle( Transform player, GameObject npc)
-        : base(player, npc)
+    public Idle( Transform player, GameObject npc, PlayerDetector detector)
+        : base(player, npc, detector)
     {
         Name = STATE.Idle;
     }
@@ -74,31 +78,91 @@ public class Idle : State
     public override void Update()
     {
         base.Update();
-        Stage = EVENT.Update;
+       
     }
 }
 
 public class Patrol : State
 {
-    public Patrol( Transform player, GameObject npc)
-        : base(player, npc)
+    private int currentIndex = 0;
+    private WaypointManager nodes;
+    private List<SphereCollider> nodes2;
+    private bool incDec = true;
+    public Patrol( Transform player, GameObject npc, GameObject patrol, PlayerDetector detector)
+        : base(player, npc, detector)
     {
         Name = STATE.Patrol;
-    }
-    
+        nodes = patrol.GetComponent<WaypointManager>();
+        nodes2 = patrol.GetComponentsInChildren<SphereCollider>().ToList();
 
+    }
     
     public override void Update()
     {
         base.Update();
-        Stage = EVENT.Update;
+        
+        if (Detector.PlayerSpotted)
+        {
+            NextState = new Attack(Player, Npc, Detector);
+            Stage = EVENT.Exit;
+        }
+
+        //    CheckForDistance();
+
+
+        //    Npc.transform.position += Npc.transform.right * 1.0f * Time.deltaTime;
+
+
+    //    RotateEnemy();
+
+
+    }
+
+    private void RotateEnemy()
+    {
+        var dot = Vector3.Dot(Npc.transform.forward, nodes2[currentIndex].transform.forward);
+        if (dot < 0)
+        {
+            Npc.transform.Rotate(Vector3.up, 180);
+        }
+    }
+    
+    private void CheckForDistance()
+    {
+        if (Vector3.Distance(Npc.transform.position, nodes.GetPositionAtNode(currentIndex)) < 0.2f)
+        {
+            if (incDec)
+            {
+                if (currentIndex >= nodes.GetNodeCount())
+                {
+                    currentIndex--;
+                    incDec = false;
+                }
+                else
+                {
+                    currentIndex++;
+                }
+            }
+            else
+            {
+                if (currentIndex < 0)
+                {
+                    currentIndex++;
+                    incDec = true;
+                }
+                else
+                {
+                    currentIndex--;
+                }
+            }
+        }
     }
 }
 
 public class Pursue : State
 {
-    public Pursue( Transform player, GameObject npc)
-        : base(player, npc)
+    public Pursue( Transform player, GameObject npc, PlayerDetector detector)
+        : base(player, npc, detector)
     {
         Name = STATE.Pursue;
     }
@@ -112,15 +176,22 @@ public class Pursue : State
 
 public class Attack : State
 {
-    public Attack( Transform player, GameObject npc)
-        : base(player, npc)
+    private Shoot_Enemy shooter;
+    
+    public Attack( Transform player, GameObject npc, PlayerDetector detector)
+        : base(player, npc,detector)
     {
         Name = STATE.Patrol;
+        shooter = Npc.GetComponentInChildren<Shoot_Enemy>();
     }
 
     public override void Update()
     {
         base.Update();
-        Stage = EVENT.Update;
+
+        if (Detector.PlayerSpotted)
+        {
+            shooter.Attack();
+        }
     }
 }

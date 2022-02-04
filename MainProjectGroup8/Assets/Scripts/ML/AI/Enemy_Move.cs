@@ -12,14 +12,14 @@ public class Enemy_Move : MonoBehaviour
     private State currentState;
     [SerializeField] private Transform playerTrans;
     [SerializeField] private float moveSpeed = 3.0f;
+    private PlayerDetector _detector;
     
     void Start()
     {
-
-        currentState = new Idle(playerTrans, gameObject);
-        theSpline= GameObject.FindWithTag("Splines").GetComponent<Spline>();
+        _detector = GetComponentInChildren<PlayerDetector>();
         testVector = GetLocationAtSplinePoint(1);
-
+        currentState = new Patrol(playerTrans, gameObject, GameObject.FindWithTag("Patrol"), _detector);
+        theSpline= GameObject.FindWithTag("Splines").GetComponent<Spline>();
     }
 
 
@@ -35,21 +35,7 @@ public class Enemy_Move : MonoBehaviour
     
     void Update()
     {
-
-        currentState.Process();
-        
-        if (rotate)
-        {
-         //   RotateEnemy();
-            rotate = false;
-            move = true;
-        }
-
-        if (move)
-        {
-            transform.position += -transform.right * moveSpeed * Time.deltaTime;
-        }
-        
+        currentState = currentState.Process();
     }
 
     private void RotateEnemy()

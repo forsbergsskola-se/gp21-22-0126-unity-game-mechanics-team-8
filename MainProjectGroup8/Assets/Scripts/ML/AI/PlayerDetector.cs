@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerDetector : MonoBehaviour
 {
-    private bool PlayerSpotted = false;
+    public bool PlayerSpotted = false;
     
 
     private void OnTriggerEnter(Collider other)
@@ -13,17 +13,15 @@ public class PlayerDetector : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerSpotted = true;
-            gameObject.GetComponentInParent<Shoot_Enemy>().Attack();
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PlayerSpotted = true;
-            gameObject.GetComponentInParent<Shoot_Enemy>().Attack();
+            PlayerSpotted = false;
         }
     }
-    
+
 }

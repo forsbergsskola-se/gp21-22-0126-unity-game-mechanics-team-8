@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Detector
   - Splines
+  - Patrol
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - Detector
+  - Bullet
   - 
   - 
   - 
