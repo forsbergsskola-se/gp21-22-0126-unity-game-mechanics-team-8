@@ -22,43 +22,21 @@ public class HealthUIHandler : MonoBehaviour
         Damage.OnPlayerTakesDamage += TakeDamage;
     }
 
-        
- 
-    private void SetSpriteByType(HeartSetType heartSetType, int indexToSet)
-    {
-        
-    }
-    
-
     private void TakeDamage(float damageAmount)
     {
-        int totalDamage = 0;
+        var totalDamage = (int)Mathf.Floor(damageAmount / 5);
 
-         totalDamage = (int)Mathf.Floor(damageAmount / 5);
-
-         DoOnePointOfDamage(); 
-         
-         for (int i = 0; i < totalDamage; i++)
+         for (var i = 0; i < totalDamage; i++)
          {
-             //    DoOnePointOfDamage(); 
+             DoOnePointOfDamage(); 
          }
-        
-        
+         
         if (CheckIfDead())
         {
             
         }
     }
-
-    private bool SetHalfHeartToEmpty(out Image heart)
-    {
-        heart = gameObject.GetComponentsInChildren<Image>()
-            .SingleOrDefault(x => x.sprite == HalfHeart);
-
-        return heart != null;
-    }
-
-
+    
     private HeartSetType GetHeartTypeAtIndex(int index)
     {
         var heart = gameObject.GetComponentsInChildren<Image>().ToList()[index];
@@ -69,10 +47,7 @@ public class HealthUIHandler : MonoBehaviour
         if (heart.sprite == HalfHeart)
             return HeartSetType.Half;
         
-        if (heart.sprite == EmptyHeart)
-            return HeartSetType.Empty;
-
-        return HeartSetType.WrongType;
+        return heart.sprite == EmptyHeart ? HeartSetType.Empty : HeartSetType.WrongType;
     }
     
     private void SetHeartContainer(int index, HeartSetType imageType)
@@ -87,24 +62,7 @@ public class HealthUIHandler : MonoBehaviour
             _ => tempHearts[index].sprite
         };
     }
-
-    private bool GetAllFullHeart(out List<Image> heart)
-    {
-        heart = new List<Image>();
-        
-        var  tempHearts = gameObject.GetComponentsInChildren<Image>()
-            .Where(x => x.sprite == FullHeart).ToList();
-
-        if (tempHearts.Count >= 1)
-            return true;
-
-        if (tempHearts.Count < 1)
-            return false;
-
-
-        return false;
-    }
-
+    
     private void DoOnePointOfDamage()
     {
         var amountDamageTaken = 0;
@@ -124,15 +82,18 @@ public class HealthUIHandler : MonoBehaviour
                 amountDamageTaken++;
             }
         }
-        
-        CheckIfDead();
     }
     
     private bool CheckIfDead()
     {
-        if (GetAllFullHeart(out List<Image> heart))
+        for (var i = 0; i < 3; i++)
         {
-            return false;
+            var type = GetHeartTypeAtIndex(i);
+
+            if (type != HeartSetType.Empty)
+            {
+                return false;
+            }
         }
         return true;
     }
