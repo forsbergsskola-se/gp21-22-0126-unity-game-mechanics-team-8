@@ -23,7 +23,8 @@ Level:
 
 
 ## Dash - Jonathan Jonsson
-Short dash / long dash
+Short dash - can dash in any direction
+Sprint (or long dash) - Can sprint longer but only horizontally along the ground
 
 
 ## Shooting - Mattias Lönnqvist
