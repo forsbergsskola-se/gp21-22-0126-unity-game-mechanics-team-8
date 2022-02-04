@@ -20,18 +20,19 @@ public class Damage : MonoBehaviour
    
    public void TakeDamage(float damageAmount)
    {
-       if(_originalMat == null)
-            _originalMat = GetComponent<Renderer>().material;
+       SetDamageMaterial();
        
-       GetComponent<Renderer>().material = damageMaterial;
-       
-       if(characterType == CharacterType.Enemy)
-           baseHealth -= damageAmount;
-       
-       else if(characterType == CharacterType.Player)
+       switch (characterType)
        {
-           if (OnPlayerTakesDamage != null)
-               OnPlayerTakesDamage(damageAmount);
+           case CharacterType.Enemy:
+               baseHealth -= damageAmount;
+               break;
+           case CharacterType.Player:
+           {
+               if (OnPlayerTakesDamage != null)
+                   OnPlayerTakesDamage(damageAmount);
+               break;
+           }
        }
 
        if (baseHealth <= 0)
@@ -42,6 +43,14 @@ public class Damage : MonoBehaviour
        StartCoroutine(DelayMaterialSwap());
    }
 
+
+   private void SetDamageMaterial()
+   {
+       if(_originalMat == null)
+           _originalMat = GetComponent<Renderer>().material;
+       
+       GetComponent<Renderer>().material = damageMaterial;
+   }
 
    IEnumerator DelayMaterialSwap()
    {

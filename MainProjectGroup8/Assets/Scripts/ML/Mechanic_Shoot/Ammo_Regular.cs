@@ -11,10 +11,6 @@ public class Ammo_Regular : Ammo
     
     protected override void Shoot(Vector3 position, Vector3 travelVector = new Vector3())
     {
-        if(travelVector != Vector3.zero)
-            MakeBullet(position, travelVector);
-        
-        else
-            MakeBullet(position, ForwardVector);
+        MakeBullet(position, travelVector != Vector3.zero ? travelVector : ForwardVector);
     }
 }

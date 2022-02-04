@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public enum HeartSetType
 {
-    Full, Half, Empty
+    Full, Half, Empty, WrongType
 }
 
 public class HealthUIHandler : MonoBehaviour
@@ -16,13 +16,9 @@ public class HealthUIHandler : MonoBehaviour
     [SerializeField] private Sprite FullHeart;
     [SerializeField] private Sprite HalfHeart;
     [SerializeField] private Sprite EmptyHeart;
-    private float totalDamage = 0;
     
-
     void Start()
     {
-//        _spriteList = gameObject.GetComponentsInChildren<Sprite>().ToList();
-        
         Damage.OnPlayerTakesDamage += TakeDamage;
     }
 
@@ -40,11 +36,11 @@ public class HealthUIHandler : MonoBehaviour
 
          totalDamage = (int)Mathf.Floor(damageAmount / 5);
 
-        
+         DoOnePointOfDamage(); 
          
          for (int i = 0; i < totalDamage; i++)
-         { 
-         //    DoOnePointOfDamage(); 
+         {
+             //    DoOnePointOfDamage(); 
          }
         
         
@@ -54,7 +50,7 @@ public class HealthUIHandler : MonoBehaviour
         }
     }
 
-    private bool GetHalfHeart(out Image heart)
+    private bool SetHalfHeartToEmpty(out Image heart)
     {
         heart = gameObject.GetComponentsInChildren<Image>()
             .SingleOrDefault(x => x.sprite == HalfHeart);
@@ -63,11 +59,33 @@ public class HealthUIHandler : MonoBehaviour
     }
 
 
-    private void SetHeartContainer(int index, Sprite image)
+    private HeartSetType GetHeartTypeAtIndex(int index)
+    {
+        var heart = gameObject.GetComponentsInChildren<Image>().ToList()[index];
+
+        if (heart.sprite == FullHeart)
+            return HeartSetType.Full;
+        
+        if (heart.sprite == HalfHeart)
+            return HeartSetType.Half;
+        
+        if (heart.sprite == EmptyHeart)
+            return HeartSetType.Empty;
+
+        return HeartSetType.WrongType;
+    }
+    
+    private void SetHeartContainer(int index, HeartSetType imageType)
     {
         var tempHearts = gameObject.GetComponentsInChildren<Image>().ToList();
 
-        tempHearts[index].sprite = image;
+        tempHearts[index].sprite = imageType switch
+        {
+            HeartSetType.Empty => EmptyHeart,
+            HeartSetType.Half => HalfHeart,
+            HeartSetType.Full => FullHeart,
+            _ => tempHearts[index].sprite
+        };
     }
 
     private bool GetAllFullHeart(out List<Image> heart)
@@ -90,21 +108,23 @@ public class HealthUIHandler : MonoBehaviour
     private void DoOnePointOfDamage()
     {
         var amountDamageTaken = 0;
-        
-        if (GetHalfHeart(out Image tempImage))
-        {
-            tempImage.sprite = EmptyHeart;
-            amountDamageTaken++;
-        }
 
-        if (amountDamageTaken >= 1) return;
-        
-        if (GetAllFullHeart(out List<Image> tempSpriteList))
+        for (int i = 2; i >= 0; i--)
         {
-            if (tempSpriteList.Count >= 1)
-                tempSpriteList[^1].sprite = HalfHeart;
-        }
+            var type = GetHeartTypeAtIndex(i);
 
+            if (type == HeartSetType.Half && amountDamageTaken < 1)
+            {
+                SetHeartContainer(i, HeartSetType.Empty);
+                amountDamageTaken++;
+            }
+            else if (type == HeartSetType.Full && amountDamageTaken < 1)
+            {
+                SetHeartContainer(i, HeartSetType.Half);
+                amountDamageTaken++;
+            }
+        }
+        
         CheckIfDead();
     }
     
