@@ -21,7 +21,7 @@ public class PlayerChargeBetterJumpController : MonoBehaviour
 	private float chargeTime = 1f;
 
 	[SerializeField]
-	private float gravityFallMultiplier = 2.5f;
+	// private float gravityFallMultiplier = 2.5f;
 
 	private float jumpCharge;
 
@@ -42,14 +42,15 @@ public class PlayerChargeBetterJumpController : MonoBehaviour
 				myRigidBody.AddForce(Vector3.up*jumpForce);
 			}
 		}
-
-		if (myRigidBody.velocity.y < 0)
-		{
-			myRigidBody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
-		}
-		else if (myRigidBody.velocity.y > 0 && !commandContainer.JumpCommandUp)
-		{
-			myRigidBody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
-		}
+		
+		//Moved to separate script!
+		// if (myRigidBody.velocity.y < 0)
+		// {
+		// 	myRigidBody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
+		// }
+		// else if (myRigidBody.velocity.y > 0 && !commandContainer.JumpCommandUp)
+		// {
+		// 	myRigidBody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
+		// }
 	}
 }

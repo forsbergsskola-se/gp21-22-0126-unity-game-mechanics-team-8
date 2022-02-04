@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 5936128350151833588}
   - component: {fileID: 3451470071307342565}
   - component: {fileID: 510644297121851725}
+  - component: {fileID: 1197714769}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -326,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 1151829421}
-  flyForce: 100
+  flyForce: 11
   playerInputController: {fileID: 130509535}
   staminaDrain: 0.4
   staminaReloadTime: 2
@@ -348,10 +349,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 1151829421}
-  parachuteForce: 0.5
+  parachuteForce: 5
   parachuteOpeningTime: 0.5
   playerInputController: {fileID: 130509535}
   parachuteIsOn: {fileID: 11400000, guid: 34bae79c313eeb74d8828ab0bb453d23, type: 2}
+--- !u!114 &1197714769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860134241555915237}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbed923bd11869941a171dd1e0ea9dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidBody: {fileID: 1151829421}
+  gravityFallMultiplier: 2
+  commandContainer: {fileID: 130509534}
 --- !u!1 &8373886896011075945
 GameObject:
   m_ObjectHideFlags: 0

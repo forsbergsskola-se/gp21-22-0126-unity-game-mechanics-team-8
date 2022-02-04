@@ -40,14 +40,14 @@ public class FlyingControllerAA : MonoBehaviour
             Discharge(staminaDrain);
         }
         
-        if (myRigidbody.velocity.y < 0 && !playerInputController.FlyingInput)
-        {
-            myRigidbody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
-        }
-        else if (myRigidbody.velocity.y > 0 && !playerInputController.FlyingInput)
-        {
-            myRigidbody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
-        }
+        // if (myRigidbody.velocity.y < 0 && !playerInputController.FlyingInput)
+        // {
+        //     myRigidbody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
+        // }
+        // else if (myRigidbody.velocity.y > 0 && !playerInputController.FlyingInput)
+        // {
+        //     myRigidbody.velocity += Vector3.up*Physics.gravity.y*(gravityFallMultiplier - 1)*Time.deltaTime;
+        // }
     }
     
     private void Discharge(float amountOfStaminaDrained)
