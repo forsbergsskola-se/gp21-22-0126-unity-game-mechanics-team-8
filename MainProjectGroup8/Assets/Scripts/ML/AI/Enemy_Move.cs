@@ -17,7 +17,6 @@ public class Enemy_Move : MonoBehaviour
     void Start()
     {
         _detector = GetComponentInChildren<PlayerDetector>();
-        testVector = GetLocationAtSplinePoint(1);
         currentState = new Patrol(playerTrans, gameObject, GameObject.FindWithTag("Patrol"), _detector);
         theSpline= GameObject.FindWithTag("Splines").GetComponent<Spline>();
     }

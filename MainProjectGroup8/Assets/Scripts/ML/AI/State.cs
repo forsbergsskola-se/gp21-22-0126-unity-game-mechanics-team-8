@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public abstract class State 
 {
@@ -10,6 +12,7 @@ public abstract class State
     protected State NextState;
     protected GameObject Npc;
     public Transform Player;
+    public GameObject PatrolNodes;
     protected PlayerDetector Detector;
 
     public enum STATE
@@ -22,12 +25,13 @@ public abstract class State
         Enter, Update, Exit
     }
 
-    public State(Transform  player, GameObject npc, PlayerDetector detector)
+    public State( Transform player, GameObject npc, GameObject patrolNodes, PlayerDetector detector)
     {
         Player = player;
         Stage = EVENT.Enter;
         Npc = npc;
         Detector = detector;
+        PatrolNodes = patrolNodes;
     }
 
     public virtual void Enter()
@@ -64,8 +68,8 @@ public abstract class State
 
 public class Idle : State
 {
-    public Idle( Transform player, GameObject npc, PlayerDetector detector)
-        : base(player, npc, detector)
+    public Idle( Transform player, GameObject npc, GameObject patrolNodes, PlayerDetector detector)
+        : base(player, npc,  patrolNodes, detector)
     {
         Name = STATE.Idle;
     }
@@ -88,55 +92,58 @@ public class Patrol : State
     private WaypointManager nodes;
     private List<SphereCollider> nodes2;
     private bool incDec = true;
-    public Patrol( Transform player, GameObject npc, GameObject patrol, PlayerDetector detector)
-        : base(player, npc, detector)
+    public Patrol( Transform player, GameObject npc, GameObject patrolNodes, PlayerDetector detector)
+        : base(player, npc, patrolNodes, detector)
     {
         Name = STATE.Patrol;
-        nodes = patrol.GetComponent<WaypointManager>();
-        nodes2 = patrol.GetComponentsInChildren<SphereCollider>().ToList();
+        nodes = patrolNodes.GetComponent<WaypointManager>();
+        nodes2 = patrolNodes.GetComponentsInChildren<SphereCollider>().ToList();
 
     }
     
     public override void Update()
     {
-        base.Update();
-        
         if (Detector.PlayerSpotted)
         {
-            NextState = new Attack(Player, Npc, Detector);
+            NextState = new Attack(Player, Npc, PatrolNodes,Detector);
             Stage = EVENT.Exit;
         }
-
-        //    CheckForDistance();
-
-
-        //    Npc.transform.position += Npc.transform.right * 1.0f * Time.deltaTime;
-
-
-    //    RotateEnemy();
-
-
+        else
+        {
+            CheckForDistance(); 
+        }
     }
 
+    private void RotateSimple()
+    {
+        Npc.transform.Rotate(Vector3.up, 180);
+    }
+    
     private void RotateEnemy()
     {
-        var dot = Vector3.Dot(Npc.transform.forward, nodes2[currentIndex].transform.forward);
-        if (dot < 0)
+        if (!Detector.PlayerSpotted)
         {
-            Npc.transform.Rotate(Vector3.up, 180);
+            var dot = Vector3.Dot(Npc.transform.forward, nodes2[currentIndex].transform.forward);
+          //  Debug.Log(dot);
+            if (dot < 0)
+            {
+            //    Debug.Log(dot);
+                Npc.transform.Rotate(Vector3.up, 180);
+            }
         }
     }
     
     private void CheckForDistance()
     {
-        if (Vector3.Distance(Npc.transform.position, nodes.GetPositionAtNode(currentIndex)) < 0.2f)
+        if (Vector3.Distance(Npc.transform.position, nodes2[currentIndex].transform.position) < 1f)
         {
             if (incDec)
             {
-                if (currentIndex >= nodes.GetNodeCount())
+                if (currentIndex >= nodes2.Count - 1)
                 {
                     currentIndex--;
                     incDec = false;
+                    RotateSimple();
                 }
                 else
                 {
@@ -145,24 +152,31 @@ public class Patrol : State
             }
             else
             {
-                if (currentIndex < 0)
+                if (currentIndex <= 0)
                 {
                     currentIndex++;
                     incDec = true;
+                    RotateSimple();
                 }
                 else
                 {
                     currentIndex--;
                 }
             }
+            Debug.Log(currentIndex);
+        }
+
+        else
+        {
+            Npc.transform.position = Vector3.MoveTowards(Npc.transform.position, nodes2[currentIndex].transform.position, 1 * Time.deltaTime);
         }
     }
 }
 
 public class Pursue : State
 {
-    public Pursue( Transform player, GameObject npc, PlayerDetector detector)
-        : base(player, npc, detector)
+    public Pursue( Transform player, GameObject npc, GameObject patrolNodes, PlayerDetector detector)
+        : base(player, npc,  patrolNodes, detector)
     {
         Name = STATE.Pursue;
     }
@@ -177,21 +191,28 @@ public class Pursue : State
 public class Attack : State
 {
     private Shoot_Enemy shooter;
-    
-    public Attack( Transform player, GameObject npc, PlayerDetector detector)
-        : base(player, npc,detector)
+
+    public Attack( Transform player, GameObject npc, GameObject patrolNodes, PlayerDetector detector)
+        : base(player, npc,patrolNodes, detector)
     {
-        Name = STATE.Patrol;
+        Name = STATE.Attack;
         shooter = Npc.GetComponentInChildren<Shoot_Enemy>();
     }
 
     public override void Update()
     {
-        base.Update();
-
         if (Detector.PlayerSpotted)
         {
             shooter.Attack();
+        }
+
+        if (!Detector.PlayerSpotted)
+        {
+            if (Random.Range(0, 100) > 90)
+            {
+                NextState = new Patrol(Player, Npc, PatrolNodes, Detector);
+                Stage = EVENT.Exit;
+            }
         }
     }
 }

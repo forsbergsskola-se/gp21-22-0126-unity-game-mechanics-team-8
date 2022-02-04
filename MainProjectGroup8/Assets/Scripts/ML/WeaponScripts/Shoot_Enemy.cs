@@ -21,7 +21,6 @@ public class Shoot_Enemy : Shoot
     {
         if (canShoot)
         {
-            Debug.Log("attack 2");
             var pos = transform.InverseTransformPoint(transform.position);
             
             _currentAmmo.TryShoot(transform.TransformPoint(transform.localPosition), transform.right);
