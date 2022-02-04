@@ -42,5 +42,9 @@ public class DashEnemyControllerJJ : MonoBehaviour
 				}
 			}
 		}
+		else
+		{
+			myRigidBody.velocity = Vector3.zero;
+		}
 	}
 }

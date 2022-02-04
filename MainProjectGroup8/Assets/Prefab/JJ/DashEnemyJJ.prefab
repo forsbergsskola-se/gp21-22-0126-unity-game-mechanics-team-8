@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 913897968}
-  - component: {fileID: 913897969}
+  - component: {fileID: 7390862744772651273}
   m_Layer: 0
   m_Name: InputAndCommands
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 2070572352123522703}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &913897969
+--- !u!114 &7390862744772651273
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 913897967}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ab5bbb9fdf3e4c459578c8b2c038af0, type: 3}
+  m_Script: {fileID: 11500000, guid: 60f6e7914880b94449eb2a0d78b0c853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MoveCommandHorizontal: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   groundCheckRadius: 0.5
   groundLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!114 &547538772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   proximityDetector: {fileID: 2070572351519541322}
   movementSpeed: 5
   stopDistanceBeforeDash: 5
-  commandContainer: {fileID: 913897969}
+  commandContainer: {fileID: 7390862744772651273}
 --- !u!114 &547538774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,9 +277,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8735105b57453d949a36eb2f1249b65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commandContainer: {fileID: 913897969}
+  commandContainer: {fileID: 7390862744772651273}
   myRigidBody: {fileID: 547538771}
   dashStrength: 1000
   dashCoolDown: 2
   dashTime: 0.25
   afterDashVelocityBrakeFactor: 0.2
+  UpdateDashUIEvent:
+    m_PersistentCalls:
+      m_Calls: []

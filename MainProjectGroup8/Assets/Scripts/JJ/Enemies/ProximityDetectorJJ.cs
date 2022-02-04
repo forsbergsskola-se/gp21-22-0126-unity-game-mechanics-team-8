@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ProximityDetectorJJ : MonoBehaviour
@@ -11,6 +12,14 @@ public class ProximityDetectorJJ : MonoBehaviour
 		{
 			DetectedPlayer = true;
 			PlayerTransform = other.transform;
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.CompareTag("Player"))
+		{
+			DetectedPlayer = false;
 		}
 	}
 }
