@@ -88,9 +88,7 @@ public class HealthUIHandler : MonoBehaviour
     {
         for (var i = 0; i < 3; i++)
         {
-            var type = GetHeartTypeAtIndex(i);
-
-            if (type != HeartSetType.Empty)
+            if (GetHeartTypeAtIndex(i) != HeartSetType.Empty)
             {
                 return false;
             }

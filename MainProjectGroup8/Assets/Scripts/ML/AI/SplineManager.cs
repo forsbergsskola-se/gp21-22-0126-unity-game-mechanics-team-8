@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using SplineMesh;
 using UnityEngine;
 
 public class SplineManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Spline theSpline;
+    
     void Start()
     {
-        
+        theSpline = GetComponent<Spline>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    
+    
+   
 }
