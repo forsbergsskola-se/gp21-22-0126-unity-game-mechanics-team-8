@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6835329814937311073}
   - component: {fileID: 2017394830790752166}
-  - component: {fileID: 301793168}
+  - component: {fileID: 3584327696006358278}
   m_Layer: 0
   m_Name: PlayerInputAndCommandsJJ
   m_TagString: Player
@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressTimeTolerance: 0.5
-  commandContainer: {fileID: 301793168}
+  commandContainer: {fileID: 0}
   keyPressTime: 0
   chargingSprintNotificationTime: 0.2
---- !u!114 &301793168
+--- !u!114 &3584327696006358278
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2822413827590174849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ab5bbb9fdf3e4c459578c8b2c038af0, type: 3}
+  m_Script: {fileID: 11500000, guid: 60f6e7914880b94449eb2a0d78b0c853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MoveCommandHorizontal: 0
@@ -84,8 +84,8 @@ GameObject:
   - component: {fileID: 7860134241555915235}
   - component: {fileID: 1151829429}
   - component: {fileID: 1151829421}
+  - component: {fileID: 508814682805396190}
   - component: {fileID: 5524039719201856544}
-  - component: {fileID: 8416012418885418548}
   - component: {fileID: 3670845446976491370}
   - component: {fileID: 1155373857}
   - component: {fileID: 1050300050}
@@ -192,6 +192,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &508814682805396190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860134241555915237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee1517e9ebce604184c1ffaccc0ccf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheckLength: 0.55
+  groundCheckRadius: 0.45
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &5524039719201856544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,26 +223,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidBody: {fileID: 1151829421}
   moveSpeed: 10
-  groundChecker: {fileID: 8416012418885418548}
-  commandContainer: {fileID: 301793168}
+  groundChecker: {fileID: 508814682805396190}
+  commandContainer: {fileID: 3584327696006358278}
   chargingMoveSpeedFactor: 0.5
---- !u!114 &8416012418885418548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7860134241555915237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29dc18873e6a7f245b7c30e6f98a9e96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundCheckLength: 0.55
-  groundCheckRadius: 0.45
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 2147483647
 --- !u!114 &3670845446976491370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,9 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a0c2d34def4aa45bc17be877a61836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commandContainer: {fileID: 301793168}
+  commandContainer: {fileID: 3584327696006358278}
   myRigidBody: {fileID: 1151829421}
-  groundChecker: {fileID: 8416012418885418548}
+  groundChecker: {fileID: 508814682805396190}
   maximumJumpForce: 1000
   minimumJumpForce: 100
   chargeTime: 0.5
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8735105b57453d949a36eb2f1249b65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commandContainer: {fileID: 0}
+  commandContainer: {fileID: 3584327696006358278}
   myRigidBody: {fileID: 1151829421}
   dashStrength: 1000
   dashCoolDown: 1
@@ -290,13 +290,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a66620752771a346913add231f467e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commandContainer: {fileID: 0}
+  commandContainer: {fileID: 3584327696006358278}
   myRigidBody: {fileID: 1151829421}
   sprintSpeed: 40
   sprintCoolDown: 2
   afterSprintBrakeFactor: 0.2
   sprintTime: 0.75
-  groundChecker: {fileID: 0}
+  groundChecker: {fileID: 508814682805396190}
   SprintDashEvent:
     m_PersistentCalls:
       m_Calls:
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdace42e60073da4a900d013c7813c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 6196586803936838009, guid: 51ec8fc3ba2f4034486bdb2c46b32429, type: 3}
   baseDamage: 10
   baseBulletSpeed: 1
   forwardVector: {x: 1, y: 0, z: 0}

@@ -3,13 +3,13 @@ using UnityEngine;
 public class PlayerChargeBetterJumpControllerJJ : MonoBehaviour
 {
 	[SerializeField]
-	private CommandContainerJJ commandContainer;
+	private CommandContainer commandContainer;
 
 	[SerializeField]
 	private Rigidbody myRigidBody;
 
 	[SerializeField]
-	private GroundCheckerJJ groundChecker;
+	private GroundChecker groundChecker;
 
 	[SerializeField]
 	private float maximumJumpForce = 1000f;
