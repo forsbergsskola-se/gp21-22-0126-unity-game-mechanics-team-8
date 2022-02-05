@@ -15,7 +15,8 @@ public class DeathOnContactJJ : MonoBehaviour
 		}
 		else
 		{
-		Destroy(collision.gameObject);	
+		if(collision.gameObject.CompareTag("Player"))
+			Destroy(collision.gameObject);	
 		} 
 	}
 }

@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 935138360}
   - component: {fileID: 935138359}
   - component: {fileID: 935138361}
+  - component: {fileID: 2647868624772223682}
   m_Layer: 0
   m_Name: SprintEnemyJJ
   m_TagString: Untagged
@@ -282,6 +283,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b0f0f215ad59c4ca23e8386a63d5c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2647868624772223682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7503828254145299895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2690dd38902a694aa8c77deedefbbf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroySelfOnContact: 0
 --- !u!1 &7503828254861376469
 GameObject:
   m_ObjectHideFlags: 0
