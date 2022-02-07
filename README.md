@@ -23,7 +23,8 @@ Sprint (or long dash) - Can sprint longer but only horizontally along the ground
 
 
 ## Shooting - Mattias Lönnqvist
-[DESCRIPTION HERE]
+Shotgun- Fires smaller bullets over a wide area
+Shatter- Bullets split into smaller projectiles when they hit something
 
 ## General things to implement:
 * Health, -Mattias
