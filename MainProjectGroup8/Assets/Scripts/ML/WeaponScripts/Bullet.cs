@@ -34,7 +34,6 @@ public class Bullet : MonoBehaviour
 
                 if (returnHitLocation && OnReturnHitLocation != null)
                 {
-                    Debug.Log("returning hit location");
                     OnReturnHitLocation(transform.position, gameObject.transform.right);
                 }
             }

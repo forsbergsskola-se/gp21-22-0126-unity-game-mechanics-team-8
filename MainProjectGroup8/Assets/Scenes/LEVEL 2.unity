@@ -365,6 +365,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 92
       objectReference: {fileID: 0}
+    - target: {fileID: 8332716761153730424, guid: 4786cc3720084cb4782a25fd3ce5d787, type: 3}
+      propertyPath: baseHealth
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4786cc3720084cb4782a25fd3ce5d787, type: 3}
 --- !u!1 &564582327
