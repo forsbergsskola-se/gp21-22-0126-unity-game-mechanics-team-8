@@ -787,6 +787,7 @@ MonoBehaviour:
   _attackRadius: 4
   _followRadius: 6
   playerTransform: {fileID: 125122553}
+  playerInAttackRange: 0
 --- !u!114 &838385095
 MonoBehaviour:
   m_ObjectHideFlags: 0

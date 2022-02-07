@@ -5,22 +5,25 @@ using UnityEngine;
 public class EnemyMoveAA : EnemiesAA
 {
 
-//variables
-    public int _moveSpeed;
-    public int _attackDamage;
-    public  int _lifePoints;
-    public float _attackRadius;
+    //variables
+    [SerializeField] private int _moveSpeed;
+    [SerializeField] private int _attackDamage;
+    [SerializeField] private  int _lifePoints;
+    [SerializeField] private float _attackRadius;
+   
 
     //movement
     public float _followRadius;
     //end
     [SerializeField] Transform playerTransform;
     SpriteRenderer enemySR;
+    //Attack check
+    public bool playerInAttackRange;
 
     void Start()
     {
       //get the player transform   
-playerTransform = FindObjectOfType<PlayerControllerAA>().GetComponent<Transform>();
+      playerTransform = FindObjectOfType<PlayerControllerAA>().GetComponent<Transform>();
       //enemy animation and sprite renderer 
       enemySR = GetComponent<SpriteRenderer>();
       //set the variables
@@ -42,13 +45,15 @@ playerTransform = FindObjectOfType<PlayerControllerAA>().GetComponent<Transform>
 
                 if (checkAttackRadius(playerTransform.position.x, transform.position.x))
                 {
-                    //for attack animation
+                    playerInAttackRange = true;
+
                 }
                 else
                 {
                     this.transform.position += new Vector3(-getMoveSpeed() * Time.deltaTime, 0f, 0f);
                     //walk
                     enemySR.flipX = true;
+                    playerInAttackRange = false;
                 }
 
             }
@@ -57,16 +62,15 @@ playerTransform = FindObjectOfType<PlayerControllerAA>().GetComponent<Transform>
             {
                 if (checkAttackRadius(playerTransform.position.x, transform.position.x))
                 {
-                   
+                    playerInAttackRange = true;
                 }
                 else
                 {
                     this.transform.position += new Vector3(getMoveSpeed() * Time.deltaTime, 0f, 0f);
                     
                     enemySR.flipX = false;
+                    playerInAttackRange = false;
                 }
-
-
             }
         }
     }
