@@ -38,7 +38,7 @@ Shatter- Bullets split into smaller projectiles when they hit something
 * UI (health, powerup, dashmeter?) 
 
 
-Enemies:
+# Enemies:
 ## Jonathan Jonsson
 -Sprint enemy (red charger)  
 -Dash enemy (red flying cube)
