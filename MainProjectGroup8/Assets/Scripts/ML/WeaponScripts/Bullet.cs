@@ -23,11 +23,12 @@ public class Bullet : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-    //    Debug.Log(other.gameObject.name);
+        Debug.Log(other.gameObject.name);
         for (int i = 0; i < possibleTargets.Count; i++)
         {
             if (other.gameObject.CompareTag(possibleTargets[i]))
             {
+                Debug.Log("collider is acceptable target");
                 if (other.gameObject.GetComponent<Damage>())
                 {
 
