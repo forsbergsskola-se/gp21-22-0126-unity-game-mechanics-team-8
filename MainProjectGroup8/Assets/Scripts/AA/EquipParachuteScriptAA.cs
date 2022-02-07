@@ -1,15 +1,14 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipJetPackScriptAA : MonoBehaviour
+public class EquipParachuteScriptAA : MonoBehaviour
 {
-    [SerializeField] private BooleanValue jetPackIsOn;
+    [SerializeField] private BooleanValue parachuteIsOn;
     
     private void OnTriggerEnter(Collider other)
     {
-        jetPackIsOn.BoolValue = true;
+        parachuteIsOn.BoolValue = true;
         gameObject.SetActive(false);
     }
 }

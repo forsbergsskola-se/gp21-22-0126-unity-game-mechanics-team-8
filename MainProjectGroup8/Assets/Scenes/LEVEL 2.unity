@@ -933,7 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd6359d995b9684881c923d6bc299d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parachuteIsOn: {fileID: 11400000, guid: 34bae79c313eeb74d8828ab0bb453d23, type: 2}
+  jetPackIsOn: {fileID: 11400000, guid: 156dabd9ea977354896923f786031618, type: 2}
 --- !u!1001 &1695188673
 PrefabInstance:
   m_ObjectHideFlags: 0
