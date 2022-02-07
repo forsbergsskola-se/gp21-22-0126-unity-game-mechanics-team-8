@@ -7,11 +7,6 @@ Emir Ulusoy,
 Jonathan Jonsson,
 Mattias Lönnqvist
 
-Level:
-1) Platforming
-2) Flying level
-
-
 # Mechanics:
 
 ## Flying - Armin Afazeli
@@ -42,4 +37,7 @@ Sprint (or long dash) - Can sprint longer but only horizontally along the ground
 * UI (health, powerup, dashmeter?) 
 
 
-VG part bla bla goes here
+Enemies:
+## Jonathan Jonsson
+-Sprint enemy (red charger)
+-Dash enemy (red flying cube)
