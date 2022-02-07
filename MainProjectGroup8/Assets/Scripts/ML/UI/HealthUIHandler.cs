@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SplineMesh;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,11 +18,23 @@ public class HealthUIHandler : MonoBehaviour
     [SerializeField] private Sprite HalfHeart;
     [SerializeField] private Sprite EmptyHeart;
     private float accumulatedDamage = 0;
-    [SerializeField] private float damageInterval = 6.0f;
+    [SerializeField] private float damageInterval = 9.0f;
+    [SerializeField] private GameObject GameOverUI;
+    private GameObject holdGameOverUI;
+
+    public delegate void PlayerDiesDelegate();
+
+    public static event PlayerDiesDelegate OnPlayerDies;
     
     void Start()
     {
         Damage.OnPlayerTakesDamage += TakeDamage;
+    
+    }
+
+    private void OnDisable()
+    {
+        Damage.OnPlayerTakesDamage -= TakeDamage;
     }
 
     private void TakeDamage(float damageAmount)
@@ -36,7 +49,16 @@ public class HealthUIHandler : MonoBehaviour
 
         if (CheckIfDead())
         {
-            
+            PlayerDies();
+        }
+    }
+
+
+    private void PlayerDies()
+    {
+        if (OnPlayerDies != null)
+        {
+            OnPlayerDies();
         }
     }
     

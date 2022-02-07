@@ -35,6 +35,12 @@ public class WeaponUIHandler : MonoBehaviour
         Ammo.OnShotFired += ShotFired;
     }
 
+    private void OnDisable()
+    {
+        WeaponPickup.OnPickupPicked -= PickupPicked;
+        Ammo.OnShotFired -= ShotFired;
+    }
+
     private void ShotFired()
     {
         if (_currentAmmo > 0)
