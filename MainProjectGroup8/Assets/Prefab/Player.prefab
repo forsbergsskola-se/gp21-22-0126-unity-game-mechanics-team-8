@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 3451470071307342565}
   - component: {fileID: 510644297121851725}
   - component: {fileID: 1197714769}
+  - component: {fileID: 357643899117395997}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -368,6 +369,21 @@ MonoBehaviour:
   myRigidBody: {fileID: 1151829421}
   gravityFallMultiplier: 2
   commandContainer: {fileID: 130509534}
+--- !u!114 &357643899117395997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860134241555915237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac3b1a50865c754f9ae0654c996fa54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealth: 100
+  damageMaterial: {fileID: 2100000, guid: 85d04bb98ad19334da6a6a39f924def0, type: 2}
+  characterType: 1
 --- !u!1 &8373886896011075945
 GameObject:
   m_ObjectHideFlags: 0
