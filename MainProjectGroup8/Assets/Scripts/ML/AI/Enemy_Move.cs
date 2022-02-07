@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Enemy_Move : MonoBehaviour
 {
-    private Spline theSpline;
     private Vector3 testVector;
     private bool rotate = true;
     private bool move = false;
@@ -18,7 +17,6 @@ public class Enemy_Move : MonoBehaviour
     {
         _detector = GetComponentInChildren<PlayerDetector>();
         currentState = new Patrol(playerTrans, gameObject, GameObject.FindWithTag("Patrol"), _detector);
-        theSpline= GameObject.FindWithTag("Splines").GetComponent<Spline>();
     }
 
     void Update()
