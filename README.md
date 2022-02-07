@@ -10,7 +10,8 @@ Mattias Lönnqvist
 # Mechanics:
 
 ## Flying - Armin Afazeli
-[DESCRIPTION HERE]
+JetPack - Can fly while the charge lasts
+Parachute - Can simulate fly on fall with slowing down the fall. The patrachute takes time to be opened.
 
 
 ## Powerup: MoveSpeed and ___ - Emir Ulusoy 
