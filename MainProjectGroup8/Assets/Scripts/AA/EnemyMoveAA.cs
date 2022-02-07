@@ -15,7 +15,6 @@ public class EnemyMoveAA : EnemiesAA
     public float _followRadius;
     //end
     [SerializeField] Transform playerTransform;
-    [SerializeField]Animator enemyAnim;
     SpriteRenderer enemySR;
 
     void Start()
@@ -23,8 +22,7 @@ public class EnemyMoveAA : EnemiesAA
       //get the player transform   
 playerTransform = FindObjectOfType<PlayerControllerAA>().GetComponent<Transform>();
       //enemy animation and sprite renderer 
-        enemyAnim = gameObject.GetComponent<Animator>();
-        enemySR = GetComponent<SpriteRenderer>();
+      enemySR = GetComponent<SpriteRenderer>();
       //set the variables
         setMoveSpeed(_moveSpeed);
         setAttackDamage(_attackDamage);
@@ -45,15 +43,11 @@ playerTransform = FindObjectOfType<PlayerControllerAA>().GetComponent<Transform>
                 if (checkAttackRadius(playerTransform.position.x, transform.position.x))
                 {
                     //for attack animation
-                    enemyAnim.SetBool("AttackA", true);
                 }
                 else
                 {
                     this.transform.position += new Vector3(-getMoveSpeed() * Time.deltaTime, 0f, 0f);
-                    //for attack animation
-                    enemyAnim.SetBool("AttackA", false);
                     //walk
-                    enemyAnim.SetBool("Walking", true);
                     enemySR.flipX = true;
                 }
 
@@ -63,27 +57,17 @@ playerTransform = FindObjectOfType<PlayerControllerAA>().GetComponent<Transform>
             {
                 if (checkAttackRadius(playerTransform.position.x, transform.position.x))
                 {
-                    //for attack animation
-                    enemyAnim.SetBool("AttackA", true);
+                   
                 }
                 else
                 {
                     this.transform.position += new Vector3(getMoveSpeed() * Time.deltaTime, 0f, 0f);
-                    //for attack animation
-                    enemyAnim.SetBool("AttackA", false);
-                    //walk
-                    enemyAnim.SetBool("Walking", true);
+                    
                     enemySR.flipX = false;
                 }
 
 
             }
         }
-        else
-        {
-            enemyAnim.SetBool("Walking", false);
-        }
-
-
     }
 }
