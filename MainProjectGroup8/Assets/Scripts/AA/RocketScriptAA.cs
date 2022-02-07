@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombScriptAA : MonoBehaviour
+
+public class RocketScriptAA : MonoBehaviour
 {
     public Transform playerPosition;
-    [SerializeField] private float bombSpeed = 30f;
     [SerializeField] private float rangeOfWeapon = 5f;
-    private Rigidbody bombRb;
+    private Rigidbody rocketRb;
     
 
     void Start()
     {
-        bombRb = FindObjectOfType<Rigidbody>();
+        rocketRb = FindObjectOfType<Rigidbody>();
         //bombRb.velocity = -transform.up * bombSpeed;
-        var randomForceMultiplier = Random.Range(0.8f, 1.5f);
-        if(bombRb.velocity.y < 0)
-            bombRb.AddForce(playerPosition.position * 2f * randomForceMultiplier);
+        
     }
     
     void Update()
     {
+        var randomForceMultiplier = Random.Range(0.5f, 2f);
+        rocketRb.velocity += (Vector3.right * .02f * randomForceMultiplier);
         // Destroying the bullet after rangeOfWeapon in seconds
         Invoke(nameof(DestroyBomb), rangeOfWeapon);
         

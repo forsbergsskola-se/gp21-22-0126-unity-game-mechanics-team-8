@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3388853721412070018}
   - component: {fileID: 9105424499080836119}
   - component: {fileID: 1810117446705587939}
-  - component: {fileID: 3525792701415684464}
+  - component: {fileID: 159457821188338575}
   m_Layer: 0
-  m_Name: BombAA
+  m_Name: RocketAA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3525792701415684464
+--- !u!114 &159457821188338575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,9 +124,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3086916663717858633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 081418351d249b7408f257747a31bb32, type: 3}
+  m_Script: {fileID: 11500000, guid: 210e35f372427214cb7baad28c3b1aae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 4551941865406340138, guid: 7cadcd865d688a94781184f8ab7fbab1, type: 3}
-  bombSpeed: 30
-  rangeOfWeapon: 2
+  rangeOfWeapon: 5
