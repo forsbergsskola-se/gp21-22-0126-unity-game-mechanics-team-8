@@ -8,6 +8,7 @@ public class EnemyAttackAA : MonoBehaviour
     public GameObject bombPrefab;
     public Transform bombExitPoint;
     [SerializeField] private float timeBetweenAttacks = 2f;
+    [SerializeField] private float instantiationTimer = 2f;
     private EnemyMoveAA _enemyMoveAA;
 
     private void Start()
@@ -19,12 +20,17 @@ public class EnemyAttackAA : MonoBehaviour
     {
         if (_enemyMoveAA.playerInAttackRange)
         {
-            Invoke(nameof(DropBomb), timeBetweenAttacks);
+            DropBomb();
         }
     }
 
     private void DropBomb()
-    {
-        Instantiate(bombPrefab, bombExitPoint.position, bombExitPoint.rotation);
+    { 
+        instantiationTimer -= Time.deltaTime;
+        if (instantiationTimer <= 0)
+        {
+            Instantiate(bombPrefab, bombExitPoint.position, bombExitPoint.rotation);
+            instantiationTimer = 2f;
+        }
     }
 }
