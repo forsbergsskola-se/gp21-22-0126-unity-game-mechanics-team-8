@@ -16,7 +16,6 @@ public class EnemyMoveAA : EnemiesAA
     public float _followRadius;
     //end
     [SerializeField] Transform playerTransform;
-    SpriteRenderer enemySR;
     //Attack check
     public bool playerInAttackRange;
 
@@ -24,8 +23,6 @@ public class EnemyMoveAA : EnemiesAA
     {
       //get the player transform   
       playerTransform = FindObjectOfType<PlayerControllerAA>().GetComponent<Transform>();
-      //enemy animation and sprite renderer 
-      enemySR = GetComponent<SpriteRenderer>();
       //set the variables
         setMoveSpeed(_moveSpeed);
         setAttackDamage(_attackDamage);
@@ -52,7 +49,6 @@ public class EnemyMoveAA : EnemiesAA
                 {
                     this.transform.position += new Vector3(-getMoveSpeed() * Time.deltaTime, 0f, 0f);
                     //walk
-                    enemySR.flipX = true;
                     playerInAttackRange = false;
                 }
 
@@ -68,7 +64,6 @@ public class EnemyMoveAA : EnemiesAA
                 {
                     this.transform.position += new Vector3(getMoveSpeed() * Time.deltaTime, 0f, 0f);
                     
-                    enemySR.flipX = false;
                     playerInAttackRange = false;
                 }
             }

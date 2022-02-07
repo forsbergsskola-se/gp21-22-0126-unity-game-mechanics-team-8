@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081418351d249b7408f257747a31bb32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombSpeed: 30000000
+  bombSpeed: 30
   rangeOfWeapon: 2

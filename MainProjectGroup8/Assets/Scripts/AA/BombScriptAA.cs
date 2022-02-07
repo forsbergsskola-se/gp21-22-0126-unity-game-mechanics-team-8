@@ -5,14 +5,14 @@ using UnityEngine;
 public class BombScriptAA : MonoBehaviour
 {
     private Rigidbody bombRb;
-    [SerializeField] private float bombSpeed = 30000000f;
-    [SerializeField] private float rangeOfWeapon = 2f;
+    [SerializeField] private float bombSpeed = 30f;
+    [SerializeField] private float rangeOfWeapon = 5f;
     
 
     void Start()
     {
         bombRb = FindObjectOfType<Rigidbody>();
-        bombRb.velocity = transform.right * bombSpeed;
+        bombRb.velocity = -transform.up * bombSpeed;
     }
     
     void Update()
