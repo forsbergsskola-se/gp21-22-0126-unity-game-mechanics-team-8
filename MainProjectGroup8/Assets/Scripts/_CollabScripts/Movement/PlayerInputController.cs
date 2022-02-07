@@ -29,6 +29,8 @@ public class PlayerInputController : MonoBehaviour
 	
 	public bool FlyingInput { get; private set; }
 
+ 
+	public bool RestartLevelInput { get; private set; }
 	private void Update()
 	{
 		GetInputs();
@@ -45,6 +47,7 @@ public class PlayerInputController : MonoBehaviour
 		JumpInput = Input.GetKey(KeyCode.Space);
 		FlyingInput = Input.GetKey(KeyCode.Q);
 		ParachuteInput = Input.GetKey(KeyCode.E);
+		RestartLevelInput = Input.GetKeyDown(KeyCode.R);
 		LShiftTap = false;
 
 		if (Input.GetKey(KeyCode.LeftShift))
@@ -68,6 +71,7 @@ public class PlayerInputController : MonoBehaviour
 		commandContainer.SprintCommand = LShiftLongPress;
 		commandContainer.ChargingSprint = chargingSprint;
 		commandContainer.MoveDirectionCommand = MoveInput;
+		commandContainer.RestartLevel = RestartLevelInput;
 	}
 
 	private void TapInput()

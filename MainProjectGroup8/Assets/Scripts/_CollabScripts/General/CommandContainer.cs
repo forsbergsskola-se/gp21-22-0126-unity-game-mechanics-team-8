@@ -9,6 +9,7 @@ public class CommandContainer : MonoBehaviour
 	public bool JumpCommandDown;
 	public bool JumpCommandUp;
 	public bool JumpCommand;
+	public bool RestartLevel;
 
 	public bool DashCommand;
 	public bool SprintCommand;
