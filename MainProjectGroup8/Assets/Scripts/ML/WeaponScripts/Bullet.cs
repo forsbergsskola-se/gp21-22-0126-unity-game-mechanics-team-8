@@ -7,13 +7,13 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] List<string> possibleTargets;
-    public float lifeSpan = 5.0f;
+    public float lifeSpan = 8.0f;
     public Vector3 travelVector;
-    public float moveSpeed = 10.0f;
+    public float moveSpeed = 14.0f;
     public float damageAmount = 10;
     public bool returnHitLocation;
 
-    public delegate void ReturnHitLocationDelegate(Vector3 hitLocation);
+    public delegate void ReturnHitLocationDelegate(Vector3 hitLocation, Vector3 travelVector);
     public static event ReturnHitLocationDelegate OnReturnHitLocation;
     
     void Start()
@@ -28,10 +28,14 @@ public class Bullet : MonoBehaviour
             if (other.gameObject.CompareTag(possibleTargets[i]))
             {
                 if (other.gameObject.GetComponent<Damage>())
+                {
                     other.gameObject.GetComponent<Damage>().TakeDamage(damageAmount);
-                
+                }
+
                 if (returnHitLocation && OnReturnHitLocation != null)
-                    OnReturnHitLocation(transform.position);
+                {
+                    OnReturnHitLocation(transform.position, gameObject.transform.right);
+                }
             }
         }
         Destroy(gameObject);

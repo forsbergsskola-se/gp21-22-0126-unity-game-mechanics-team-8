@@ -7,7 +7,7 @@ public class Ammo_Shotgun : Ammo
     public Ammo_Shotgun()
     {
         CountAmmo = true;
-        AmmoAmount = 12;
+        AmmoAmount = 10;
     }
     
     protected override void Shoot(Vector3 position, Vector3 travelVector = new Vector3())

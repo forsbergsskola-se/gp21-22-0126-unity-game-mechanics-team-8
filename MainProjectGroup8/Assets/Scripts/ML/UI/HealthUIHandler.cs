@@ -6,16 +6,18 @@ using SplineMesh;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum HeartSetType
-{
-    Full, Half, Empty, WrongType
-}
-
 public class HealthUIHandler : MonoBehaviour
 {
+    private enum HeartSetType
+    {
+        Full, Half, Empty, WrongType
+    }
+    
     [SerializeField] private Sprite FullHeart;
     [SerializeField] private Sprite HalfHeart;
     [SerializeField] private Sprite EmptyHeart;
+    private float accumulatedDamage = 0;
+    [SerializeField] private float damageInterval = 6.0f;
     
     void Start()
     {
@@ -24,13 +26,14 @@ public class HealthUIHandler : MonoBehaviour
 
     private void TakeDamage(float damageAmount)
     {
-        var totalDamage = (int)Mathf.Floor(damageAmount / 5);
+        accumulatedDamage += damageAmount;
 
-         for (var i = 0; i < totalDamage; i++)
-         {
-             DoOnePointOfDamage(); 
-         }
-         
+        if (accumulatedDamage >= damageInterval)
+        {
+            DoOnePointOfDamage();
+            accumulatedDamage = 0;
+        }
+
         if (CheckIfDead())
         {
             

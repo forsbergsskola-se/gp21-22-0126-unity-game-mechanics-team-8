@@ -11,7 +11,7 @@ public abstract class Shoot : MonoBehaviour
 {
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] private float baseDamage = 10f;
-    [SerializeField] private float baseBulletSpeed = 1f;
+    [SerializeField] private float baseBulletSpeed = 10f;
     [SerializeField] Vector3 forwardVector = Vector3.right;
     
     protected List<string> possibleTargets;

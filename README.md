@@ -24,7 +24,7 @@ Sprint (or long dash) - Can sprint longer but only horizontally along the ground
 
 
 ## Shooting - Mattias Lönnqvist
-Shotgun- Fires smaller bullets over a wide area
+Shotgun- Fires smaller bullets over a wide area  
 Shatter- Bullets split into smaller projectiles when they hit something
 
 ## General things to implement:
@@ -43,3 +43,7 @@ Shatter- Bullets split into smaller projectiles when they hit something
 ## Jonathan Jonsson
 -Sprint enemy (red charger)  
 -Dash enemy (red flying cube)
+
+## Mattias Lönnqvist
+-Shoot Enemy One (fires regular bullets)  
+-Shoot Enemy Two (fires shotgun bullets)
