@@ -30,8 +30,7 @@ public class Ammo_Shatter : Ammo
     {
         int numberPellets = 8;
         shotLocation += -travelVector * 2;
-        Debug.Log("shatter pattern engaged");
-        
+
         for (int i = 0; i < numberPellets; i++)
         {
             float angle = i * 360 / numberPellets;

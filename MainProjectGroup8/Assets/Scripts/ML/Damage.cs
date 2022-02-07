@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum CharacterType
@@ -17,12 +18,23 @@ public class Damage : MonoBehaviour
    
    public delegate void TakeDamageDelegate(float damageAmount);
    public static event TakeDamageDelegate OnPlayerTakesDamage;
-   
+
+
+   private void Start()
+   {
+       HealthUIHandler.OnPlayerDies += PlayerDies;
+   }
+
+   private void OnDisable()
+   {
+       HealthUIHandler.OnPlayerDies -= PlayerDies;
+   }
+
    public void TakeDamage(float damageAmount)
    {
+       if (!gameObject.activeInHierarchy) return;
        SetDamageMaterial();
-       Debug.Log($"{gameObject.name}: has {baseHealth} health");
-       
+
        switch (characterType)
        {
            case CharacterType.Enemy:
@@ -40,10 +52,16 @@ public class Damage : MonoBehaviour
        {
            Destroy(gameObject);
        }
-
-       StartCoroutine(DelayMaterialSwap());
+       if (gameObject.activeSelf) 
+           StartCoroutine(DelayMaterialSwap());
    }
 
+
+   private void PlayerDies()
+   {
+       if(characterType == CharacterType.Player)
+           gameObject.SetActive(false);
+   }
 
    private void SetDamageMaterial()
    {
