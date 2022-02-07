@@ -17,6 +17,7 @@ public class AmmoUIElements
 
 public class WeaponUIHandler : MonoBehaviour
 {
+
     [SerializeField] private List<AmmoUIElements> UIElements;
     [SerializeField] private Sprite infiniteAmmoImage;
     private AmmoUIElements _currentUIElement;

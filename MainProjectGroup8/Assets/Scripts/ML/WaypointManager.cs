@@ -8,6 +8,7 @@ public class WaypointManager : MonoBehaviour
     private List<SphereCollider> nodes;
     void Start()
     {
+        GetComponentsInChildren<MeshFilter>().Select(x => x.mesh = null).ToList();
         nodes = GetComponentsInChildren<SphereCollider>().ToList();
     }
 

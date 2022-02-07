@@ -6,13 +6,13 @@ using SplineMesh;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum HeartSetType
-{
-    Full, Half, Empty, WrongType
-}
-
 public class HealthUIHandler : MonoBehaviour
 {
+    private enum HeartSetType
+    {
+        Full, Half, Empty, WrongType
+    }
+    
     [SerializeField] private Sprite FullHeart;
     [SerializeField] private Sprite HalfHeart;
     [SerializeField] private Sprite EmptyHeart;

@@ -96,9 +96,7 @@ public class Patrol : State
         : base(player, npc, patrolNodes, detector)
     {
         Name = STATE.Patrol;
-        nodes = patrolNodes.GetComponent<WaypointManager>();
         nodes2 = patrolNodes.GetComponentsInChildren<SphereCollider>().ToList();
-
     }
     
     public override void Update()
