@@ -10,7 +10,7 @@ public abstract class Ammo : MonoBehaviour
     public List<string> possibleTargets;
     protected Vector3 ForwardVector = Vector3.right;
     
-    protected float baseBulletSpeed = 10f;
+    protected float baseBulletSpeed = 15f;
     protected float baseDamage = 10f;
     protected bool CountAmmo = false;
     protected int AmmoAmount = 0;

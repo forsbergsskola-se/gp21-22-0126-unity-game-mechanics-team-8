@@ -10,7 +10,7 @@ public class Enemy_Move : MonoBehaviour
     private bool move = false;
     private State currentState;
     [SerializeField] private Transform playerTrans;
-    [SerializeField] private float moveSpeed = 3.0f;
+    [SerializeField] private float moveSpeed = 5.0f;
     private PlayerDetector _detector;
     
     void Start()

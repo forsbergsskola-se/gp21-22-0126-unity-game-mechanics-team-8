@@ -17,6 +17,7 @@ public class HealthUIHandler : MonoBehaviour
     [SerializeField] private Sprite HalfHeart;
     [SerializeField] private Sprite EmptyHeart;
     private float accumulatedDamage = 0;
+    [SerializeField] private float damageInterval = 6.0f;
     
     void Start()
     {
@@ -25,10 +26,9 @@ public class HealthUIHandler : MonoBehaviour
 
     private void TakeDamage(float damageAmount)
     {
-
         accumulatedDamage += damageAmount;
 
-        if (accumulatedDamage >= 20)
+        if (accumulatedDamage >= damageInterval)
         {
             DoOnePointOfDamage();
             accumulatedDamage = 0;
