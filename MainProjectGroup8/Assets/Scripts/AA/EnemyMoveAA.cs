@@ -22,7 +22,7 @@ public class EnemyMoveAA : EnemiesAA
     void Start()
     {
       //get the player transform   
-      playerTransform = FindObjectOfType<PlayerControllerAA>().GetComponent<Transform>();
+      playerTransform = FindObjectOfType<PlayerWalkController>().GetComponent<Transform>();
       //set the variables
         setMoveSpeed(_moveSpeed);
         setAttackDamage(_attackDamage);
