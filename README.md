@@ -2,9 +2,9 @@
 gp21-22-0126-unity-game-mechanics-team-8 created by GitHub Classroom
 
 # Team:
-Armin Afazeli,
-Emir Ulusoy,
-Jonathan Jonsson,
+Armin Afazeli,  
+Emir Ulusoy,  
+Jonathan Jonsson,  
 Mattias Lönnqvist
 
 # Mechanics:
@@ -18,7 +18,7 @@ Mattias Lönnqvist
 
 
 ## Dash - Jonathan Jonsson
-Short dash - can dash in any direction
+Short dash - can dash in any direction  
 Sprint (or long dash) - Can sprint longer but only horizontally along the ground
 
 
@@ -39,5 +39,5 @@ Sprint (or long dash) - Can sprint longer but only horizontally along the ground
 
 Enemies:
 ## Jonathan Jonsson
--Sprint enemy (red charger)
+-Sprint enemy (red charger)  
 -Dash enemy (red flying cube)
