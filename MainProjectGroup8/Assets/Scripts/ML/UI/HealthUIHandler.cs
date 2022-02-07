@@ -18,7 +18,7 @@ public class HealthUIHandler : MonoBehaviour
     [SerializeField] private Sprite HalfHeart;
     [SerializeField] private Sprite EmptyHeart;
     private float accumulatedDamage = 0;
-    [SerializeField] private float damageInterval = 1.0f;
+    [SerializeField] private float damageInterval = 9.0f;
     [SerializeField] private GameObject GameOverUI;
     private GameObject holdGameOverUI;
 
