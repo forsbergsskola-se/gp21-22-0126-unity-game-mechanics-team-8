@@ -9,6 +9,7 @@ public class NextLevelTrigger : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Player"))
 		{
+			
 			sceneLoader.LoadScene();
 		}
 	}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6835329814937311073}
   - component: {fileID: 130509534}
   - component: {fileID: 130509535}
+  - component: {fileID: 1416705693}
   m_Layer: 0
   m_Name: PlayerInputAndCommands
   m_TagString: Player
@@ -51,6 +52,7 @@ MonoBehaviour:
   JumpCommandDown: 0
   JumpCommandUp: 0
   JumpCommand: 0
+  RestartLevel: 0
   DashCommand: 0
   SprintCommand: 0
   ChargingSprint: 0
@@ -70,6 +72,19 @@ MonoBehaviour:
   pressTimeTolerance: 0.5
   commandContainer: {fileID: 130509534}
   chargingSprintNotificationTime: 0.2
+--- !u!114 &1416705693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2822413827590174849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d789bec9dd4a5b4d8034a09eabce614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commandContainer: {fileID: 130509534}
 --- !u!1 &7860134241555915237
 GameObject:
   m_ObjectHideFlags: 0

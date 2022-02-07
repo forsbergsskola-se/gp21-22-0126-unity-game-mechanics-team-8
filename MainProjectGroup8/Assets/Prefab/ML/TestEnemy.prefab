@@ -103,7 +103,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 124
+  m_Constraints: 92
   m_CollisionDetection: 0
 --- !u!136 &551999254258340206
 CapsuleCollider:
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac3b1a50865c754f9ae0654c996fa54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 30
+  baseHealth: 60
   damageMaterial: {fileID: 2100000, guid: 85d04bb98ad19334da6a6a39f924def0, type: 2}
   characterType: 0
 --- !u!114 &6347732792182394447
@@ -211,7 +211,7 @@ MonoBehaviour:
   baseBulletSpeed: 10
   forwardVector: {x: 1, y: 0, z: 0}
   canShoot: 1
-  pickupType: 0
+  pickupType: 4
   playerTransform: {fileID: 3081872375042634278, guid: 19bf2c6bc67ce0d4ab18134a1754527d, type: 3}
   shootDelay: 5
 --- !u!1 &6987647566172140160
