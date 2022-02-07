@@ -7,9 +7,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] List<string> possibleTargets;
-    public float lifeSpan = 5.0f;
+    public float lifeSpan = 8.0f;
     public Vector3 travelVector;
-    public float moveSpeed = 10.0f;
+    public float moveSpeed = 14.0f;
     public float damageAmount = 10;
     public bool returnHitLocation;
 
@@ -23,6 +23,8 @@ public class Bullet : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.name);
+        
         for (int i = 0; i < possibleTargets.Count; i++)
         {
             if (other.gameObject.CompareTag(possibleTargets[i]))
