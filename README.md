@@ -43,3 +43,7 @@ Shatter- Bullets split into smaller projectiles when they hit something
 ## Jonathan Jonsson
 -Sprint enemy (red charger)  
 -Dash enemy (red flying cube)
+
+## Mattias Lönnqvist
+-Shoot Enemy One (fires regular bullets)  
+-Shoot Enemy Two (fires shotgun bullets)
