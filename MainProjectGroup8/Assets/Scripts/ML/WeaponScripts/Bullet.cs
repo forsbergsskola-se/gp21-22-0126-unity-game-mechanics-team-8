@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     public float damageAmount = 10;
     public bool returnHitLocation;
 
-    public delegate void ReturnHitLocationDelegate(Vector3 hitLocation);
+    public delegate void ReturnHitLocationDelegate(Vector3 hitLocation, Vector3 travelVector);
     public static event ReturnHitLocationDelegate OnReturnHitLocation;
     
     void Start()
@@ -23,21 +23,20 @@ public class Bullet : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
         for (int i = 0; i < possibleTargets.Count; i++)
         {
             if (other.gameObject.CompareTag(possibleTargets[i]))
             {
-                Debug.Log("collider is acceptable target");
                 if (other.gameObject.GetComponent<Damage>())
                 {
-
-                    Debug.Log("enemy has damage component");
                     other.gameObject.GetComponent<Damage>().TakeDamage(damageAmount);
                 }
 
                 if (returnHitLocation && OnReturnHitLocation != null)
-                    OnReturnHitLocation(transform.position);
+                {
+                    Debug.Log("returning hit location");
+                    OnReturnHitLocation(transform.position, gameObject.transform.right);
+                }
             }
         }
         Destroy(gameObject);

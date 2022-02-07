@@ -21,9 +21,12 @@ public class Ammo_Shatter : Ammo
         MakeBullet(position, travelVector, baseDamage * 1.4f, Vector3.zero, 1.5f, baseBulletSpeed / 2, true);
     }
     
-    private void ShatterPattern(Vector3 shotLocation)
+    private void ShatterPattern(Vector3 shotLocation, Vector3 travelVector)
     {
         int numberPellets = 8;
+        shotLocation += -travelVector * 2;
+        Debug.Log("shatter pattern engaged");
+        
         for (int i = 0; i < numberPellets; i++)
         {
             float angle = i * 360 / numberPellets;
