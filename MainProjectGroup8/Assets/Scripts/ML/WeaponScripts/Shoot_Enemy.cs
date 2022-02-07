@@ -10,8 +10,6 @@ public class Shoot_Enemy : Shoot
     [SerializeField] private Transform playerTransform;
     [SerializeField] private float shootDelay = 5.0f;
     
-    
-    
     protected override void StartupMethod()
     {
         ChangeWeapon(pickupType);

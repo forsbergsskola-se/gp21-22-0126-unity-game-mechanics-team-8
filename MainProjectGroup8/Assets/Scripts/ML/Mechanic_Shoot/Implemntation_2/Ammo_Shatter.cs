@@ -10,6 +10,11 @@ public class Ammo_Shatter : Ammo
         Bullet.OnReturnHitLocation += ShatterPattern;
     }
 
+    private void OnDisable()
+    {
+        Bullet.OnReturnHitLocation -= ShatterPattern;
+    }
+
     public Ammo_Shatter()
     {
         CountAmmo = true;

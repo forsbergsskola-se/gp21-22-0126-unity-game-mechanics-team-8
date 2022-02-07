@@ -2,7 +2,7 @@ using System;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class SceneLoader : MonoBehaviour
+public class SceneHandler : MonoBehaviour
 {
 	[SerializeField]
 	private PlayerRestartLevelEventEmitter restartLevelEventEmitter;
