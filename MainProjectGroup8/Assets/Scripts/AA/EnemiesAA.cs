@@ -57,30 +57,26 @@ public class EnemiesAA : MonoBehaviour
     }
 
     //if player in radius move toward him 
-    public bool checkFollowRadius(float playerPosition, float enemyPosition)
+    protected bool checkFollowRadius(float playerPosition, float enemyPosition)
     {
         if(Mathf.Abs(playerPosition -enemyPosition) < followRadius)
         {
             //player in range
             return true;
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
     }
 
     //if player in radius attack him
-    public bool checkAttackRadius(float playerPosition, float enemyPosition)
+    protected bool checkAttackRadius(float playerPosition, float enemyPosition)
     {
         if (Mathf.Abs(playerPosition - enemyPosition) < attackRadius)
         {
             //in range for attack
             return true;
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
     }
 }
