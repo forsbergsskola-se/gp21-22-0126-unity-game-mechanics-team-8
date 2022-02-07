@@ -893,6 +893,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7357516675518751641}
     m_Modifications:
+    - target: {fileID: 2707752572359460844, guid: 2d632a9beea913a4bae8e8075276938e, type: 3}
+      propertyPath: UIElements.Array.data[1].totalAmmo
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4757022652110237268, guid: 2d632a9beea913a4bae8e8075276938e, type: 3}
       propertyPath: m_Name
       value: WeaponDisplay

@@ -161,7 +161,6 @@ public class Patrol : State
                     currentIndex--;
                 }
             }
-            Debug.Log(currentIndex);
         }
 
         else

@@ -21,6 +21,7 @@ public class Damage : MonoBehaviour
    public void TakeDamage(float damageAmount)
    {
        SetDamageMaterial();
+       Debug.Log($"{gameObject.name}: has {baseHealth} health");
        
        switch (characterType)
        {
@@ -54,7 +55,7 @@ public class Damage : MonoBehaviour
 
    IEnumerator DelayMaterialSwap()
    {
-       yield return new WaitForSeconds(0.2f);
+       yield return new WaitForSeconds(0.3f);
        GetComponent<Renderer>().material = _originalMat;
    }
 }
