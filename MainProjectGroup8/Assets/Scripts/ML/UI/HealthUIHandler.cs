@@ -110,8 +110,6 @@ public class HealthUIHandler : MonoBehaviour
     
     private bool CheckIfDead()
     {
-        
-        
         for (var i = 0; i < 3; i++)
         {
             if (GetHeartTypeAtIndex(i) != HeartSetType.Empty)

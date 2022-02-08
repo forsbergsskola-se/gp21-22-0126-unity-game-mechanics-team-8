@@ -29,7 +29,6 @@ public abstract class Shoot : MonoBehaviour
 
     protected abstract void StartupMethod();
     
-    
     protected void ChangeWeapon(PickupType pickupType)
     {
         if(_currentAmmo != null)

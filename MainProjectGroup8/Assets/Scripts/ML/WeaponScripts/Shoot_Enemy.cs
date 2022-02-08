@@ -8,7 +8,7 @@ public class Shoot_Enemy : Shoot
 {
     [SerializeField] private PickupType pickupType = PickupType.Regular;
     [SerializeField] private Transform playerTransform;
-    [SerializeField] private float shootDelay = 5.0f;
+    [SerializeField] private float enemyShootDelay = 5.0f;
     
     protected override void StartupMethod()
     {
@@ -29,11 +29,9 @@ public class Shoot_Enemy : Shoot
         }
     }
     
-    
     private IEnumerator ShootDelay()
     {
-        yield return new WaitForSeconds(shootDelay);
+        yield return new WaitForSeconds(enemyShootDelay);
         canShoot = true;
     }
-    
 }
