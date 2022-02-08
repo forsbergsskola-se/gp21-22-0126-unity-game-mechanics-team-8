@@ -27,7 +27,10 @@ public class BombScriptAA : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
     {
+        if(col.gameObject.CompareTag("Player"))
+            Destroy(col.gameObject);	
         Destroy(gameObject);
+    
     }
 
     private void DestroyBomb()

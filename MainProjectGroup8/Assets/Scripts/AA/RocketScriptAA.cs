@@ -6,6 +6,7 @@ using UnityEngine;
 public class RocketScriptAA : MonoBehaviour
 {
     public Transform playerPosition;
+    public GameObject player;
     [SerializeField] private float rangeOfWeapon = 5f;
     private Rigidbody rocketRb;
     
@@ -27,6 +28,8 @@ public class RocketScriptAA : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
     {
+        if(col.gameObject.CompareTag("Player"))
+            Destroy(col.gameObject);
         Destroy(gameObject);
     }
 
