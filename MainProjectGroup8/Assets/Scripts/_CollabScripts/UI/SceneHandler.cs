@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class SceneHandler : MonoBehaviour
 {
-	[SerializeField]
-	private PlayerRestartLevelEventEmitter restartLevelEventEmitter;
+ 
 	[SerializeField]
 	private int sceneIndex;
 
-	private void OnEnable() => restartLevelEventEmitter.OnRestartLevel += RestartThisLevel;
-
-	private void OnDisable() => restartLevelEventEmitter.OnRestartLevel -= RestartThisLevel;
 
 	public void LoadScene()
 	{
@@ -19,9 +15,15 @@ public class SceneHandler : MonoBehaviour
 		SceneManager.LoadScene(sceneIndex);
 	}
 
-	 
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			RestartThisLevel();
+		}
+	}
 
-	public void RestartThisLevel()
+	private void RestartThisLevel()
 	{
 		
 		Debug.Log("Restarting Level");
