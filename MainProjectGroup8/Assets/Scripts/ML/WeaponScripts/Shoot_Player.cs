@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Shoot_Player : Shoot
@@ -14,7 +16,13 @@ public class Shoot_Player : Shoot
 
         possibleTargets = new List<string>() {"Enemy", "Ground"};
     }
-    
+
+    private void OnDisable()
+    {
+        WeaponPickup.OnPickupPicked -= ChangeWeapon;
+        WeaponUIHandler.OnOutOfAmmo -= ChangeWeapon;
+    }
+
     private void Update()
     {
         if (Input.GetButtonDown(fireButtonName) && canShoot)
