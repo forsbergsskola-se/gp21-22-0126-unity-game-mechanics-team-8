@@ -13,7 +13,7 @@ public class FlyingControllerAA : MonoBehaviour
     [SerializeField] private float staminaReloadTime = 2f;
     [SerializeField] private float staminaReloadRate = 30f;
     [SerializeField] private float  maxStamina = 100;
-    [SerializeField] private float gravityFallMultiplier = 2.5f;
+    //[SerializeField] private float gravityFallMultiplier = 2.5f;
     [SerializeField] private BooleanValue jetPackIsOn;
     [SerializeField] private Slider staminaBar;
     private Coroutine _regen;
