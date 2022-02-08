@@ -5,7 +5,7 @@ using UnityEngine;
 public class BombScriptAA : MonoBehaviour
 {
     public Transform playerPosition;
-    [SerializeField] private float bombSpeed = 30f;
+    //[SerializeField] private float bombSpeed = 30f;
     [SerializeField] private float rangeOfWeapon = 5f;
     private Rigidbody bombRb;
     

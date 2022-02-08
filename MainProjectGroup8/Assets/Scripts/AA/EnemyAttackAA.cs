@@ -11,7 +11,7 @@ public class EnemyAttackAA : MonoBehaviour
     public Transform bombExitPoint;
     public Transform rocketRExitPoint;
     public Transform rocketLExitPoint;
-    [SerializeField] private float timeBetweenAttacks = 2f;
+    //[SerializeField] private float timeBetweenAttacks = 2f;
     [SerializeField] private float instantiationTimer = 2f;
     private EnemyMoveAA _enemyMoveAA;
 

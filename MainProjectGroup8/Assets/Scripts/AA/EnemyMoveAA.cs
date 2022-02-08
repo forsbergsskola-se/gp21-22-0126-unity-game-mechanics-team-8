@@ -15,14 +15,14 @@ public class EnemyMoveAA : EnemiesAA
     //movement
     public float _followRadius;
     //end
-    [SerializeField] Transform playerTransform;
+    public Transform playerTransform;
     //Attack check
     public bool playerInAttackRange;
 
     void Start()
     {
       //get the player transform   
-      playerTransform = FindObjectOfType<PlayerWalkController>().GetComponent<Transform>();
+      //playerTransform = FindObjectOfType<PlayerWalkController>().GetComponent<Transform>();
       //set the variables
         setMoveSpeed(_moveSpeed);
         setAttackDamage(_attackDamage);
@@ -34,39 +34,43 @@ public class EnemyMoveAA : EnemiesAA
     // Update is called once per frame
     void Update()
     {
-        if (checkFollowRadius(playerTransform.position.x,transform.position.x))
+        if (playerTransform != null)
         {
-            //if player in front of the enemies
-            if (playerTransform.position.x < transform.position.x)
+            if (checkFollowRadius(playerTransform.position.x,transform.position.x))
             {
-
-                if (checkAttackRadius(playerTransform.position.x, transform.position.x))
+                //if player in front of the enemies
+                if (playerTransform.position.x < transform.position.x)
                 {
-                    playerInAttackRange = true;
+
+                    if (checkAttackRadius(playerTransform.position.x, transform.position.x))
+                    {
+                        playerInAttackRange = true;
+
+                    }
+                    else
+                    {
+                        this.transform.position += new Vector3(-getMoveSpeed() * Time.deltaTime, 0f, 0f);
+                        //walk
+                        playerInAttackRange = false;
+                    }
 
                 }
-                else
+                //if player is behind enemies
+                else if(playerTransform.position.x > transform.position.x)
                 {
-                    this.transform.position += new Vector3(-getMoveSpeed() * Time.deltaTime, 0f, 0f);
-                    //walk
-                    playerInAttackRange = false;
-                }
-
-            }
-            //if player is behind enemies
-            else if(playerTransform.position.x > transform.position.x)
-            {
-                if (checkAttackRadius(playerTransform.position.x, transform.position.x))
-                {
-                    playerInAttackRange = true;
-                }
-                else
-                {
-                    this.transform.position += new Vector3(getMoveSpeed() * Time.deltaTime, 0f, 0f);
+                    if (checkAttackRadius(playerTransform.position.x, transform.position.x))
+                    {
+                        playerInAttackRange = true;
+                    }
+                    else
+                    {
+                        this.transform.position += new Vector3(getMoveSpeed() * Time.deltaTime, 0f, 0f);
                     
-                    playerInAttackRange = false;
+                        playerInAttackRange = false;
+                    }
                 }
             }
         }
+        
     }
 }
