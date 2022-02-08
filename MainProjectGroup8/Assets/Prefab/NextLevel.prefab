@@ -5002,6 +5002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd051edc9101f204ead460052944464e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restartLevelEventEmitter: {fileID: 0}
   sceneIndex: 0
 --- !u!114 &893649241138017212
 MonoBehaviour:
@@ -5015,3 +5016,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740a6c16a43ae3e4eb1fbc9b4a967f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneHandler: {fileID: 5211254895613857911}
