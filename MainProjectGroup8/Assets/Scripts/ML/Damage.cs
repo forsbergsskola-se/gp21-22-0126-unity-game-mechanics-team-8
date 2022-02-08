@@ -48,7 +48,7 @@ public class Damage : MonoBehaviour
            }
        }
 
-       if (baseHealth <= 0)
+       if (baseHealth <= 0 && characterType != CharacterType.Player)
        {
            Destroy(gameObject);
        }
