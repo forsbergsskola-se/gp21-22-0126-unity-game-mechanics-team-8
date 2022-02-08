@@ -12,15 +12,16 @@ public class GameOverScreenButtonManager : MonoBehaviour
     void Start()
     {
        _buttons = GetComponentsInChildren<Button>().ToList();
+       SetupButtons();
     }
 
     private void Restart()
     {
-        var active = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(active.buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void Quit()
     {
+        SceneManager.LoadScene(0);
     }
 
     private void SetupButtons()
