@@ -8,11 +8,9 @@ using UnityEngine.UI;
 
 public class GameOverScreenButtonManager : MonoBehaviour
 {
-    private List<Button> _buttons;
     void Start()
     {
-       _buttons = GetComponentsInChildren<Button>().ToList();
-       SetupButtons();
+        SetupButtons();
     }
 
     private void Restart()
@@ -26,8 +24,8 @@ public class GameOverScreenButtonManager : MonoBehaviour
 
     private void SetupButtons()
     {
-        _buttons[0].onClick.AddListener(Restart);
-        
-        _buttons[1].onClick.AddListener(Quit);
+        var buttons = GetComponentsInChildren<Button>().ToList();
+        buttons[0].onClick.AddListener(Restart);
+        buttons[1].onClick.AddListener(Quit);
     }
 }
