@@ -44,9 +44,6 @@ public class HealthUIHandler : MonoBehaviour
         if (accumulatedDamage >= damageInterval)
         {
             DoOnePointOfDamage();
-            DoOnePointOfDamage();
-            DoOnePointOfDamage();
-            DoOnePointOfDamage();
             accumulatedDamage = 0;
         }
 
@@ -55,8 +52,7 @@ public class HealthUIHandler : MonoBehaviour
             PlayerDies();
         }
     }
-
-
+    
     private void PlayerDies()
     {
         if (OnPlayerDies != null)
