@@ -130,10 +130,8 @@ public class Patrol : State
         if (!Detector.PlayerSpotted)
         {
             var dot = Vector3.Dot(Npc.transform.forward, nodes2[currentIndex].transform.forward);
-          //  Debug.Log(dot);
             if (dot < 0)
             {
-            //    Debug.Log(dot);
                 Npc.transform.Rotate(Vector3.up, 180);
             }
         }

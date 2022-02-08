@@ -6,8 +6,7 @@ using UnityEngine;
 public class PlayerDetector : MonoBehaviour
 {
     public bool PlayerSpotted = false;
-
-
+    
     private void Start()
     {
         HealthUIHandler.OnPlayerDies += PlayerDies;
