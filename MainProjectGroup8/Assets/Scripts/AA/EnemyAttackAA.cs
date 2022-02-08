@@ -59,4 +59,10 @@ public class EnemyAttackAA : MonoBehaviour
             instantiationTimer = 2f;
         }
     }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if(col.gameObject.CompareTag("Player"))
+            Destroy(col.gameObject);
+    }
 }
