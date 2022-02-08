@@ -16,8 +16,10 @@ public class GameOverScreenButtonManager : MonoBehaviour
     private void OnDisable()
     {
         var buttons = GetComponentsInChildren<Button>().ToList();
-        buttons[0].onClick.RemoveAllListeners();
-        buttons[1].onClick.RemoveAllListeners();
+        foreach (var el in buttons)
+        {
+            el.onClick.RemoveAllListeners();
+        }
     }
 
 
