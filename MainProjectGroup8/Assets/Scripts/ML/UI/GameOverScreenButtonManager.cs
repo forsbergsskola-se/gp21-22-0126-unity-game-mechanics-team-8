@@ -13,6 +13,14 @@ public class GameOverScreenButtonManager : MonoBehaviour
         SetupButtons();
     }
 
+    private void OnDisable()
+    {
+        var buttons = GetComponentsInChildren<Button>().ToList();
+        buttons[0].onClick.RemoveAllListeners();
+        buttons[1].onClick.RemoveAllListeners();
+    }
+
+
     private void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
