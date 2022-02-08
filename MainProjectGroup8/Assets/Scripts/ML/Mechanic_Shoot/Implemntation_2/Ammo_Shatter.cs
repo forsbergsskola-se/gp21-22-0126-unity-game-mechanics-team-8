@@ -23,7 +23,7 @@ public class Ammo_Shatter : Ammo
 
     protected override void Shoot(Vector3 position,  Vector3 travelVector = new Vector3())
     {
-        MakeBullet(position, travelVector, baseDamage * 1.4f, Vector3.zero, 1.5f, baseBulletSpeed / 2, true);
+        MakeBullet(position, travelVector, baseDamage * 1.4f, Vector3.zero, 3f, baseBulletSpeed / 2, true);
     }
     
     private void ShatterPattern(Vector3 shotLocation, Vector3 travelVector)
@@ -38,7 +38,7 @@ public class Ammo_Shatter : Ammo
             var yMod  = MathF.Sin(angle * (Mathf.PI / 180.0f));
             Vector3 moveVec = new Vector3(1 * xMod, 1 * yMod);
 
-            MakeBullet(shotLocation,moveVec, baseDamage / 3, Vector3.zero, 0.4f, baseBulletSpeed / 2);
+            MakeBullet(shotLocation,moveVec, baseDamage / 3, Vector3.zero, 1f, baseBulletSpeed / 2);
         }
     }
 }
