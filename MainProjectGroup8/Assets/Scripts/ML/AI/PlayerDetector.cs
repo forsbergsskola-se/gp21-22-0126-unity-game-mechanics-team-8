@@ -7,6 +7,20 @@ public class PlayerDetector : MonoBehaviour
 {
     public bool PlayerSpotted = false;
     
+    private void Start()
+    {
+        HealthUIHandler.OnPlayerDies += PlayerDies;
+    }
+
+    private void OnDisable()
+    {
+        HealthUIHandler.OnPlayerDies -= PlayerDies;
+    }
+
+    private void PlayerDies()
+    {
+        PlayerSpotted = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

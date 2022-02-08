@@ -23,22 +23,26 @@ public class Bullet : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        for (int i = 0; i < possibleTargets.Count; i++)
+        if (other.gameObject.activeInHierarchy)
         {
-            if (other.gameObject.CompareTag(possibleTargets[i]))
+            for (int i = 0; i < possibleTargets.Count; i++)
             {
-                if (other.gameObject.GetComponent<Damage>())
+                if (other.gameObject.CompareTag(possibleTargets[i]))
                 {
-                    other.gameObject.GetComponent<Damage>().TakeDamage(damageAmount);
-                }
+                    if (other.gameObject.GetComponent<Damage>())
+                    {
+                        other.gameObject.GetComponent<Damage>().TakeDamage(damageAmount);
+                    }
 
-                if (returnHitLocation && OnReturnHitLocation != null)
-                {
-                    OnReturnHitLocation(transform.position, gameObject.transform.right);
+                    if (returnHitLocation && OnReturnHitLocation != null)
+                    {
+                        OnReturnHitLocation(transform.position, gameObject.transform.right);
+                    }
                 }
             }
+
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
     
     private IEnumerator DelayDestroy()

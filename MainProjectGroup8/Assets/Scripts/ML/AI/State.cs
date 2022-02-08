@@ -36,14 +36,22 @@ public abstract class State
 
     public virtual void Enter()
     {
+        HealthUIHandler.OnPlayerDies += PlayerDies;
         Stage = EVENT.Update;
     }
+
+    public virtual void PlayerDies()
+    {
+        
+    }
+    
     public virtual void Update()
     {
         Stage = EVENT.Update;
     }
     public virtual void Exit()
     {
+        HealthUIHandler.OnPlayerDies -= PlayerDies;
         Stage = EVENT.Exit;
     }
     
@@ -122,10 +130,8 @@ public class Patrol : State
         if (!Detector.PlayerSpotted)
         {
             var dot = Vector3.Dot(Npc.transform.forward, nodes2[currentIndex].transform.forward);
-          //  Debug.Log(dot);
             if (dot < 0)
             {
-            //    Debug.Log(dot);
                 Npc.transform.Rotate(Vector3.up, 180);
             }
         }
@@ -194,6 +200,12 @@ public class Attack : State
     {
         Name = STATE.Attack;
         shooter = Npc.GetComponentInChildren<Shoot_Enemy>();
+    }
+
+    public override void PlayerDies()
+    {
+        NextState = new Patrol(Player, Npc, PatrolNodes, Detector);
+        Stage = EVENT.Exit;
     }
 
     public override void Update()

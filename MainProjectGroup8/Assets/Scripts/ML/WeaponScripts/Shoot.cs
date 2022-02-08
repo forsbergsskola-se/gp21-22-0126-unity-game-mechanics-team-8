@@ -9,6 +9,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public abstract class Shoot : MonoBehaviour
 {
+    [SerializeField] private PickupType pickupType2 = PickupType.Regular;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] private float baseDamage = 10f;
     [SerializeField] private float baseBulletSpeed = 10f;
@@ -27,7 +28,8 @@ public abstract class Shoot : MonoBehaviour
     }
 
     protected abstract void StartupMethod();
-
+    
+    
     protected void ChangeWeapon(PickupType pickupType)
     {
         if(_currentAmmo != null)
