@@ -10,7 +10,7 @@ Mattias Lönnqvist
 # Mechanics:
 
 ## Flying - Armin Afazeli
-JetPack - Can fly while the charge lasts
+JetPack - Can fly while the charge lasts.
 Parachute - Can simulate fly on fall with slowing down the fall. The patrachute takes time to be opened.
 
 
@@ -27,17 +27,6 @@ Sprint (or long dash) - Can sprint longer but only horizontally along the ground
 Shotgun- Fires smaller bullets over a wide area  
 Shatter- Bullets split into smaller projectiles when they hit something
 
-## General things to implement:
-* Health, -Mattias
-* Damage, - Mattias
-* Jump, -Emir
-* Movementcontrols, - Emir 
-* Level design, - Jonathan
-* Environmental objects (spikes, traps, arrows from wall etc...) <--enemies? [Wait -enemy AI]
-* Scene loading /unloading
-* Main menu
-* UI (health, powerup, dashmeter?) 
-
 
 # Enemies:
 ## Jonathan Jonsson
@@ -47,3 +36,6 @@ Shatter- Bullets split into smaller projectiles when they hit something
 ## Mattias Lönnqvist
 -Shoot Enemy One (fires regular bullets)  
 -Shoot Enemy Two (fires shotgun bullets)
+
+## Armin Afazeli
+-Bombing spaceships (Using parachute and flying mechanics)   
