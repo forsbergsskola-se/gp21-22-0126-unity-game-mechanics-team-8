@@ -55,13 +55,13 @@ public class PlayerInputControllerJJ : MonoBehaviour
 	private void SetCommands()
 	{
 		commandContainer.MoveCommandHorizontal = MoveInputHorizontal;
-		commandContainer.MoveCommandVertical = MoveInputVertical;
-		commandContainer.JumpCommandDown = JumpInputDown;
+		// commandContainer.MoveCommandVertical = MoveInputVertical;
+		// commandContainer.JumpCommandDown = JumpInputDown;
 		commandContainer.JumpCommandUp = JumpInputUp;
 		commandContainer.JumpCommand = JumpInput;
 		commandContainer.DashCommand = LShiftTap;
 		commandContainer.SprintCommand = LShiftLongPress;
-		commandContainer.ChargingSprint = chargingSprint;
+		// commandContainer.ChargingSprint = chargingSprint;
 		commandContainer.MoveDirectionCommand = MoveInput;
 	}
 

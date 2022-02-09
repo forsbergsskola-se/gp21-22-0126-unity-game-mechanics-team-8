@@ -10,15 +10,11 @@ public class PlayerInputController : MonoBehaviour
 
 	private float keyPressTime;
 
-	[SerializeField]
-	private float chargingSprintNotificationTime = 0.2f;
 
 	private Vector3 MoveInput;
 
-	private bool chargingSprint;
 	public float MoveInputHorizontal { get; private set; }
 	public float MoveInputVertical { get; private set; }
-	public bool JumpInputDown { get; private set; }
 	public bool JumpInputUp { get; private set; }
 	public bool JumpInput { get; private set; }
 
@@ -30,7 +26,6 @@ public class PlayerInputController : MonoBehaviour
 	public bool FlyingInput { get; private set; }
 
  
-	public bool RestartLevelInput { get; private set; }
 	private void Update()
 	{
 		GetInputs();
@@ -42,12 +37,10 @@ public class PlayerInputController : MonoBehaviour
 		MoveInputHorizontal = Input.GetAxisRaw("Horizontal");
 		MoveInputVertical = Input.GetAxisRaw("Vertical");
 		MoveInput = new Vector3(MoveInputHorizontal, MoveInputVertical, 0);
-		JumpInputDown = Input.GetKeyDown(KeyCode.Space);
 		JumpInputUp = Input.GetKeyUp(KeyCode.Space);
 		JumpInput = Input.GetKey(KeyCode.Space);
 		FlyingInput = Input.GetKey(KeyCode.Q);
 		ParachuteInput = Input.GetKey(KeyCode.E);
-		RestartLevelInput = Input.GetKeyDown(KeyCode.R);
 		LShiftTap = false;
 
 		if (Input.GetKey(KeyCode.LeftShift))
@@ -63,20 +56,15 @@ public class PlayerInputController : MonoBehaviour
 	private void SetCommands()
 	{
 		commandContainer.MoveCommandHorizontal = MoveInputHorizontal;
-		commandContainer.MoveCommandVertical = MoveInputVertical;
-		commandContainer.JumpCommandDown = JumpInputDown;
 		commandContainer.JumpCommandUp = JumpInputUp;
 		commandContainer.JumpCommand = JumpInput;
 		commandContainer.DashCommand = LShiftTap;
 		commandContainer.SprintCommand = LShiftLongPress;
-		commandContainer.ChargingSprint = chargingSprint;
 		commandContainer.MoveDirectionCommand = MoveInput;
-		commandContainer.RestartLevel = RestartLevelInput;
 	}
 
 	private void TapInput()
 	{
-		chargingSprint = false;
 		LShiftLongPress = false;
 
 		if (keyPressTime < pressTimeTolerance)
@@ -93,10 +81,6 @@ public class PlayerInputController : MonoBehaviour
 		{
 			keyPressTime += Time.deltaTime;
 
-			if (keyPressTime > chargingSprintNotificationTime)
-			{
-				chargingSprint = true;
-			}
 		}
 		else
 		{

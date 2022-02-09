@@ -17,7 +17,7 @@ public class SceneHandler : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.R))
+		if (Input.GetKeyDown(KeyCode.R)) // Not good implementation. But it was quick!
 		{
 			RestartThisLevel();
 		}
