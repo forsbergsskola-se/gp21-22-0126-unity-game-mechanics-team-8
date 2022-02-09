@@ -20,7 +20,7 @@ Flying with Parachute - Can simulate fly on fall with slowing down the fall. The
 
 ## Dash - Jonathan Jonsson
 Short dash - can dash in any direction  
-Sprint (or long dash) - Can sprint longer but only horizontally along the ground
+Sprint (or long dash) - Can sprint longer but only horizontally along the ground. Can be charged in the air to sprint on landing.
 
 
 ## Shooting - Mattias Lönnqvist
