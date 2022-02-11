@@ -1051,18 +1051,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 194998528}
     - target: {fileID: 5711940276320073344, guid: 482a877722fa6a64ea25948d71ace52b, type: 3}
-      propertyPath: _moveSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711940276320073344, guid: 482a877722fa6a64ea25948d71ace52b, type: 3}
-      propertyPath: _attackDamage
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711940276320073344, guid: 482a877722fa6a64ea25948d71ace52b, type: 3}
-      propertyPath: _attackRadius
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711940276320073344, guid: 482a877722fa6a64ea25948d71ace52b, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 194998527}
@@ -1113,14 +1101,6 @@ PrefabInstance:
     - target: {fileID: 5711940276320073357, guid: 482a877722fa6a64ea25948d71ace52b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711940276320073358, guid: 482a877722fa6a64ea25948d71ace52b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5711940278023567921, guid: 482a877722fa6a64ea25948d71ace52b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.722
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 482a877722fa6a64ea25948d71ace52b, type: 3}
