@@ -46,15 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveCommandHorizontal: 0
-  MoveCommandVertical: 0
   MoveDirectionCommand: {x: 0, y: 0, z: 0}
-  JumpCommandDown: 0
   JumpCommandUp: 0
   JumpCommand: 0
-  RestartLevel: 0
   DashCommand: 0
   SprintCommand: 0
-  ChargingSprint: 0
   DenyMoveCommand: 0
 --- !u!114 &130509535
 MonoBehaviour:
@@ -70,7 +66,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressTimeTolerance: 0.5
   commandContainer: {fileID: 130509534}
-  chargingSprintNotificationTime: 0.2
 --- !u!1 &7860134241555915237
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +88,7 @@ GameObject:
   - component: {fileID: 510644297121851725}
   - component: {fileID: 1197714769}
   - component: {fileID: 357643899117395997}
+  - component: {fileID: 2478068154869774613}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -329,9 +325,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 1151829421}
-  flyForce: 8
+  flyForce: 12
   playerInputController: {fileID: 130509535}
-  staminaDrain: 0.4
+  staminaDrain: 0.1
   staminaReloadTime: 2
   staminaReloadRate: 30
   maxStamina: 100
@@ -384,6 +380,18 @@ MonoBehaviour:
   baseHealth: 100
   damageMaterial: {fileID: 2100000, guid: 85d04bb98ad19334da6a6a39f924def0, type: 2}
   characterType: 1
+--- !u!114 &2478068154869774613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860134241555915237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ceb6100362c914ebcc9963971c8c51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8373886896011075945
 GameObject:
   m_ObjectHideFlags: 0
